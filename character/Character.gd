@@ -1,4 +1,6 @@
-extends Node2D
+extends KinematicBody2D
+
+signal colliding(collision)
 
 var DEFAULT_SPEED := 60
 export(int) var character_speed := 60
@@ -60,6 +62,8 @@ func get_direction_looking() -> int:
 			return Direction.UP
 
 func _move_to_direction(direction: Vector2):
-	position = position + direction * character_speed
+	var collision = move_and_collide(direction * character_speed)
+	if collision:
+		emit_signal("colliding", collision)
 
 enum Direction {RIGHT, LEFT, UP, DOWN}

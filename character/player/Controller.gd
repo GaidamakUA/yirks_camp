@@ -15,14 +15,12 @@ func _ready():
 	dash_distance = raycast.cast_to.length()
 
 func _physics_process(delta):
+	if tween.is_active() && not area.get_overlapping_bodies().empty():
+		tween.seek(tween.tell() - 0.02)
+		tween.remove_all()
+
+func _process(delta):
 	if tween.is_active():
-		print("tween")
-		if not area.get_overlapping_areas().empty():
-			tween.remove_all()
-		else:
-			return
-	if animationPlayer.is_playing():
-		print("animationPlayer")
 		return
 	if Input.is_action_just_pressed("dash"):
 		_play_dash()
