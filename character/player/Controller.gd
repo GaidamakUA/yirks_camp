@@ -5,6 +5,8 @@ signal direction
 var dash_distance: float = 200
 export(float) var dash_time := 0.7
 
+const Afterimage = preload("res://character/player/PlayerAfterimage.tscn")
+
 onready var animationPlayer = $DashAnimationPlayer
 onready var tween = $DashTween
 onready var character = get_parent()
@@ -18,6 +20,7 @@ func _physics_process(delta):
 	if tween.is_active() && not area.get_overlapping_bodies().empty():
 		tween.seek(tween.tell() - 0.02)
 		tween.remove_all()
+		$Spawn.stop()
 
 func _process(delta):
 	if tween.is_active():
@@ -65,3 +68,16 @@ func _play_dash():
 	print("dashing")
 
 enum Direction {RIGHT, LEFT, UP, DOWN}
+
+
+func _on_Spawn_timeout():
+	var afterimage: Sprite = Afterimage.instance()
+	var sprite = character.find_node("Sprite")
+	afterimage.global_position = sprite.global_position
+	afterimage.frame = sprite.frame
+	var world = character.get_parent()
+	world.add_child(afterimage)
+
+
+func _on_DashTween_tween_all_completed():
+	$Spawn.stop()
