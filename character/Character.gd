@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 signal colliding(collision)
+signal dying(place_of_death)
 
 var DEFAULT_SPEED := 60
 export(int) var character_speed := 60
@@ -65,5 +66,9 @@ func _move_to_direction(direction: Vector2):
 	var collision = move_and_collide(direction * character_speed)
 	if collision:
 		emit_signal("colliding", collision)
+
+func die():
+	emit_signal("dying", position)
+	queue_free()
 
 enum Direction {RIGHT, LEFT, UP, DOWN}

@@ -2,7 +2,7 @@
 
 [ext_resource path="res://character/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/pioneer_girl.png" type="Texture" id=2]
-[ext_resource path="res://character/pioneeres/Controller.gd" type="Script" id=3]
+[ext_resource path="res://character/pioneeres/PioneeresController.gd" type="Script" id=3]
 
 [node name="Pioneeres" instance=ExtResource( 1 )]
 collision_layer = 2

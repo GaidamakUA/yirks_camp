@@ -20,7 +20,7 @@ tracks/0/keys = {
 }
 
 [node name="PlayerAfterimage" type="Sprite"]
-modulate = Color( 0.678431, 0.776471, 1, 0 )
+modulate = Color( 0, 1, 0.733333, 0 )
 texture = ExtResource( 1 )
 vframes = 21
 hframes = 13

@@ -81,3 +81,12 @@ func _on_Spawn_timeout():
 
 func _on_DashTween_tween_all_completed():
 	$Spawn.stop()
+
+func _on_Area2D_body_entered(body):
+	if body.get_collision_layer_bit(1):
+		body.die()
+		print("colliding with pioneress")
+
+
+func _on_Player_colliding(collision):
+	_on_Area2D_body_entered(collision.collider)
