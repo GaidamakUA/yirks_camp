@@ -1,12 +1,17 @@
 extends Node2D
 
 const Pioneress = preload("res://character/pioneeres/Pioneeres.tscn")
+const Blood = preload("res://objects/Blood.tscn")
+const Cedaver = preload("res://objects/Cedaver.tscn")
 
+onready var decorations = $Decorations
+onready var decals = $Decals
 onready var spawn_area: ReferenceRect = $SpawnArea
 onready var actors = $Actors
-onready var deat_animation = $DeathAnimation
+onready var death_animation = $DeathAnimation
 
 func _ready():
+	pass
 	_spawn_pioneress()
 	_spawn_pioneress()
 	_spawn_pioneress()
@@ -25,9 +30,19 @@ func _spawn_pioneress():
 	spawn_position += spawn_area.rect_position
 	pioneress.position = spawn_position
 	
-	pioneress.connect("dying", deat_animation, "_on_Pioneeres_dying")
+	pioneress.connect("dying", death_animation, "_on_Pioneeres_dying")
+	pioneress.connect("dying", self, "_on_Pioneeres_dying")
 	
 	actors.add_child(pioneress)
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	_spawn_pioneress()
+
+func _on_Pioneeres_dying(place_of_death):
+	var blood = Blood.instance()
+	blood.position = place_of_death
+	decals.add_child(blood)
+	
+	var cedaver = Cedaver.instance()
+	cedaver.position = place_of_death
+	decorations.add_child(cedaver)

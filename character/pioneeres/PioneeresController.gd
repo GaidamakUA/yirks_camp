@@ -12,7 +12,7 @@ func _process(delta):
 		var random_index = randi() % 5
 		direction = directions[random_index]
 	walk_time -= delta
-	emit_signal("direction", direction * delta)
+	emit_signal("direction", direction)
 
 
 func _on_Pioneeres_colliding(collision):

@@ -16,11 +16,11 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.3 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 0, 1, 0.733333, 0.823529 ), Color( 0, 1, 0.733333, 0 ) ]
+"values": [ Color( 0, 1, 0.733333, 0.470588 ), Color( 0, 1, 0.733333, 0 ) ]
 }
 
 [node name="PlayerAfterimage" type="Sprite"]
-modulate = Color( 0, 1, 0.733333, 0 )
+modulate = Color( 0, 1, 0.733333, 0.823529 )
 texture = ExtResource( 1 )
 vframes = 21
 hframes = 13

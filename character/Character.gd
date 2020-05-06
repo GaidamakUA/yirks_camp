@@ -6,61 +6,31 @@ signal dying(place_of_death)
 var DEFAULT_SPEED := 60
 export(int) var character_speed := 60
 
-onready var animationPlayer = $AnimationPlayer
+onready var animation_tree = $AnimationTree
+onready var state_machine = animation_tree["parameters/playback"]
 
 var _direction := Vector2.ZERO
-var looking_direction = Direction.UP
+var last_direction = Direction.UP
 
 func _ready():
 	$Controller.connect("direction", self, "_on_direction")
 
 func _on_direction(new_direction: Vector2):
+	_direction = new_direction.clamped(1)
 	if new_direction.is_equal_approx(Vector2.ZERO):
-		_set_resting()
+		state_machine.travel("Idle")
+		pass
 	else:
-		_move_to_direction(new_direction)
-		if not new_direction.is_equal_approx(_direction):
-			_direction = new_direction
-		_play_animation_if_necessary()
+		last_direction = _direction
+		state_machine.travel("Run")
+		animation_tree.set("parameters/Idle/blend_position", _direction)
+		animation_tree.set("parameters/Run/blend_position", _direction)
+		animation_tree.set("parameters/Dash/blend_position", _direction)
 
-func _play_animation_if_necessary():
-	var animation = ""
-	match get_direction_looking():
-		Direction.RIGHT:
-			animation = "run_right"
-		Direction.LEFT:
-			animation = "run_left"
-		Direction.DOWN:
-			animation = "run_down"
-		Direction.UP:
-			animation = "run_up"
-	if animationPlayer.is_playing() && animationPlayer.current_animation == animation:
+func _process(delta):
+	if _direction.is_equal_approx(Vector2.ZERO):
 		return
-	animationPlayer.playback_speed = float(character_speed)/DEFAULT_SPEED
-	animationPlayer.play(animation)
-
-func _set_resting():
-	match get_direction_looking():
-		Direction.RIGHT:
-			animationPlayer.play("resting_pose_right")
-		Direction.LEFT:
-			animationPlayer.play("resting_pose_left")
-		Direction.DOWN:
-			animationPlayer.play("resting_pose_down")
-		Direction.UP:
-			animationPlayer.play("resting_pose_up")
-
-func get_direction_looking() -> int:
-	if abs(_direction.x) > abs(_direction.y):
-		if _direction.x > 0:
-			return Direction.RIGHT
-		else:
-			return Direction.LEFT
-	else:
-		if _direction.y > 0:
-			return Direction.DOWN
-		else:
-			return Direction.UP
+	_move_to_direction(_direction * delta)
 
 func _move_to_direction(direction: Vector2):
 	var collision = move_and_collide(direction * character_speed)
