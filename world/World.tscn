@@ -8,7 +8,7 @@
 [ext_resource path="res://world/DeathAnimation.gd" type="Script" id=6]
 [ext_resource path="res://world/World.gd" type="Script" id=7]
 [ext_resource path="res://assets/nettle.png" type="Texture" id=8]
-[ext_resource path="res://objects/bird.tscn" type="PackedScene" id=9]
+[ext_resource path="res://objects/Bird.tscn" type="PackedScene" id=9]
 
 [sub_resource type="TileSet" id=1]
 2/name = "grass_fancy"
@@ -725,7 +725,7 @@ drag_margin_v_enabled = true
 [node name="Statue" parent="Objects" instance=ExtResource( 5 )]
 position = Vector2( 112, 80 )
 
-[node name="bird_01_10" parent="Objects/Statue" instance=ExtResource( 9 )]
+[node name="Bird" parent="Objects/Statue" instance=ExtResource( 9 )]
 position = Vector2( 0, -64 )
 
 [node name="Statue2" parent="Objects" instance=ExtResource( 5 )]
