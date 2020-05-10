@@ -67,6 +67,8 @@ dash={
 2d_physics/layer_1="Main character"
 2d_physics/layer_2="Pioneer"
 2d_physics/layer_3="Object"
+2d_physics/layer_4="HideoutForeground"
+2d_physics/layer_5="HideoutBlock"
 
 [physics]
 

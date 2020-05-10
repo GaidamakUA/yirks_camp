@@ -14,6 +14,5 @@ func _process(delta):
 	walk_time -= delta
 	emit_signal("direction", direction)
 
-
 func _on_Pioneeres_colliding(collision):
 	walk_time = -1

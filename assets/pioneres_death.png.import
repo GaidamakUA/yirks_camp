@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/irk_full_spritesheet.png-cc41ab34e36924c445a87d0112cd9e8c.stex"
+path="res://.import/pioneres_death.png-b21ea89481f983fb467b09f55b3758de.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/irk_full_spritesheet.png"
-dest_files=[ "res://.import/irk_full_spritesheet.png-cc41ab34e36924c445a87d0112cd9e8c.stex" ]
+source_file="res://assets/pioneres_death.png"
+dest_files=[ "res://.import/pioneres_death.png-b21ea89481f983fb467b09f55b3758de.stex" ]
 
 [params]
 
@@ -30,5 +30,5 @@ process/HDR_as_SRGB=false
 process/invert_color=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

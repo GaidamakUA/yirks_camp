@@ -7,7 +7,7 @@ const Cedaver = preload("res://objects/Cedaver.tscn")
 onready var decorations = $Decorations
 onready var decals = $Decals
 onready var spawn_area: ReferenceRect = $SpawnArea
-onready var actors = $Actors
+onready var actors = $Objects
 onready var death_animation = $DeathAnimation
 
 func _ready():

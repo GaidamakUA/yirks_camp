@@ -1,16 +1,18 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://assets/statues.png" type="Texture" id=1]
+[ext_resource path="res://objects/Statue.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 10 )
 
-[node name="Statue" type="Sprite"]
+[node name="Statue" type="StaticBody2D"]
+script = ExtResource( 2 )
+
+[node name="Sprite2D" type="Sprite" parent="."]
+position = Vector2( 15, -36 )
 texture = ExtResource( 1 )
 hframes = 3
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2( 0, 32 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )

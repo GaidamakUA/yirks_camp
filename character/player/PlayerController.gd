@@ -10,12 +10,19 @@ const Afterimage = preload("res://character/player/PlayerAfterimage.tscn")
 onready var tween = $DashTween
 onready var character = get_parent()
 onready var area = get_parent().find_node("Area2D")
+onready var spawn = $Spawn
 
 func _physics_process(delta):
-	if tween.is_active() && not area.get_overlapping_bodies().empty():
+	var bodies = area.get_overlapping_bodies()
+	var has_solid = false
+	for body in bodies:
+		if body.get_collision_layer_bit(1) || body.get_collision_layer_bit(2):
+			has_solid = true
+	
+	if tween.is_active() && has_solid:
 		tween.seek(tween.tell() - 0.02)
 		tween.remove_all()
-		$Spawn.stop()
+		spawn.stop()
 
 func _process(delta):
 	if tween.is_active():
@@ -38,9 +45,8 @@ func _play_dash():
 	var finish: Vector2 = character.position + dash_distance * character.last_direction
 	tween.interpolate_property(character, "position", start, finish, dash_time,  Tween.TRANS_BACK,  Tween.EASE_IN)
 	tween.start()
-	
+	spawn.start()
 	print("dashing")
-
 
 func _on_Spawn_timeout():
 	var afterimage: Sprite = Afterimage.instance()
@@ -52,13 +58,12 @@ func _on_Spawn_timeout():
 
 
 func _on_DashTween_tween_all_completed():
-	$Spawn.stop()
+	spawn.stop()
 
 func _on_Area2D_body_entered(body):
 	if body.get_collision_layer_bit(1):
 		body.die()
 		print("colliding with pioneress")
-
 
 func _on_Player_colliding(collision):
 	_on_Area2D_body_entered(collision.collider)
