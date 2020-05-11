@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=2]
+[gd_scene load_steps=67 format=2]
 
 [ext_resource path="res://assets/terrain_atlas.png" type="Texture" id=1]
 [ext_resource path="res://assets/pioneres_death.png" type="Texture" id=2]
@@ -9,6 +9,9 @@
 [ext_resource path="res://world/World.gd" type="Script" id=7]
 [ext_resource path="res://assets/nettle.png" type="Texture" id=8]
 [ext_resource path="res://objects/Bird.tscn" type="PackedScene" id=9]
+[ext_resource path="res://world/HorrorWorld.tres" type="Environment" id=10]
+[ext_resource path="res://world/AudioStreamPlayer.gd" type="Script" id=11]
+[ext_resource path="res://assets/track-1.ogg" type="AudioStream" id=12]
 
 [sub_resource type="TileSet" id=1]
 2/name = "grass_fancy"
@@ -754,4 +757,13 @@ script = ExtResource( 6 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="DeathAnimation"]
 anims/death1 = SubResource( 54 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+autoplay = true
+script = ExtResource( 11 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource( 10 )
 [connection signal="animation_finished" from="DeathAnimation/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="finished" from="AudioStreamPlayer" to="AudioStreamPlayer" method="_on_AudioStreamPlayer_finished"]

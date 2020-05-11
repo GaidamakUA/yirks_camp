@@ -1,11 +1,10 @@
 extends KinematicBody2D
 
-signal colliding(collision)
 signal dying(place_of_death)
 
-export(int) var acceleration := 10
+export(int) var acceleration := 400
 export(int) var max_speed := 80
-export(int) var friction := 10
+export(int) var friction := 400
 
 onready var animation_tree = $AnimationTree
 onready var state_machine = animation_tree["parameters/playback"]
@@ -33,15 +32,8 @@ func _physics_process(delta):
 	if _direction.is_equal_approx(Vector2.ZERO):
 		velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
 	else:
-		velocity += acceleration * _direction * delta
-		velocity = velocity.clamped(max_speed * delta)
-	_handle_movement()
-
-func _handle_movement():
-	var collision = move_and_collide(velocity)
-	if collision:
-		emit_signal("colliding", collision)
-		velocity = Vector2.ZERO
+		velocity = velocity.move_toward(max_speed * _direction, acceleration * delta)
+	velocity = move_and_slide(velocity)
 
 func die():
 	emit_signal("dying", position)

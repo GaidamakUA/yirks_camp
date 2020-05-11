@@ -13,6 +13,3 @@ func _process(delta):
 		direction = directions[random_index]
 	walk_time -= delta
 	emit_signal("direction", direction)
-
-func _on_Pioneeres_colliding(collision):
-	walk_time = -1

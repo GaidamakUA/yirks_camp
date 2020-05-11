@@ -6,13 +6,13 @@
 [ext_resource path="res://character/player/EyesVisibilityArea.gd" type="Script" id=4]
 [ext_resource path="res://assets/irk_full_spritesheet.png" type="Texture" id=7]
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 4 )
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 15, 14 )
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=2]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=3]
 
 [node name="Player" instance=ExtResource( 1 )]
 collision_mask = 6
@@ -33,7 +33,7 @@ texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EyesVisibilityArea" index="1"]
 position = Vector2( 0, -35 )
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [node name="Controller" type="Node" parent="." index="4"]
 script = ExtResource( 2 )
@@ -49,12 +49,11 @@ wait_time = 0.03
 collision_mask = 14
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="AnimationTree" parent="." index="6"]
-parameters/playback = SubResource( 2 )
+parameters/playback = SubResource( 3 )
 parameters/Idle/blend_position = Vector2( 0, 0 )
-[connection signal="colliding" from="." to="Controller" method="_on_Player_colliding"]
 [connection signal="body_entered" from="EyesVisibilityArea" to="EyesVisibilityArea" method="_on_EyesVisibilityArea_body_entered"]
 [connection signal="body_exited" from="EyesVisibilityArea" to="EyesVisibilityArea" method="_on_EyesVisibilityArea_body_exited"]
 [connection signal="tween_all_completed" from="Controller/DashTween" to="Controller" method="_on_DashTween_tween_all_completed"]

@@ -1,0 +1,23 @@
+[gd_resource type="Environment" load_steps=3 format=2]
+
+[sub_resource type="Gradient" id=56]
+offsets = PoolRealArray( 0, 0.600823, 1 )
+colors = PoolColorArray( 0, 0.0901961, 0.0980392, 1, 0.175877, 0.421767, 0.480469, 1, 0.67451, 0.815686, 0.862745, 1 )
+
+[sub_resource type="GradientTexture" id=57]
+gradient = SubResource( 56 )
+
+[resource]
+background_mode = 4
+ssao_radius = 47.4
+ssao_intensity = 40.2
+ssao_radius2 = 69.6
+ssao_intensity2 = 65.8
+ssao_bias = 4.059
+ssao_light_affect = 0.46
+ssao_ao_channel_affect = 0.15
+ssao_color = Color( 0.74902, 0.333333, 0.333333, 1 )
+glow_strength = 2.0
+adjustment_enabled = true
+adjustment_contrast = 1.35
+adjustment_color_correction = SubResource( 57 )

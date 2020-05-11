@@ -12,11 +12,9 @@ collision_mask = 23
 
 [node name="Sprite" parent="." index="1"]
 texture = ExtResource( 2 )
-frame = 0
 
 [node name="Controller" type="Node" parent="." index="3"]
 script = ExtResource( 3 )
 
 [node name="AnimationTree" parent="." index="4"]
 parameters/playback = SubResource( 1 )
-[connection signal="colliding" from="." to="Controller" method="_on_Pioneeres_colliding"]
