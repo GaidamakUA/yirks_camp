@@ -1,6 +1,4 @@
-extends Node
-
-signal direction
+extends "../Character.gd"
 
 var directions = [Vector2.UP, Vector2.DOWN, Vector2.LEFT, Vector2.RIGHT, Vector2.ZERO]
 var walk_time = -1
@@ -12,4 +10,4 @@ func _process(delta):
 		var random_index = randi() % 5
 		direction = directions[random_index]
 	walk_time -= delta
-	emit_signal("direction", direction)
+	_on_direction(direction)

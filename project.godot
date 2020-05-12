@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Yeerk's camp"
-run/main_scene="res://world/World.tscn"
+run/main_scene="res://levels/TestLevel.tscn"
 config/icon="res://icon.png"
 
 [display]

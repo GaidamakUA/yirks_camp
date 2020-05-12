@@ -1,21 +1,22 @@
 [gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://character/Character.tscn" type="PackedScene" id=1]
-[ext_resource path="res://character/player/PlayerController.gd" type="Script" id=2]
+[ext_resource path="res://character/player/Player.gd" type="Script" id=2]
 [ext_resource path="res://assets/yeerk_eyes.png" type="Texture" id=3]
 [ext_resource path="res://character/player/EyesVisibilityArea.gd" type="Script" id=4]
 [ext_resource path="res://assets/irk_full_spritesheet.png" type="Texture" id=7]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 10, 4 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 15, 14 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=3]
 
 [node name="Player" instance=ExtResource( 1 )]
 collision_mask = 6
+script = ExtResource( 2 )
 
 [node name="Sprite" parent="." index="1"]
 texture = ExtResource( 7 )
@@ -33,29 +34,26 @@ texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EyesVisibilityArea" index="1"]
 position = Vector2( 0, -35 )
-shape = SubResource( 1 )
+shape = SubResource( 4 )
 
-[node name="Controller" type="Node" parent="." index="4"]
-script = ExtResource( 2 )
-
-[node name="DashTween" type="Tween" parent="Controller" index="0"]
+[node name="DashTween" type="Tween" parent="." index="4"]
 playback_process_mode = 0
 
-[node name="Spawn" type="Timer" parent="Controller" index="1"]
+[node name="Spawn" type="Timer" parent="." index="5"]
 process_mode = 0
 wait_time = 0.03
 
-[node name="Area2D" type="Area2D" parent="." index="5"]
+[node name="Area2D" type="Area2D" parent="." index="6"]
 collision_mask = 14
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
-shape = SubResource( 2 )
+shape = SubResource( 5 )
 
-[node name="AnimationTree" parent="." index="6"]
+[node name="AnimationTree" parent="." index="7"]
 parameters/playback = SubResource( 3 )
 parameters/Idle/blend_position = Vector2( 0, 0 )
 [connection signal="body_entered" from="EyesVisibilityArea" to="EyesVisibilityArea" method="_on_EyesVisibilityArea_body_entered"]
 [connection signal="body_exited" from="EyesVisibilityArea" to="EyesVisibilityArea" method="_on_EyesVisibilityArea_body_exited"]
-[connection signal="tween_all_completed" from="Controller/DashTween" to="Controller" method="_on_DashTween_tween_all_completed"]
-[connection signal="timeout" from="Controller/Spawn" to="Controller" method="_on_Spawn_timeout"]
-[connection signal="body_entered" from="Area2D" to="Controller" method="_on_Area2D_body_entered"]
+[connection signal="tween_all_completed" from="DashTween" to="." method="_on_DashTween_tween_all_completed"]
+[connection signal="timeout" from="Spawn" to="." method="_on_Spawn_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

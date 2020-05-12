@@ -13,9 +13,6 @@ var _direction := Vector2.ZERO
 var last_direction = Direction.UP
 var velocity = Vector2.ZERO
 
-func _ready():
-	$Controller.connect("direction", self, "_on_direction")
-
 func _on_direction(new_direction: Vector2):
 	_direction = new_direction.normalized()
 	if new_direction.is_equal_approx(Vector2.ZERO):
