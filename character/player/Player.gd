@@ -6,17 +6,13 @@ export(float) var dash_time := 0.7
 const Afterimage = preload("res://character/player/PlayerAfterimage.tscn")
 
 onready var tween = $DashTween
-onready var area = $Area2D
+onready var hitbox = $HitBox
 onready var spawn = $Spawn
+onready var idle_timer = $Idle
+onready var dash_raycast = $DashCollision
 
 func _physics_process(delta):
-	var bodies = area.get_overlapping_bodies()
-	var has_solid = false
-	for body in bodies:
-		if body.get_collision_layer_bit(1) || body.get_collision_layer_bit(2):
-			has_solid = true
-	
-	if tween.is_active() && has_solid:
+	if tween.is_active() && dash_raycast.is_colliding():
 		tween.seek(tween.tell() - 0.02)
 		tween.remove_all()
 		spawn.stop()
@@ -33,6 +29,14 @@ func _process(delta):
 	new_direction.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	new_direction.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 	
+	if new_direction.is_equal_approx(Vector2.ZERO):
+		if idle_timer.is_stopped():
+			var random_time := rand_range(4, 7)
+			idle_timer.start(random_time)
+	else:
+		if not idle_timer.is_stopped():
+			idle_timer.stop()
+	
 	_on_direction(new_direction)
 
 func _play_dash():
@@ -43,6 +47,7 @@ func _play_dash():
 	tween.interpolate_property(self, "position", start, finish, dash_time,  Tween.TRANS_BACK,  Tween.EASE_IN)
 	tween.start()
 	spawn.start()
+	dash_raycast.look_at(finish)
 
 func _on_Spawn_timeout():
 	var afterimage: Sprite = Afterimage.instance()
@@ -52,11 +57,8 @@ func _on_Spawn_timeout():
 	var world = get_parent()
 	world.add_child(afterimage)
 
-
 func _on_DashTween_tween_all_completed():
 	spawn.stop()
 
-func _on_Area2D_body_entered(body):
-	if body.get_collision_layer_bit(1):
-		body.die()
-		print("colliding with pioneress")
+func _on_Idle_timeout():
+	state_machine.travel("Idle")

@@ -4,56 +4,63 @@
 [ext_resource path="res://character/player/Player.gd" type="Script" id=2]
 [ext_resource path="res://assets/yeerk_eyes.png" type="Texture" id=3]
 [ext_resource path="res://character/player/EyesVisibilityArea.gd" type="Script" id=4]
-[ext_resource path="res://assets/irk_full_spritesheet.png" type="Texture" id=7]
+[ext_resource path="res://character/animations/idle_animation.tres" type="Animation" id=5]
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=1]
+
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 10, 4 )
 
-[sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 15, 14 )
-
-[sub_resource type="AnimationNodeStateMachinePlayback" id=3]
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 14, 14 )
 
 [node name="Player" instance=ExtResource( 1 )]
-collision_mask = 6
 script = ExtResource( 2 )
 
-[node name="Sprite" parent="." index="1"]
-texture = ExtResource( 7 )
-frame = 39
+[node name="AnimationPlayer" parent="." index="0"]
+anims/idle_animation = ExtResource( 5 )
 
-[node name="EyesVisibilityArea" type="Area2D" parent="." index="3"]
+[node name="DashTween" type="Tween" parent="." index="1"]
+playback_process_mode = 0
+
+[node name="AnimationTree" parent="." index="2"]
+parameters/playback = SubResource( 1 )
+
+[node name="Spawn" type="Timer" parent="." index="3"]
+process_mode = 0
+wait_time = 0.03
+
+[node name="Idle" type="Timer" parent="." index="4"]
+
+[node name="EyesVisibilityArea" type="Area2D" parent="." index="7"]
 collision_layer = 0
 collision_mask = 8
 script = ExtResource( 4 )
 
 [node name="Eyes" type="Sprite" parent="EyesVisibilityArea" index="0"]
+visible = false
 position = Vector2( 0, -19 )
 z_index = 5
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EyesVisibilityArea" index="1"]
 position = Vector2( 0, -35 )
-shape = SubResource( 4 )
+shape = SubResource( 2 )
 
-[node name="DashTween" type="Tween" parent="." index="4"]
-playback_process_mode = 0
-
-[node name="Spawn" type="Timer" parent="." index="5"]
-process_mode = 0
-wait_time = 0.03
-
-[node name="Area2D" type="Area2D" parent="." index="6"]
+[node name="HitBox" type="Area2D" parent="." index="8"]
 collision_mask = 14
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
-shape = SubResource( 5 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" index="0"]
+position = Vector2( 0, -19 )
+shape = SubResource( 3 )
 
-[node name="AnimationTree" parent="." index="7"]
-parameters/playback = SubResource( 3 )
-parameters/Idle/blend_position = Vector2( 0, 0 )
-[connection signal="body_entered" from="EyesVisibilityArea" to="EyesVisibilityArea" method="_on_EyesVisibilityArea_body_entered"]
-[connection signal="body_exited" from="EyesVisibilityArea" to="EyesVisibilityArea" method="_on_EyesVisibilityArea_body_exited"]
+[node name="DashCollision" type="RayCast2D" parent="." index="9"]
+enabled = true
+cast_to = Vector2( 15, 0 )
+collision_mask = 7
 [connection signal="tween_all_completed" from="DashTween" to="." method="_on_DashTween_tween_all_completed"]
 [connection signal="timeout" from="Spawn" to="." method="_on_Spawn_timeout"]
-[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="timeout" from="Idle" to="." method="_on_Idle_timeout"]
+[connection signal="body_entered" from="EyesVisibilityArea" to="EyesVisibilityArea" method="_on_EyesVisibilityArea_body_entered"]
+[connection signal="body_exited" from="EyesVisibilityArea" to="EyesVisibilityArea" method="_on_EyesVisibilityArea_body_exited"]
+[connection signal="body_entered" from="HitBox" to="." method="_on_Area2D_body_entered"]

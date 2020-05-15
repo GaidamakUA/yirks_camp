@@ -1,6 +1,6 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=42 format=2]
 
-[ext_resource path="res://assets/yirk.png" type="Texture" id=1]
+[ext_resource path="res://assets/yeerk.png" type="Texture" id=1]
 [ext_resource path="res://character/Character.gd" type="Script" id=2]
 [ext_resource path="res://character/animations/dashing_right.anim" type="Animation" id=3]
 [ext_resource path="res://character/animations/resting_pose_right.anim" type="Animation" id=4]
@@ -15,33 +15,33 @@
 [ext_resource path="res://character/animations/dashing_down.anim" type="Animation" id=13]
 [ext_resource path="res://character/animations/dashing_up.anim" type="Animation" id=14]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 15, 14 )
-
-[sub_resource type="AnimationNodeAnimation" id=2]
+[sub_resource type="AnimationNodeAnimation" id=1]
 animation = "dashing_left"
 
-[sub_resource type="AnimationNodeAnimation" id=3]
+[sub_resource type="AnimationNodeAnimation" id=2]
 animation = "dashing_up"
 
-[sub_resource type="AnimationNodeAnimation" id=4]
+[sub_resource type="AnimationNodeAnimation" id=3]
 animation = "dashing_right"
 
-[sub_resource type="AnimationNodeAnimation" id=5]
+[sub_resource type="AnimationNodeAnimation" id=4]
 animation = "dashing_down"
 
-[sub_resource type="AnimationNodeBlendSpace2D" id=6]
-blend_point_0/node = SubResource( 2 )
+[sub_resource type="AnimationNodeBlendSpace2D" id=5]
+blend_point_0/node = SubResource( 1 )
 blend_point_0/pos = Vector2( -1, 0 )
-blend_point_1/node = SubResource( 3 )
+blend_point_1/node = SubResource( 2 )
 blend_point_1/pos = Vector2( 0, -1.1 )
-blend_point_2/node = SubResource( 4 )
+blend_point_2/node = SubResource( 3 )
 blend_point_2/pos = Vector2( 1, 0 )
-blend_point_3/node = SubResource( 5 )
+blend_point_3/node = SubResource( 4 )
 blend_point_3/pos = Vector2( 0, 1.1 )
 min_space = Vector2( -1, -1.1 )
 max_space = Vector2( 1, 1.1 )
 blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id=6]
+animation = "idle_animation"
 
 [sub_resource type="AnimationNodeAnimation" id=7]
 animation = "resting_pose_up"
@@ -105,29 +105,33 @@ blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=22]
 
-[sub_resource type="AnimationNodeStateMachine" id=23]
-states/Dash/node = SubResource( 6 )
+[sub_resource type="AnimationNodeStateMachineTransition" id=23]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=24]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachine" id=25]
+states/Dash/node = SubResource( 5 )
 states/Dash/position = Vector2( 262, 176.5 )
-states/Idle/node = SubResource( 11 )
-states/Idle/position = Vector2( 166.5, 73.375 )
+states/Idle/node = SubResource( 6 )
+states/Idle/position = Vector2( 16.3383, 151 )
+states/Resting/node = SubResource( 11 )
+states/Resting/position = Vector2( 166.5, 73.375 )
 states/Run/node = SubResource( 16 )
 states/Run/position = Vector2( 364, 74.4375 )
-transitions = [ "Idle", "Run", SubResource( 17 ), "Run", "Dash", SubResource( 18 ), "Dash", "Idle", SubResource( 19 ), "Idle", "Dash", SubResource( 20 ), "Dash", "Run", SubResource( 21 ), "Run", "Idle", SubResource( 22 ) ]
-start_node = "Idle"
+transitions = [ "Resting", "Run", SubResource( 17 ), "Run", "Dash", SubResource( 18 ), "Dash", "Resting", SubResource( 19 ), "Resting", "Dash", SubResource( 20 ), "Dash", "Run", SubResource( 21 ), "Run", "Resting", SubResource( 22 ), "Resting", "Idle", SubResource( 23 ), "Idle", "Resting", SubResource( 24 ) ]
+start_node = "Resting"
+graph_offset = Vector2( -228.162, 0 )
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=24]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=26]
+
+[sub_resource type="CapsuleShape2D" id=27]
+radius = 7.99998
+height = 10.0
 
 [node name="Character" type="KinematicBody2D"]
 script = ExtResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
-
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0, -25 )
-texture = ExtResource( 1 )
-vframes = 21
-hframes = 13
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/dashing_down = ExtResource( 13 )
@@ -144,10 +148,21 @@ anims/run_right = ExtResource( 11 )
 anims/run_up = ExtResource( 10 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 23 )
+tree_root = SubResource( 25 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
-parameters/playback = SubResource( 24 )
+parameters/playback = SubResource( 26 )
 parameters/Dash/blend_position = Vector2( 0.0595641, 0.75997 )
-parameters/Idle/blend_position = Vector2( 0.11953, -0.25 )
+parameters/Resting/blend_position = Vector2( -0.000484288, 0.0141631 )
 parameters/Run/blend_position = Vector2( 0, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource( 27 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -25 )
+texture = ExtResource( 1 )
+vframes = 21
+hframes = 13
+frame = 13

@@ -64,9 +64,9 @@ dash={
 
 [layer_names]
 
-2d_physics/layer_1="Main character"
-2d_physics/layer_2="Pioneer"
-2d_physics/layer_3="Object"
+2d_physics/layer_1="Object"
+2d_physics/layer_2="Pioneeres Hurtbox"
+2d_physics/layer_3="Main character hitbox"
 2d_physics/layer_4="HideoutForeground"
 2d_physics/layer_5="HideoutBlock"
 

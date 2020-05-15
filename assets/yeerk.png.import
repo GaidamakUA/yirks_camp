@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/yirk.png-c5a15f2f9e807d546255462ce911f8a6.stex"
+path="res://.import/yeerk.png-a755c3eaf94a4ea0c5bc56b09995a19c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/yirk.png"
-dest_files=[ "res://.import/yirk.png-c5a15f2f9e807d546255462ce911f8a6.stex" ]
+source_file="res://assets/yeerk.png"
+dest_files=[ "res://.import/yeerk.png-a755c3eaf94a4ea0c5bc56b09995a19c.stex" ]
 
 [params]
 
