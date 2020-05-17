@@ -150,18 +150,18 @@ anims/run_up = ExtResource( 10 )
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 25 )
 anim_player = NodePath("../AnimationPlayer")
-active = true
 parameters/playback = SubResource( 26 )
 parameters/Dash/blend_position = Vector2( 0.0595641, 0.75997 )
 parameters/Resting/blend_position = Vector2( -0.000484288, 0.0141631 )
 parameters/Run/blend_position = Vector2( 0, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -5 )
 rotation = 1.5708
 shape = SubResource( 27 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0, -25 )
+position = Vector2( 0, -30 )
 texture = ExtResource( 1 )
 vframes = 21
 hframes = 13

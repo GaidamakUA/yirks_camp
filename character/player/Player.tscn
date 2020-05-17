@@ -32,19 +32,24 @@ wait_time = 0.03
 
 [node name="Idle" type="Timer" parent="." index="4"]
 
+[node name="Sprite" parent="." index="6"]
+frame = 26
+
 [node name="EyesVisibilityArea" type="Area2D" parent="." index="7"]
+position = Vector2( -1, -39 )
 collision_layer = 0
 collision_mask = 8
 script = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Eyes" type="Sprite" parent="EyesVisibilityArea" index="0"]
-visible = false
-position = Vector2( 0, -19 )
+position = Vector2( 0, 16 )
 z_index = 5
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EyesVisibilityArea" index="1"]
-position = Vector2( 0, -35 )
 shape = SubResource( 2 )
 
 [node name="HitBox" type="Area2D" parent="." index="8"]
@@ -63,4 +68,3 @@ collision_mask = 7
 [connection signal="timeout" from="Idle" to="." method="_on_Idle_timeout"]
 [connection signal="body_entered" from="EyesVisibilityArea" to="EyesVisibilityArea" method="_on_EyesVisibilityArea_body_entered"]
 [connection signal="body_exited" from="EyesVisibilityArea" to="EyesVisibilityArea" method="_on_EyesVisibilityArea_body_exited"]
-[connection signal="body_entered" from="HitBox" to="." method="_on_Area2D_body_entered"]

@@ -6,6 +6,8 @@ onready var activity_timer = $ChangeActivity
 
 func _ready():
 	_regenerate_direction()
+	var scene_root = get_tree().current_scene
+	self.connect("dying", scene_root, "_on_Pioneeres_dying")
 
 func _process(delta):
 	_on_direction(direction)

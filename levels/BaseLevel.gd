@@ -10,6 +10,8 @@ onready var actors = $Objects
 onready var death_animation = $DeathAnimation
 
 func _on_Pioneeres_dying(place_of_death):
+	death_animation._on_Pioneeres_dying(place_of_death)
+	
 	var blood = Blood.instance()
 	blood.position = place_of_death
 	decals.add_child(blood)

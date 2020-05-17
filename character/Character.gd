@@ -13,6 +13,9 @@ var _direction := Vector2.ZERO
 var last_direction := Vector2.UP
 var velocity := Vector2.ZERO
 
+func _ready():
+	animation_tree.active = true
+
 func _on_direction(new_direction: Vector2):
 	_direction = new_direction.normalized()
 	if new_direction.is_equal_approx(Vector2.ZERO):
