@@ -26,31 +26,37 @@ region_enabled = true
 region_rect = Rect2( 282, 0, 56, 176 )
 
 [node name="ForegroundSideBack" type="Position2D" parent="."]
-position = Vector2( -87, 80 )
+position = Vector2( -86, 80 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="BusSideBack" type="Sprite" parent="ForegroundSideBack"]
-position = Vector2( 26, -32 )
+position = Vector2( 25, -32 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 46, 0, 113, 176 )
+region_rect = Rect2( 46, 0, 114, 176 )
 
 [node name="ForegroundSideFront" type="Position2D" parent="."]
 position = Vector2( 121, 122 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="BusSideFront" type="Sprite" parent="ForegroundSideFront"]
 position = Vector2( -64, -74 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 159, 0, 123, 176 )
+region_rect = Rect2( 159, 0, 124, 176 )
 
 [node name="ForegroundBack" type="Position2D" parent="."]
-position = Vector2( -162, 59 )
+position = Vector2( -163, 59 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="BusBack" type="Sprite" parent="ForegroundBack"]
-position = Vector2( 22.2, -11.2 )
+position = Vector2( 22, -11 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 46, 176 )
