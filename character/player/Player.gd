@@ -4,12 +4,19 @@ var dash_distance: float = 200
 export(float) var dash_time := 0.7
 
 const Afterimage = preload("res://character/player/PlayerAfterimage.tscn")
+const yeerk_underwater = preload("res://assets/yeerk_underwater.png")
+const yeerk_land = preload("res://assets/yeerk.png")
 
 onready var tween = $DashTween
 onready var hitbox = $HitBox
 onready var spawn = $Spawn
 onready var idle_timer = $Idle
 onready var dash_raycast = $DashCollision
+
+var in_water = false
+
+func _ready():
+	$Sprite.texture = yeerk_land
 
 func _physics_process(delta):
 	if tween.is_active() && dash_raycast.is_colliding():
@@ -62,3 +69,11 @@ func _on_DashTween_tween_all_completed():
 
 func _on_Idle_timeout():
 	state_machine.travel("Idle")
+
+func _on_HitBox_body_entered(body):
+	pass
+	$Sprite.texture = yeerk_underwater
+
+func _on_HitBox_body_exited(body):
+	pass
+	$Sprite.texture = yeerk_land

@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/laz.png" type="Texture" id=1]
+[ext_resource path="res://objects/bus/Door.gd" type="Script" id=2]
+
+[node name="Door" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="DoorOpen" type="Sprite" parent="."]
+visible = false
+position = Vector2( 0, -25 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 398, 243, 24, 71 )
+
+[node name="DoorClosed" type="Sprite" parent="."]
+position = Vector2( 0, -25 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 398, 51, 24, 71 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 0, 7.5 )
+
+[node name="ClosedShape" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( -11, 9, -11, -22, 11, -18, 11, 14 )

@@ -53,7 +53,8 @@ texture = ExtResource( 3 )
 shape = SubResource( 2 )
 
 [node name="HitBox" type="Area2D" parent="." index="8"]
-collision_mask = 14
+collision_layer = 0
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" index="0"]
 position = Vector2( 0, -19 )
@@ -68,3 +69,5 @@ collision_mask = 7
 [connection signal="timeout" from="Idle" to="." method="_on_Idle_timeout"]
 [connection signal="body_entered" from="EyesVisibilityArea" to="EyesVisibilityArea" method="_on_EyesVisibilityArea_body_entered"]
 [connection signal="body_exited" from="EyesVisibilityArea" to="EyesVisibilityArea" method="_on_EyesVisibilityArea_body_exited"]
+[connection signal="body_entered" from="HitBox" to="." method="_on_HitBox_body_entered"]
+[connection signal="body_exited" from="HitBox" to="." method="_on_HitBox_body_exited"]

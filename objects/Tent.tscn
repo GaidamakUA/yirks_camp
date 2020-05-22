@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/build_atlas.png" type="Texture" id=1]
+
+[node name="Tent" type="StaticBody2D"]
+
+[node name="build_atlas" type="Sprite" parent="."]
+position = Vector2( 0, -72 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 416, 512, 128, 160 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -56, 0, -56, -88, 56, -88, 56, 0 )
