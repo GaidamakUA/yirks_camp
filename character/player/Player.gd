@@ -13,7 +13,7 @@ onready var spawn = $Spawn
 onready var idle_timer = $Idle
 onready var dash_raycast = $DashCollision
 
-var in_water = false
+var interactive_object
 
 func _ready():
 	$Sprite.texture = yeerk_land
@@ -46,6 +46,12 @@ func _process(delta):
 	
 	_on_direction(new_direction)
 
+func _unhandled_input(event):
+	if event.is_action_pressed("interact"):
+		if interactive_object != null:
+			interactive_object.interact()
+		print("interacting")
+
 func _play_dash():
 	print(last_direction)
 	state_machine.travel("Dash")
@@ -71,9 +77,17 @@ func _on_Idle_timeout():
 	state_machine.travel("Idle")
 
 func _on_HitBox_body_entered(body):
-	pass
-	$Sprite.texture = yeerk_underwater
+	print("entered ", body)
 
 func _on_HitBox_body_exited(body):
-	pass
-	$Sprite.texture = yeerk_land
+	print("exited ", body)
+
+func _on_HitBox_area_entered(area):
+	if area.get_collision_layer_bit(6):
+		interactive_object = area
+	print("entered ",  area.get_collision_layer_bit(6))
+
+func _on_HitBox_area_exited(area):
+	if area.get_collision_layer_bit(6):
+		interactive_object = null
+	print("exited ", area)

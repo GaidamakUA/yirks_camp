@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/toilet.png" type="Texture" id=1]
 [ext_resource path="res://objects/toilet/Toilet.gd" type="Script" id=2]
 [ext_resource path="res://objects/toilet/Door.tscn" type="PackedScene" id=3]
+[ext_resource path="res://objects/toilet/InteractiveArea.gd" type="Script" id=4]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 19.0
+height = 30.0
 
 [node name="Toilet" type="YSort"]
 script = ExtResource( 2 )
@@ -22,11 +27,12 @@ polygon = PoolVector2Array( -16, -1, -16, -22, 16, -22, 16, -1, 22, -1, 22, -29,
 [node name="Door" parent="." instance=ExtResource( 3 )]
 position = Vector2( -16, 15 )
 
-[node name="toilet" parent="Door" index="0"]
-frame = 3
+[node name="InteractiveArea" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 0
+script = ExtResource( 4 )
 
-[node name="CollisionShape2D" parent="Door" index="2"]
-disabled = true
-[connection signal="animation_finished" from="Door/AnimationPlayer" to="." method="_on_door_state_changed"]
-
-[editable path="Door"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractiveArea"]
+position = Vector2( -6, 18 )
+rotation = 1.5708
+shape = SubResource( 1 )

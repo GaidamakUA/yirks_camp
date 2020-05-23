@@ -21,7 +21,6 @@ func _regenerate_direction():
 	activity_timer.start(time)
 	var random_index = randi() % 5
 	direction = directions[random_index]
-	print("direction: ", direction, " time:", time)
 
 func _on_HurtBox_area_entered(area):
 	die()
