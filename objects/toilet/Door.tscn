@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/toilet.png" type="Texture" id=1]
 [ext_resource path="res://objects/toilet/Door.gd" type="Script" id=2]
+[ext_resource path="res://world/YeerkPalm.tscn" type="PackedScene" id=3]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Open"
@@ -30,6 +31,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [ false, true ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("YeerkPalm:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 34, -20 ), Vector2( 19, -6 ), Vector2( 2, -3 ), Vector2( -14, -7 ), Vector2( -14, -7 ) ]
+}
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 16, 3 )
@@ -41,7 +54,7 @@ script = ExtResource( 2 )
 position = Vector2( 16, -27 )
 texture = ExtResource( 1 )
 hframes = 5
-frame = 1
+frame = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Open = SubResource( 1 )
@@ -49,3 +62,7 @@ anims/Open = SubResource( 1 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 16, -3 )
 shape = SubResource( 2 )
+disabled = true
+
+[node name="YeerkPalm" parent="." instance=ExtResource( 3 )]
+position = Vector2( -14, -7 )

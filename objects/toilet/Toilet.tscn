@@ -29,10 +29,12 @@ position = Vector2( -16, 15 )
 
 [node name="InteractiveArea" type="Area2D" parent="."]
 collision_layer = 64
-collision_mask = 0
+collision_mask = 4
 script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractiveArea"]
 position = Vector2( -6, 18 )
 rotation = 1.5708
 shape = SubResource( 1 )
+[connection signal="area_entered" from="InteractiveArea" to="." method="_on_yeerk_entered"]
+[connection signal="area_exited" from="InteractiveArea" to="." method="_on_yeerk_exited"]
