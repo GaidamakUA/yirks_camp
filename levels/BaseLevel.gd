@@ -1,21 +1,22 @@
 extends Node2D
 
 const Pioneress = preload("res://character/pioneeres/Pioneeres.tscn")
-const Blood = preload("res://objects/Blood.tscn")
-const Cedaver = preload("res://objects/Cedaver.tscn")
+const Cedaver = preload("res://objects/cedaver/Cedaver.tscn")
 
-onready var decorations = $Decorations
-onready var decals = $Decals
 onready var actors = $Objects
 onready var death_animation = $DeathAnimation
+onready var spawn_point = $Spawn
+
+func _ready():
+	randomize()
 
 func _on_Pioneeres_dying(place_of_death):
 	death_animation._on_Pioneeres_dying(place_of_death)
 	
-	var blood = Blood.instance()
-	blood.position = place_of_death
-	decals.add_child(blood)
-	
 	var cedaver = Cedaver.instance()
-	cedaver.position = place_of_death
-	decorations.add_child(cedaver)
+	cedaver.position = place_of_death + Vector2(0, -16)
+	actors.add_child(cedaver)
+	
+	var pioneress = Pioneress.instance()
+	pioneress.global_position = spawn_point.global_position
+	actors.add_child(pioneress)
