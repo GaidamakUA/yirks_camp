@@ -76,10 +76,12 @@ func _on_DashTween_tween_all_completed():
 func _on_Idle_timeout():
 	state_machine.travel("Idle")
 
-func _on_HitBox_body_entered(body):
+func _on_entered_water(body):
+	$Sprite.texture = yeerk_underwater
 	print("entered ", body)
 
-func _on_HitBox_body_exited(body):
+func _on_exited_water(body):
+	$Sprite.texture = yeerk_land
 	print("exited ", body)
 
 func _on_HitBox_area_entered(area):

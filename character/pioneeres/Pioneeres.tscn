@@ -11,7 +11,7 @@ extents = Vector2( 10, 15 )
 
 [node name="Pioneeres" instance=ExtResource( 1 )]
 collision_layer = 2
-collision_mask = 23
+collision_mask = 55
 script = ExtResource( 3 )
 
 [node name="AnimationTree" parent="." index="1"]
