@@ -11,4 +11,9 @@ Stealth slasher game written with Godot engine
 7. Press "Play" button on top right
 
 ## License
-GPL v3. Basically, It means that you have to make your code available.
+### Code
+GPL v3. Basically, It means that you have to make your code available and mention original author (me).
+### Arts
+LPC sprites distributed under various licenses. You'd better look for originals.
+
+Sprites created specifically for Yeerk project belong to Maxim Udinskiy.
