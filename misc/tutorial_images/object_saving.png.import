@@ -1,0 +1,34 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/object_saving.png-3597209c68013116a3645e3af1bb5242.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://misc/tutorial_images/object_saving.png"
+dest_files=[ "res://.import/object_saving.png-3597209c68013116a3645e3af1bb5242.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=false
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+stream=false
+size_limit=0
+detect_3d=false
+svg/scale=1.0
