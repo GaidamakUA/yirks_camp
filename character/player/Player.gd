@@ -4,6 +4,8 @@ var dash_distance: float = 200
 export(float) var dash_time := 0.7
 
 const Afterimage = preload("res://character/player/PlayerAfterimage.tscn")
+const Splash = preload("res://objects/Splash.tscn")
+
 const yeerk_underwater = preload("res://assets/yeerk_underwater.png")
 const yeerk_land = preload("res://assets/yeerk.png")
 
@@ -77,6 +79,12 @@ func _on_Idle_timeout():
 	state_machine.travel("Idle")
 
 func _on_entered_water(body):
+	var splash: Sprite = Splash.instance()
+#	var sprite = $Sprite
+#	splash.global_position = sprite.global_position + Vector2(0, 8)
+	splash.position = Vector2(0, -20)
+	add_child(splash)
+	
 	$Sprite.texture = yeerk_underwater
 	print("entered ", body)
 
