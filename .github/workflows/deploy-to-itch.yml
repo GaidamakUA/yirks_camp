@@ -24,4 +24,5 @@ jobs:
           godot -v --export "HTML5" ./build/web/index.html
       - name: Upload Artifact
         run: |
-          butler push ./build/mac $ITCHIO_USERNAME/$ITCHIO_GAME:mac
+          export BUTLER_API_KEY=${{ secrets.BUTLER_API_KEY }}
+          butler push ./build/mac ${{ secrets.ITCHIO_USERNAME }}/${{ secrets.ITCHIO_GAME:mac }}
