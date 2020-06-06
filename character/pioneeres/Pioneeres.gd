@@ -21,6 +21,43 @@ func _regenerate_direction():
 	activity_timer.start(time)
 	var random_index = randi() % 5
 	direction = directions[random_index]
+	
+	_show_random_emotion()
+
+func _show_random_emotion():
+	var emotions = [
+		"alert",
+		"anger",
+		"bars",
+		"cash",
+		"circle",
+		"cloud",
+		"cross",
+		"dots1",
+		"dots2",
+		"dots3",
+		"drop",
+		"drops",
+		"exclamation",
+		"exclamations",
+		"faceAngry",
+		"faceHappy",
+		"faceSad",
+		"heart",
+		"heartBroken",
+		"hearts",
+		"idea",
+		"laugh",
+		"music",
+		"question",
+		"sleep",
+		"sleeps",
+		"star",
+		"stars",
+		"swirl"
+	]
+	var random_emotion = emotions[randi() % emotions.size()]
+	emotion_bubble.show_emotion(random_emotion)
 
 func _on_HurtBox_area_entered(area):
 	die()

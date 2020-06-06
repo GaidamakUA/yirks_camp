@@ -8,6 +8,7 @@ export(int) var friction := 400
 
 onready var animation_tree = $AnimationTree
 onready var state_machine = animation_tree["parameters/playback"]
+onready var emotion_bubble = $EmotionBubble
 
 var _direction := Vector2.ZERO
 var last_direction := Vector2.UP
@@ -15,6 +16,7 @@ var velocity := Vector2.ZERO
 
 func _ready():
 	animation_tree.active = true
+	emotion_bubble.hide()
 
 func _on_direction(new_direction: Vector2):
 	_direction = new_direction.normalized()
