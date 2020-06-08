@@ -1,4 +1,8 @@
+tool
+
 extends Node2D
+
+export var emotion := "alert" setget _set_emotion
 
 var styles_map: Dictionary = {
 	"speaking_square": preload("res://assets/emotes/emote_0.png"),
@@ -43,9 +47,14 @@ var emotions: Dictionary = {
 }
 
 onready var background: Sprite = $EmotionBackground
-onready var emotion: Sprite = $EmotionForeground
+onready var _emotion_sprite: Sprite = $EmotionForeground
 onready var animation_player = $AnimationPlayer
 
+var is_ready := false
+
+func _ready():
+	is_ready = true
+	
 func show_emotion(emotion: String):
 	_set_style("speaking_square")
 	_set_emotion(emotion)
@@ -60,7 +69,10 @@ func _set_style(style_id: String):
 	background.texture = styles_map[style_id]
 
 func _set_emotion(emotion_id: String):
-	emotion.texture = emotions[emotion_id]
+	if not is_ready:
+		yield(self, "ready")
+	emotion = emotion_id
+	_emotion_sprite.texture = emotions[emotion_id]
 
 func _indicate():
 	animation_player.play("indicate")
