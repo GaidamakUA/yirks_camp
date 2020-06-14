@@ -14,7 +14,7 @@
 [ext_resource path="res://character/animations/dashing_left.anim" type="Animation" id=12]
 [ext_resource path="res://character/animations/dashing_down.anim" type="Animation" id=13]
 [ext_resource path="res://character/animations/dashing_up.anim" type="Animation" id=14]
-[ext_resource path="res://character/emotions/EmotionBubble.tscn" type="PackedScene" id=15]
+[ext_resource path="res://character/communication/EmotionBubble.tscn" type="PackedScene" id=15]
 
 [sub_resource type="AnimationNodeAnimation" id=1]
 animation = "dashing_left"
@@ -171,3 +171,4 @@ frame = 13
 [node name="EmotionBubble" parent="." instance=ExtResource( 15 )]
 visible = false
 position = Vector2( 0, -58 )
+emotion = "alert"
