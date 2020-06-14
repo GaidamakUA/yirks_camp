@@ -4,7 +4,7 @@
 [ext_resource path="res://assets/wave/wave_animation.tres" type="Texture" id=2]
 
 [resource]
-0/name = "terrain_atlas.png 0"
+0/name = "dirt road"
 0/texture = ExtResource( 1 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )

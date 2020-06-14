@@ -23,4 +23,4 @@ func _on_TestLevel_pressed():
 	get_tree().change_scene("res://levels/TestLevel2.tscn")
 
 func _on_Level1_pressed():
-	get_tree().change_scene("res://levels/Level1.tscn")
+	get_tree().change_scene("res://levels/Level1.v2.tscn")
