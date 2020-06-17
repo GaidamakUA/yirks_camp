@@ -118,7 +118,7 @@ states/Dash/position = Vector2( 262, 176.5 )
 states/Idle/node = SubResource( 6 )
 states/Idle/position = Vector2( 16.3383, 151 )
 states/Resting/node = SubResource( 11 )
-states/Resting/position = Vector2( 166.5, 73.375 )
+states/Resting/position = Vector2( 166, 73.9062 )
 states/Run/node = SubResource( 16 )
 states/Run/position = Vector2( 364, 74.4375 )
 transitions = [ "Resting", "Run", SubResource( 17 ), "Run", "Dash", SubResource( 18 ), "Dash", "Resting", SubResource( 19 ), "Resting", "Dash", SubResource( 20 ), "Dash", "Run", SubResource( 21 ), "Run", "Resting", SubResource( 22 ), "Resting", "Idle", SubResource( 23 ), "Idle", "Resting", SubResource( 24 ) ]
@@ -153,7 +153,7 @@ tree_root = SubResource( 25 )
 anim_player = NodePath("../AnimationPlayer")
 parameters/playback = SubResource( 26 )
 parameters/Dash/blend_position = Vector2( 0.0595641, 0.75997 )
-parameters/Resting/blend_position = Vector2( -0.000484288, 0.0141631 )
+parameters/Resting/blend_position = Vector2( -0.00174117, 0.222519 )
 parameters/Run/blend_position = Vector2( 0, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -171,4 +171,3 @@ frame = 13
 [node name="EmotionBubble" parent="." instance=ExtResource( 15 )]
 visible = false
 position = Vector2( 0, -58 )
-emotion = "alert"

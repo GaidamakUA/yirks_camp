@@ -6,6 +6,7 @@ const Cedaver = preload("res://objects/cedaver/Cedaver.tscn")
 onready var actors = $Objects
 onready var death_animation = $DeathAnimation
 onready var spawn_point = $Spawn
+onready var yeerk = $Objects/Character
 
 func _ready():
 	randomize()
