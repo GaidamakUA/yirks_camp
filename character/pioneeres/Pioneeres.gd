@@ -22,42 +22,17 @@ func _regenerate_direction():
 	var random_index = randi() % 5
 	direction = directions[random_index]
 	
-	_show_random_emotion()
+	_show_random_text()
 
-func _show_random_emotion():
-	var emotions = [
-		"alert",
-		"anger",
-		"bars",
-		"cash",
-		"circle",
-		"cloud",
-		"cross",
-		"dots1",
-		"dots2",
-		"dots3",
-		"drop",
-		"drops",
-		"exclamation",
-		"exclamations",
-		"faceAngry",
-		"faceHappy",
-		"faceSad",
-		"heart",
-		"heartBroken",
-		"hearts",
-		"idea",
-		"laugh",
-		"music",
-		"question",
-		"sleep",
-		"sleeps",
-		"star",
-		"stars",
-		"swirl"
+func _show_random_text():
+	var texts = [
+		"Жиромиромляді смоктанули",
+		"Арсенпідарас",
+		"Рагуль",
+		"На сосаку"
 	]
-	var random_emotion = emotions[randi() % emotions.size()]
-	emotion_bubble.show_emotion(random_emotion)
+	var random_text = texts[randi() % texts.size()]
+	dialog.say(random_text)
 
 func _on_HurtBox_area_entered(area):
 	die()

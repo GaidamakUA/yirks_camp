@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://assets/yeerk.png" type="Texture" id=1]
 [ext_resource path="res://character/Character.gd" type="Script" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://character/animations/dashing_down.anim" type="Animation" id=13]
 [ext_resource path="res://character/animations/dashing_up.anim" type="Animation" id=14]
 [ext_resource path="res://character/communication/EmotionBubble.tscn" type="PackedScene" id=15]
+[ext_resource path="res://character/DialogPosition.gd" type="Script" id=16]
 
 [sub_resource type="AnimationNodeAnimation" id=1]
 animation = "dashing_left"
@@ -171,3 +172,7 @@ frame = 13
 [node name="EmotionBubble" parent="." instance=ExtResource( 15 )]
 visible = false
 position = Vector2( 0, -58 )
+
+[node name="DialogPosition" type="Position2D" parent="."]
+position = Vector2( 0, -68 )
+script = ExtResource( 16 )

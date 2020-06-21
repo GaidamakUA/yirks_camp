@@ -33,7 +33,6 @@ margin_bottom = 632.0
 mouse_filter = 2
 texture = ExtResource( 4 )
 __meta__ = {
-"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 

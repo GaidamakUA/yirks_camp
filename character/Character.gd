@@ -6,9 +6,12 @@ export(int) var acceleration := 400
 export(int) var max_speed := 80
 export(int) var friction := 400
 
+onready var Pioneress = load("res://character/pioneeres/Pioneeres.tscn")
+
 onready var animation_tree = $AnimationTree
 onready var state_machine = animation_tree["parameters/playback"]
-onready var emotion_bubble = $EmotionBubble
+onready var emotion_bubble := $EmotionBubble
+onready var dialog := $DialogPosition
 
 var _direction := Vector2.ZERO
 var last_direction := Vector2.UP
