@@ -8,8 +8,8 @@ func _interact():
 	else:
 		door.open()
 
-func _on_yeerk_entered(area):
+func show_palm():
 	door.show_palm()
 
-func _on_yeerk_exited(area):
+func hide_palm():
 	door.hide_palm()

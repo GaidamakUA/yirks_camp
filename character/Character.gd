@@ -6,8 +6,6 @@ export(int) var acceleration := 400
 export(int) var max_speed := 80
 export(int) var friction := 400
 
-onready var Pioneress = load("res://character/pioneeres/Pioneeres.tscn")
-
 onready var animation_tree = $AnimationTree
 onready var state_machine = animation_tree["parameters/playback"]
 onready var emotion_bubble := $EmotionBubble
@@ -16,6 +14,8 @@ onready var dialog := $DialogPosition
 var _direction := Vector2.ZERO
 var last_direction := Vector2.UP
 var velocity := Vector2.ZERO
+
+var interactive_object
 
 func _ready():
 	animation_tree.active = true
@@ -43,3 +43,18 @@ func _physics_process(delta):
 func die():
 	emit_signal("dying", position)
 	queue_free()
+
+func interact():
+	if interactive_object != null:
+		interactive_object.interact()
+	print("interacting")
+
+func _on_InteractBox_area_entered(area):
+	if area.get_collision_layer_bit(6):
+		interactive_object = area
+	print("entered ",  area.get_collision_layer_bit(6))
+
+func _on_InteractBox_area_exited(area):
+	if area.get_collision_layer_bit(6):
+		interactive_object = null
+	print("exited ", area)

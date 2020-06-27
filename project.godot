@@ -8,9 +8,32 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Resource",
+"class": "AtomicAction",
+"language": "GDScript",
+"path": "res://character/pioneeres/brain/AtomicAction.gd"
+}, {
+"base": "AtomicAction",
+"class": "DelayAction",
+"language": "GDScript",
+"path": "res://character/pioneeres/brain/DelayAction.gd"
+}, {
+"base": "AtomicAction",
+"class": "GoToAction",
+"language": "GDScript",
+"path": "res://character/pioneeres/brain/GoToAction.gd"
+}, {
+"base": "AtomicAction",
+"class": "InteractAction",
+"language": "GDScript",
+"path": "res://character/pioneeres/brain/InteractAction.gd"
+} ]
 _global_script_class_icons={
-
+"AtomicAction": "",
+"DelayAction": "",
+"GoToAction": "",
+"InteractAction": ""
 }
 
 [application]

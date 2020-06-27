@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://assets/yeerk.png" type="Texture" id=1]
 [ext_resource path="res://character/Character.gd" type="Script" id=2]
@@ -128,9 +128,10 @@ graph_offset = Vector2( -228.162, 0 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=26]
 
-[sub_resource type="CapsuleShape2D" id=27]
-radius = 7.99998
-height = 10.0
+[sub_resource type="CircleShape2D" id=27]
+
+[sub_resource type="RectangleShape2D" id=28]
+extents = Vector2( 16, 14 )
 
 [node name="Character" type="KinematicBody2D"]
 script = ExtResource( 2 )
@@ -176,3 +177,13 @@ position = Vector2( 0, -58 )
 [node name="DialogPosition" type="Position2D" parent="."]
 position = Vector2( 0, -68 )
 script = ExtResource( 16 )
+
+[node name="InteractBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractBox"]
+position = Vector2( 0, -20 )
+shape = SubResource( 28 )
+[connection signal="area_entered" from="InteractBox" to="." method="_on_InteractBox_area_entered"]
+[connection signal="area_exited" from="InteractBox" to="." method="_on_InteractBox_area_exited"]

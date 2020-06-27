@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://character/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/pioneer_girl.png" type="Texture" id=2]
 [ext_resource path="res://character/pioneeres/Pioneeres.gd" type="Script" id=3]
+[ext_resource path="res://character/pioneeres/brain/Navigation.gd" type="Script" id=4]
+[ext_resource path="res://assets/emotes/emote_anger.png" type="Texture" id=5]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=1]
 
@@ -10,7 +12,7 @@
 extents = Vector2( 10, 15 )
 
 [node name="Pioneeres" instance=ExtResource( 1 )]
-collision_layer = 2
+collision_layer = 3
 collision_mask = 55
 script = ExtResource( 3 )
 
@@ -22,8 +24,9 @@ parameters/Resting/blend_position = Vector2( 0, 0 )
 texture = ExtResource( 2 )
 frame = 39
 
-[node name="ChangeActivity" type="Timer" parent="." index="4"]
+[node name="DelayTimer" type="Timer" parent="." index="4"]
 wait_time = 5.0
+one_shot = true
 
 [node name="HurtBox" type="Area2D" parent="." index="5"]
 collision_layer = 2
@@ -32,5 +35,31 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" index="0"]
 position = Vector2( 0, -23 )
 shape = SubResource( 2 )
-[connection signal="timeout" from="ChangeActivity" to="." method="_regenerate_direction"]
+
+[node name="NavigationRaycast" type="RayCast2D" parent="." index="8"]
+position = Vector2( 0, -4 )
+enabled = true
+cast_to = Vector2( 100, 0 )
+
+[node name="Navigation" type="Node2D" parent="." index="9"]
+position = Vector2( 0, -4 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Target" type="Sprite" parent="Navigation" index="0"]
+visible = false
+z_index = 1
+texture = ExtResource( 5 )
+
+[node name="RayCast2D" type="RayCast2D" parent="Navigation" index="1"]
+cast_to = Vector2( 50, 0 )
+
+[node name="Timer" type="Timer" parent="Navigation" index="2"]
+wait_time = 15.0
+autostart = true
+[connection signal="timeout" from="DelayTimer" to="." method="_on_Navigation_arrived"]
 [connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
+[connection signal="arrived" from="Navigation" to="." method="_on_Navigation_arrived"]
+[connection signal="timeout" from="Navigation/Timer" to="Navigation" method="_on_change_direction"]

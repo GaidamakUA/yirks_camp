@@ -1,38 +1,36 @@
 extends "../Character.gd"
 
-var directions = [Vector2.UP, Vector2.DOWN, Vector2.LEFT, Vector2.RIGHT, Vector2.ZERO]
-var direction = Vector2.ZERO
+export(Array, Resource) var todo_list := Array()
+
+onready var navigation = $Navigation
 onready var activity_timer = $ChangeActivity
+onready var delay_timer = $DelayTimer
+
+var current_action
 
 func _ready():
-	_regenerate_direction()
 	var scene_root = get_tree().current_scene
 	self.connect("dying", scene_root, "_on_Pioneeres_dying")
 
 func _process(delta):
-	_on_direction(direction)
-	var should_move = direction != Vector2.ZERO
-	var is_stopped = velocity.is_equal_approx(Vector2.ZERO)
-	if (should_move && is_stopped):
-		_regenerate_direction()
-
-func _regenerate_direction():
-	var time := rand_range(1, 5)
-	activity_timer.start(time)
-	var random_index = randi() % 5
-	direction = directions[random_index]
-	
-	_show_random_text()
-
-func _show_random_text():
-	var texts = [
-		"Жиромиромляді смоктанули",
-		"Арсенпідарас",
-		"Рагуль",
-		"На сосаку"
-	]
-	var random_text = texts[randi() % texts.size()]
-	dialog.say(random_text)
+	if current_action:
+		if current_action is GoToAction:
+			var direction = navigation.get_direction()
+			_on_direction(direction)
+	elif not todo_list.empty():
+		current_action = todo_list.pop_front()
+		if current_action:
+			current_action.perform(self)
 
 func _on_HurtBox_area_entered(area):
 	die()
+
+func go_to(destination: Vector2):
+	print("_go_to: ", destination)
+	navigation.set_destination(destination)
+
+func _on_Navigation_arrived():
+	current_action = null
+
+func wait(seconds: float):
+	delay_timer.start(seconds)
