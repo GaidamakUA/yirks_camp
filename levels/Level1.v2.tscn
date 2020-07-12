@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://objects/bus/Laz.tscn" type="PackedScene" id=1]
 [ext_resource path="res://levels/BaseLevel.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://objects/Spacebar.tscn" type="PackedScene" id=7]
 [ext_resource path="res://character/player/YeerksAppearance.tscn" type="PackedScene" id=8]
 [ext_resource path="res://levels/Level1.v2.gd" type="Script" id=9]
+[ext_resource path="res://character/pioneeres/Pioneeres.tscn" type="PackedScene" id=10]
 
 [node name="Level" instance=ExtResource( 2 )]
 script = ExtResource( 9 )
@@ -60,6 +61,7 @@ text = "W"
 
 [node name="KeyLeft" parent="Objects/Keys" index="1" instance=ExtResource( 5 )]
 position = Vector2( 256, 160 )
+text = "A"
 
 [node name="KeyDown" parent="Objects/Keys" index="2" instance=ExtResource( 5 )]
 position = Vector2( 288, 160 )
@@ -97,4 +99,16 @@ tile_data = PoolIntArray( -524263, 0, 0, -524262, 0, 1, -524261, 0, 1, -524260, 
 
 [node name="DeathAnimation" parent="." index="6"]
 frame = 1
+
+[node name="Pioneeres" parent="." index="7" instance=ExtResource( 10 )]
+position = Vector2( 776, 424 )
+
+[node name="Pioneeres2" parent="." index="8" instance=ExtResource( 10 )]
+position = Vector2( 608, 440 )
+
+[node name="Pioneeres3" parent="." index="9" instance=ExtResource( 10 )]
+position = Vector2( 688, 336 )
+
+[node name="Pioneeres4" parent="." index="10" instance=ExtResource( 10 )]
+position = Vector2( 696, 512 )
 [connection signal="yeerk_appeared" from="Objects/YeerksAppearance" to="." method="_on_YeerksAppearance_yeerk_appeared"]

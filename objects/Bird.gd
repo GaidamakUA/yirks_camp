@@ -3,7 +3,7 @@ extends Sprite
 onready var animationPlayer = $AnimationPlayer
 onready var timer = $Timer
 
-func _on_AnimationPlayer_animation_finished(anim_name):
+func _on_AnimationPlayer_animation_finished(_anim_name):
 	frame = 1
 	var delay = rand_range(3, 10)
 	timer.start(delay)

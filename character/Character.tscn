@@ -130,8 +130,9 @@ graph_offset = Vector2( -228.162, 0 )
 
 [sub_resource type="CircleShape2D" id=27]
 
-[sub_resource type="RectangleShape2D" id=28]
-extents = Vector2( 16, 14 )
+[sub_resource type="CapsuleShape2D" id=28]
+radius = 12.0
+height = 14.0
 
 [node name="Character" type="KinematicBody2D"]
 script = ExtResource( 2 )
@@ -183,7 +184,8 @@ collision_layer = 0
 collision_mask = 64
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractBox"]
-position = Vector2( 0, -20 )
+position = Vector2( 0, -5 )
+rotation = 1.5708
 shape = SubResource( 28 )
 [connection signal="area_entered" from="InteractBox" to="." method="_on_InteractBox_area_entered"]
 [connection signal="area_exited" from="InteractBox" to="." method="_on_InteractBox_area_exited"]

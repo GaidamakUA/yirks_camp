@@ -5,7 +5,7 @@ signal arrived
 export(float, 0.1, 40) var arrival_threshhold := 10.0
 export(float, 10, 200) var raycast_length := 100
 
-onready var raycast: RayCast2D = $"../NavigationRaycast"
+onready var raycast: RayCast2D = $NavigationRaycast
 
 onready var direction_indicator: RayCast2D = $RayCast2D
 onready var target = $Target
@@ -40,7 +40,6 @@ func is_arrived() -> bool:
 
 func _remaining_distance() -> float:
 	return _destination.distance_to(global_position)
-
 
 func _on_change_direction():
 	_preferred_direction = sign(randf() - 0.3) * PI / 2

@@ -4,7 +4,6 @@
 [ext_resource path="res://assets/emotes/emote_alert.png" type="Texture" id=2]
 [ext_resource path="res://character/communication/EmotionBubble.gd" type="Script" id=3]
 
-
 [sub_resource type="Animation" id=1]
 resource_name = "indicate"
 length = 0.5
