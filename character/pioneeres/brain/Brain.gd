@@ -1,6 +1,6 @@
 extends Node2D
 
-onready var actions = get_children()
+onready var actions = $Actions.get_children()
 onready var actor = get_parent()
 
 func start():
@@ -10,7 +10,7 @@ func start():
 func action_finished(action: AtomicAction):
 	print(self, " action ", action, " finished")
 	if actions.empty():
-		actions = get_children()
+		actions = $Actions.get_children()
 	_perform_next_action()
 
 func _perform_next_action():
