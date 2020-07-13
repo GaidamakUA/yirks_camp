@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://levels/BaseLevel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://character/pioneeres/Pioneeres.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://character/pioneeres/brain/DelayAction.tscn" type="PackedScene" id=9]
 [ext_resource path="res://character/pioneeres/brain/Brain.gd" type="Script" id=10]
 [ext_resource path="res://character/pioneeres/brain/Navigation.tscn" type="PackedScene" id=11]
+[ext_resource path="res://character/pioneeres/brain/GoToAction.tscn" type="PackedScene" id=12]
 
 [node name="TestLevel2" instance=ExtResource( 1 )]
 
@@ -65,6 +66,16 @@ wait_time = 5.0
 
 [node name="InteractAction" parent="Objects/Pioneeres/Brain/Actions" index="1" instance=ExtResource( 8 )]
 
+[node name="GoToAction" parent="Objects/Pioneeres/Brain/Actions" index="2" instance=ExtResource( 12 )]
+
+[node name="Destination" parent="Objects/Pioneeres/Brain/Actions/GoToAction" index="0"]
+position = Vector2( 155, 304 )
+
+[node name="GoToAction2" parent="Objects/Pioneeres/Brain/Actions" index="3" instance=ExtResource( 12 )]
+
+[node name="Destination" parent="Objects/Pioneeres/Brain/Actions/GoToAction2" index="0"]
+position = Vector2( 33, 225 )
+
 [node name="Pioneeres2" parent="Objects" index="8" instance=ExtResource( 2 )]
 position = Vector2( 272, 192 )
 
@@ -79,3 +90,8 @@ position = Vector2( 240, -27 )
 
 [node name="Foreground" parent="." index="6"]
 tile_data = PoolIntArray( -524270, 0, 0, -524269, 0, 2, -458734, 0, 65536, -458733, 0, 65538, -393198, 0, 65536, -393197, 0, 65538, -327662, 0, 65536, -327661, 0, 65538, -262126, 0, 65536, -262125, 0, 65538, -196590, 0, 131072, -196589, 0, 131074, 458772, 0, 0, 458773, 0, 2, 458776, 0, 0, 458777, 0, 1, 458778, 0, 1, 458779, 0, 2, 524308, 0, 65536, 524309, 0, 65538, 524312, 0, 65536, 524313, 0, 65537, 524314, 0, 65537, 524315, 0, 65538, 589836, 0, 0, 589837, 0, 2, 589839, 0, 0, 589840, 0, 1, 589841, 0, 1, 589842, 0, 2, 589844, 0, 65536, 589845, 0, 65538, 589848, 0, 65536, 589849, 0, 65537, 589850, 0, 65537, 589851, 0, 65538, 655372, 0, 131072, 655373, 0, 131074, 655375, 0, 131072, 655376, 0, 131073, 655377, 0, 131073, 655378, 0, 131074, 655380, 0, 131072, 655381, 0, 131074, 655384, 0, 131072, 655385, 0, 131073, 655386, 0, 131073, 655387, 0, 131074 )
+[connection signal="direction_update" from="Objects/Pioneeres/Brain/Navigation" to="Objects/Pioneeres" method="_on_direction"]
+
+[editable path="Objects/Pioneeres/Brain/Actions/GoToAction"]
+
+[editable path="Objects/Pioneeres/Brain/Actions/GoToAction2"]

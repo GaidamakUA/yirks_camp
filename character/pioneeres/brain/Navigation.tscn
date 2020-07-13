@@ -21,8 +21,3 @@ texture = ExtResource( 1 )
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 cast_to = Vector2( 50, 0 )
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 15.0
-autostart = true
-[connection signal="timeout" from="Timer" to="." method="_on_change_direction"]
