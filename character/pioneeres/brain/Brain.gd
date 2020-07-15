@@ -1,21 +1,26 @@
-extends Node2D
+class_name Brain
 
-onready var actions = $Actions.get_children()
-onready var actor = get_parent()
+var actions
+var actor
+
+func _init (_actor):
+	actor = _actor
+	
+func set_actions(_actions):
+	actions = _actions
 
 func start():
-	print(actions)
-	_perform_next_action()
+	print('Brain works ',actor.name)
+	if actions:
+		_perform_next_action()
 
 func action_finished(action: AtomicAction):
 	print(self, " action ", action, " finished")
-	if actions.empty():
-		actions = $Actions.get_children()
 	_perform_next_action()
 
 func _perform_next_action():
 	var action: AtomicAction = actions.pop_front()
 	print("next_Action: ", action)
-	action.perform(self)
+	action.perform(actor)
 	if action.icon != "":
 		actor.emotion_bubble.show_emotion(action.icon)
