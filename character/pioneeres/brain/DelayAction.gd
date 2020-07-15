@@ -7,8 +7,8 @@ export(float, 1, 30) var wait_time
 func _ready():
 	icon = "sleep"
 	
-func perform(brain):
-	.perform(brain)
+func perform(actor):
+	.perform(actor)
 	$Timer.start(wait_time)
 
 func _on_Timer_timeout():

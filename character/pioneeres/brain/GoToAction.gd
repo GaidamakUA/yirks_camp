@@ -3,16 +3,14 @@ extends AtomicAction
 class_name GoToAction
 
 onready var target: Position2D = $Destination
-var navigation
 
-func perform(_actor):
-	.perform(brain)
-	var actor: Node2D = _actor
-	navigation = actor.find_node("Navigation")
-	navigation.set_destination(target.global_position)
-	navigation.connect("arrived", self, "_on_navigation_finished")
+
+func perform(actor):
+	.perform(actor)
+	actor.navigator.set_destination(target.global_position)
+	actor.navigator.connect("arrived", self, "_on_navigation_finished")
 
 func _on_navigation_finished():
 	_notify_done()
-	navigation.disconnect("arrived", self, "_on_navigation_finished")
-	navigation = null
+	actor.navigator.disconnect("arrived", self, "_on_navigation_finished")
+
