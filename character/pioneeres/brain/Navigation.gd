@@ -45,10 +45,7 @@ func _is_active() -> bool:
 	return _destination != Vector2.INF
 
 func _is_arrived() -> bool:
-	if _remaining_distance() < arrival_threshhold:
-		emit_signal("arrived")
-		_destination = Vector2.INF
-	return _destination == Vector2.INF
+	return _remaining_distance() < arrival_threshhold
 
 func _remaining_distance() -> float:
 	return _destination.distance_to(global_position)

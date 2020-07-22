@@ -43,7 +43,6 @@ frame = 1
 
 [node name="Statue3" parent="Objects" index="4" instance=ExtResource( 4 )]
 position = Vector2( 160, 80 )
-frame = 0
 
 [node name="Fire" parent="Objects" index="5" instance=ExtResource( 3 )]
 position = Vector2( 560, 112 )
@@ -62,7 +61,7 @@ script = ExtResource( 10 )
 [node name="Actions" type="Node" parent="Objects/Pioneeres/Brain" index="1"]
 
 [node name="DelayAction" parent="Objects/Pioneeres/Brain/Actions" index="0" instance=ExtResource( 9 )]
-wait_time = 5.0
+wait_time = 2.0
 
 [node name="InteractAction" parent="Objects/Pioneeres/Brain/Actions" index="1" instance=ExtResource( 8 )]
 

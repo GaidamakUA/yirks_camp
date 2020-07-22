@@ -5,9 +5,8 @@ class_name GoToAction
 onready var target: Position2D = $Destination
 var navigation
 
-func perform(_actor):
-	.perform(brain)
-	var actor: Node2D = _actor
+func _perform():
+	var actor: Node2D = brain
 	navigation = actor.find_node("Navigation")
 	navigation.set_destination(target.global_position)
 	navigation.connect("arrived", self, "_on_navigation_finished")

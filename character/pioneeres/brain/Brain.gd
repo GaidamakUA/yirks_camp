@@ -9,6 +9,7 @@ func start():
 
 func action_finished(action: AtomicAction):
 	print(self, " action ", action, " finished")
+	action.disconnect("done", self, "action_finished")
 	if actions.empty():
 		actions = $Actions.get_children()
 	_perform_next_action()
@@ -16,6 +17,7 @@ func action_finished(action: AtomicAction):
 func _perform_next_action():
 	var action: AtomicAction = actions.pop_front()
 	print("next_Action: ", action)
+	action.connect("done", self, "action_finished")
 	action.perform(self)
 	if action.icon != "":
 		actor.emotion_bubble.show_emotion(action.icon)
