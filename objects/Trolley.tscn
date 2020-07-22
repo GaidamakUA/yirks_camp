@@ -1,18 +1,19 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://assets/build_atlas.png" type="Texture" id=1]
+[ext_resource path="res://assets/dungeonex.png" type="Texture" id=1]
 [ext_resource path="res://objects/StaticObject.tscn" type="PackedScene" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 56, 44 )
+extents = Vector2( 20.6183, 13.1386 )
 
-[node name="Tent" instance=ExtResource( 2 )]
+[node name="trolley" instance=ExtResource( 2 )]
 
 [node name="Sprite" parent="." index="0"]
+position = Vector2( -0.89093, 3.5636 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 544, 512, 128, 160 )
+region_rect = Rect2( 352, 160, 64, 64 )
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2( 0, 30 )
+position = Vector2( -3.30356, 5.66325 )
 shape = SubResource( 1 )

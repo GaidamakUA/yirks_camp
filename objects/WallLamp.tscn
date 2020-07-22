@@ -12,6 +12,8 @@ region_enabled = true
 region_rect = Rect2( 361, 6, 16, 16 )
 
 [node name="Light" type="Light2D" parent="."]
+position = Vector2( -0.66745, 0 )
+scale = Vector2( 1.57207, 1.50533 )
 texture = ExtResource( 2 )
 texture_scale = 0.7
 color = Color( 0.792157, 0.752941, 0.164706, 1 )

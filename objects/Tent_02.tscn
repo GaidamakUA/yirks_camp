@@ -4,15 +4,15 @@
 [ext_resource path="res://objects/StaticObject.tscn" type="PackedScene" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 56, 44 )
+extents = Vector2( 57.2565, 44.392 )
 
-[node name="Tent" instance=ExtResource( 2 )]
+[node name="StaticObject" instance=ExtResource( 2 )]
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 544, 512, 128, 160 )
+region_rect = Rect2( 416, 512, 128, 160 )
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2( 0, 30 )
+position = Vector2( 0, 30.0338 )
 shape = SubResource( 1 )
