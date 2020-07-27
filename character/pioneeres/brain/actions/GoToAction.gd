@@ -1,6 +1,6 @@
 extends AtomicAction
 
-class_name GoToAction
+class_name GoToAction, "res://assets/class_icons/walk.png"
 
 onready var target: Position2D = $Destination
 var navigation

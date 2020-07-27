@@ -1,9 +1,6 @@
 extends AtomicAction
 
-class_name InteractAction
-
-func _ready():
-	icon = "idea"
+class_name InteractAction, "res://assets/class_icons/click.png"
 
 func _perform():
 	brain.actor.interact()

@@ -1,11 +1,8 @@
 extends AtomicAction
 
-class_name DelayAction
+class_name DelayAction, "res://assets/class_icons/pocket-watch.png"
 
 export(float, 1, 30) var wait_time
-
-func _ready():
-	icon = "sleep"
 	
 func _perform():
 	$Timer.start(wait_time)

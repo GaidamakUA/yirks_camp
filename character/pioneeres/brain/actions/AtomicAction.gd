@@ -1,11 +1,10 @@
 extends Node
 
-class_name AtomicAction
+class_name AtomicAction, "res://assets/class_icons/check-mark.png"
 
 signal done(action)
 
 var brain
-var icon = ""
 
 func perform(_brain):
 	# Should not be touched

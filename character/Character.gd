@@ -62,6 +62,7 @@ func _on_InteractBox_area_entered(area):
 
 func _on_InteractBox_area_exited(area):
 	if area.get_collision_layer_bit(6):
+		interactive_object.disconnect("finished_interaction", self, "_on_interaction_finished")
 		interactive_object = null
 	print("exited ", area)
 

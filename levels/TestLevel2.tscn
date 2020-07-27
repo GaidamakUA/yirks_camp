@@ -7,11 +7,11 @@
 [ext_resource path="res://objects/Bird.tscn" type="PackedScene" id=5]
 [ext_resource path="res://objects/bus/Laz.tscn" type="PackedScene" id=6]
 [ext_resource path="res://objects/toilet/Toilet.tscn" type="PackedScene" id=7]
-[ext_resource path="res://character/pioneeres/brain/InteractAction.tscn" type="PackedScene" id=8]
-[ext_resource path="res://character/pioneeres/brain/DelayAction.tscn" type="PackedScene" id=9]
+[ext_resource path="res://character/pioneeres/brain/actions/InteractAction.tscn" type="PackedScene" id=8]
+[ext_resource path="res://character/pioneeres/brain/actions/DelayAction.tscn" type="PackedScene" id=9]
 [ext_resource path="res://character/pioneeres/brain/Brain.gd" type="Script" id=10]
 [ext_resource path="res://character/pioneeres/brain/Navigation.tscn" type="PackedScene" id=11]
-[ext_resource path="res://character/pioneeres/brain/GoToAction.tscn" type="PackedScene" id=12]
+[ext_resource path="res://character/pioneeres/brain/actions/GoToAction.tscn" type="PackedScene" id=12]
 
 [node name="TestLevel2" instance=ExtResource( 1 )]
 
@@ -43,6 +43,7 @@ frame = 1
 
 [node name="Statue3" parent="Objects" index="4" instance=ExtResource( 4 )]
 position = Vector2( 160, 80 )
+frame = 0
 
 [node name="Fire" parent="Objects" index="5" instance=ExtResource( 3 )]
 position = Vector2( 560, 112 )
