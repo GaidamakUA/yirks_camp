@@ -879,7 +879,7 @@ position = Vector2( 744, 1016 )
 position = Vector2( 2144, 952 )
 
 [node name="WallLamp10" parent="Objects" instance=ExtResource( 13 )]
-position = Vector2( 1648, 0 )
+position = Vector2( 1648, -4 )
 
 [node name="Door" parent="Objects" instance=ExtResource( 15 )]
 position = Vector2( 1935.78, 541.549 )
