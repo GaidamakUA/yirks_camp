@@ -2,41 +2,50 @@
 
 [ext_resource path="res://assets/toilet.png" type="Texture" id=1]
 [ext_resource path="res://objects/toilet/Toilet.gd" type="Script" id=2]
-[ext_resource path="res://objects/toilet/Door.tscn" type="PackedScene" id=3]
-[ext_resource path="res://objects/toilet/InteractiveArea.gd" type="Script" id=4]
+[ext_resource path="res://objects/door/Door.tscn" type="PackedScene" id=3]
 
-[sub_resource type="CapsuleShape2D" id=1]
-radius = 19.0
-height = 30.0
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 15, 5 )
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 24.0
 
 [node name="Toilet" type="YSort"]
 script = ExtResource( 2 )
 
-[node name="Toilet" type="StaticBody2D" parent="."]
-
-[node name="toilet" type="Sprite" parent="Toilet"]
+[node name="ToiletSprite" type="Sprite" parent="."]
 position = Vector2( 0, -12 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 64, 96 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Toilet"]
+[node name="ToiletCollision" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ToiletCollision"]
 position = Vector2( 0, 20 )
 polygon = PoolVector2Array( -16, -1, -16, -22, 16, -22, 16, -1, 22, -1, 22, -29, -22, -29, -22, -1 )
 
 [node name="Door" parent="." instance=ExtResource( 3 )]
 position = Vector2( -16, 15 )
 
-[node name="InteractiveArea" type="Area2D" parent="."]
-visible = false
-collision_layer = 64
-collision_mask = 4
-script = ExtResource( 4 )
+[node name="OccupationArea" type="Area2D" parent="."]
+collision_layer = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractiveArea"]
-position = Vector2( -6, 18 )
-rotation = 1.5708
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OccupationArea"]
+position = Vector2( 0, 5 )
+z_index = 1
 shape = SubResource( 1 )
-[connection signal="animation_finished" from="Door/AnimationPlayer" to="InteractiveArea" method="_on_AnimationPlayer_animation_finished"]
+
+[node name="OccupationInfoProvider" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 2147483648
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OccupationInfoProvider"]
+position = Vector2( 0, 18 )
+rotation = 1.5708
+z_index = 1
+shape = SubResource( 2 )
+[connection signal="body_entered" from="OccupationArea" to="." method="_on_OccupationArea_body_entered"]
+[connection signal="body_exited" from="OccupationArea" to="." method="_on_OccupationArea_body_exited"]
 
 [editable path="Door"]

@@ -1,15 +1,15 @@
 extends Node2D
 
-onready var door = $Door
+class_name Toilet
 
-func _interact():
-	if door.is_open():
-		door.close()
-	else:
-		door.open()
+var occupant
 
-func show_palm():
-	door.show_palm()
+func _on_OccupationArea_body_entered(body):
+	occupant = body
 
-func hide_palm():
-	door.hide_palm()
+func _on_OccupationArea_body_exited(body):
+	occupant = null
+
+func is_free() -> bool:
+	print("Toilet occupant ", occupant)
+	return occupant == null

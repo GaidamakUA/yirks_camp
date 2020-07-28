@@ -2,6 +2,7 @@ extends Node2D
 
 onready var actions = $Actions.get_children()
 onready var actor = get_parent()
+onready var hand_reach_sensor: Area2D = $HeandReachSensor
 
 func start():
 	print(actions)
@@ -19,5 +20,3 @@ func _perform_next_action():
 	print("next_Action: ", action)
 	action.connect("done", self, "action_finished")
 	action.perform(self)
-	if action.icon != "":
-		actor.emotion_bubble.show_emotion(action.icon)

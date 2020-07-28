@@ -14,8 +14,9 @@
 [ext_resource path="res://assets/dungeonex.png" type="Texture" id=12]
 [ext_resource path="res://objects/WallLamp.tscn" type="PackedScene" id=13]
 [ext_resource path="res://objects/Trolley.tscn" type="PackedScene" id=14]
-[ext_resource path="res://objects/toilet/Door.tscn" type="PackedScene" id=15]
+[ext_resource path="res://objects/door/Door.tscn" type="PackedScene" id=15]
 [ext_resource path="res://assets/old_door_01.png" type="Texture" id=16]
+
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )

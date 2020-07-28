@@ -4,6 +4,12 @@ onready var animation_player = $AnimationPlayer
 onready var collision_shape = $CollisionShape2D
 onready var yeerk_palm = $YeerkPalm
 
+func _interact():
+	if is_open():
+		close()
+	else:
+		open()
+
 func open():
 	animation_player.play("Open")
 

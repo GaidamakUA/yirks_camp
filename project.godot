@@ -12,28 +12,52 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "AtomicAction",
 "language": "GDScript",
-"path": "res://character/pioneeres/brain/actions/AtomicAction.gd"
+"path": "res://character/brain/actions/AtomicAction.gd"
 }, {
 "base": "AtomicAction",
 "class": "DelayAction",
 "language": "GDScript",
-"path": "res://character/pioneeres/brain/actions/DelayAction.gd"
+"path": "res://character/brain/actions/DelayAction.gd"
 }, {
 "base": "AtomicAction",
 "class": "GoToAction",
 "language": "GDScript",
-"path": "res://character/pioneeres/brain/actions/GoToAction.gd"
+"path": "res://character/brain/actions/GoToAction.gd"
 }, {
 "base": "AtomicAction",
 "class": "InteractAction",
 "language": "GDScript",
-"path": "res://character/pioneeres/brain/actions/InteractAction.gd"
+"path": "res://character/brain/actions/InteractAction.gd"
+}, {
+"base": "Precondition",
+"class": "IsToiletFree",
+"language": "GDScript",
+"path": "res://character/brain/preconditions/IsToiletFree.gd"
+}, {
+"base": "Node",
+"class": "Precondition",
+"language": "GDScript",
+"path": "res://character/brain/preconditions/Pecondition.gd"
+}, {
+"base": "AtomicAction",
+"class": "SayAction",
+"language": "GDScript",
+"path": "res://character/brain/actions/SayAction.gd"
+}, {
+"base": "Node2D",
+"class": "Toilet",
+"language": "GDScript",
+"path": "res://objects/toilet/Toilet.gd"
 } ]
 _global_script_class_icons={
 "AtomicAction": "res://assets/class_icons/check-mark.png",
 "DelayAction": "res://assets/class_icons/pocket-watch.png",
 "GoToAction": "res://assets/class_icons/walk.png",
-"InteractAction": "res://assets/class_icons/click.png"
+"InteractAction": "res://assets/class_icons/click.png",
+"IsToiletFree": "res://assets/class_icons/toilet.png",
+"Precondition": "",
+"SayAction": "res://assets/class_icons/chat-bubble.png",
+"Toilet": ""
 }
 
 [application]
@@ -127,6 +151,7 @@ interact={
 2d_physics/layer_5="HideoutBlock"
 2d_physics/layer_6="Water"
 2d_physics/layer_7="Interactive"
+2d_physics/layer_8="SensorProvider"
 
 [physics]
 

@@ -1,5 +1,7 @@
 extends Control
 
+signal finished_replica
+
 export(float, 0, 1) var delay_s := 0.1
 
 var text: String
@@ -19,3 +21,4 @@ func show_next_character():
 		timer.start(delay_s)
 	else:
 		queue_free()
+		emit_signal("finished_replica")
