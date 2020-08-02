@@ -898,7 +898,6 @@ format = 1
 position = Vector2( 1631.06, 825.47 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color( 0, 0, 0, 1 )
 
 [node name="DeathAnimation" type="Sprite" parent="."]
