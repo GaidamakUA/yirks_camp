@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://objects/interactive/base/BaseInteractionShape.tres" type="Shape2D" id=1]
+[ext_resource path="res://objects/interactive/base/InteractiveArea.gd" type="Script" id=2]
+
+[node name="InteractiveArea" type="Area2D"]
+collision_layer = 64
+collision_mask = 2147483652
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = ExtResource( 1 )

@@ -56,7 +56,7 @@ position = Vector2( 560, 112 )
 position = Vector2( 340, 347 )
 
 [node name="Pioneeres" parent="Objects" index="7" instance=ExtResource( 2 )]
-position = Vector2( 34, 229 )
+position = Vector2( 33, 225 )
 
 [node name="Brain" type="Node2D" parent="Objects/Pioneeres" index="8"]
 script = ExtResource( 10 )

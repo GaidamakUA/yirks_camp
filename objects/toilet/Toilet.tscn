@@ -2,7 +2,7 @@
 
 [ext_resource path="res://assets/toilet.png" type="Texture" id=1]
 [ext_resource path="res://objects/toilet/Toilet.gd" type="Script" id=2]
-[ext_resource path="res://objects/door/Door.tscn" type="PackedScene" id=3]
+[ext_resource path="res://objects/interactive/door/Door.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 15, 5 )
@@ -47,5 +47,3 @@ z_index = 1
 shape = SubResource( 2 )
 [connection signal="body_entered" from="OccupationArea" to="." method="_on_OccupationArea_body_entered"]
 [connection signal="body_exited" from="OccupationArea" to="." method="_on_OccupationArea_body_exited"]
-
-[editable path="Door"]
