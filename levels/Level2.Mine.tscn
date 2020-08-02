@@ -17,7 +17,6 @@
 [ext_resource path="res://objects/door/Door.tscn" type="PackedScene" id=15]
 [ext_resource path="res://assets/old_door_01.png" type="Texture" id=16]
 
-
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
@@ -899,6 +898,7 @@ format = 1
 position = Vector2( 1631.06, 825.47 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color( 0, 0, 0, 1 )
 
 [node name="DeathAnimation" type="Sprite" parent="."]
