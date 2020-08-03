@@ -1,4 +1,4 @@
-extends 'res://objects/interactive/base/BaseInteractiveObject.gd'
+extends BaseInteractiveObject
 
 onready var animation_player = $AnimationPlayer
 onready var collision_shape = $Collision/CollisionShape2D

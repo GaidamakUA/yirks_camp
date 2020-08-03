@@ -15,10 +15,10 @@ script = ExtResource( 1 )
 position = Vector2( 16, -27 )
 texture = ExtResource( 2 )
 hframes = 5
-frame = 1
+frame = 3
 
 [node name="YeerkPalm" parent="." index="1"]
-position = Vector2( 34, -20 )
+position = Vector2( -6, -5 )
 
 [node name="InteractiveArea" parent="." index="2"]
 position = Vector2( 11, 1 )
@@ -31,4 +31,5 @@ anims/open_door = ExtResource( 5 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collision" index="0"]
 position = Vector2( 16, 0 )
 shape = SubResource( 1 )
+disabled = true
 [connection signal="animation_finished" from="AnimationPlayer" to="InteractiveArea" method="_on_AnimationPlayer_animation_finished"]
