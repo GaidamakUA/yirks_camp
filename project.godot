@@ -53,6 +53,11 @@ _global_script_classes=[ {
 "class": "Toilet",
 "language": "GDScript",
 "path": "res://objects/toilet/Toilet.gd"
+}, {
+"base": "Node2D",
+"class": "WallLamp",
+"language": "GDScript",
+"path": "res://objects/WallLamp.gd"
 } ]
 _global_script_class_icons={
 "AtomicAction": "res://assets/class_icons/check-mark.png",
@@ -63,7 +68,8 @@ _global_script_class_icons={
 "IsToiletFree": "res://assets/class_icons/toilet.png",
 "Precondition": "",
 "SayAction": "res://assets/class_icons/chat-bubble.png",
-"Toilet": ""
+"Toilet": "",
+"WallLamp": ""
 }
 
 [application]

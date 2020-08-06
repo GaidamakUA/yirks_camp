@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://levels/BaseLevel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://character/pioneeres/Pioneeres.tscn" type="PackedScene" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://character/brain/actions/SayAction.tscn" type="PackedScene" id=14]
 [ext_resource path="res://objects/interactive/switch/Switch.tscn" type="PackedScene" id=15]
 [ext_resource path="res://objects/WallLamp.tscn" type="PackedScene" id=16]
+[ext_resource path="res://character/brain/actions/SayAction.gd" type="Script" id=17]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -82,6 +83,7 @@ wait_time = 2.0
 [node name="IsToiletFree" parent="Objects/Pioneeres/Brain/Actions/InteractAction" index="0" instance=ExtResource( 13 )]
 
 [node name="SayAction" parent="Objects/Pioneeres/Brain/Actions" index="2" instance=ExtResource( 14 )]
+replica = "Курво"
 
 [node name="IsToiletFree" parent="Objects/Pioneeres/Brain/Actions/SayAction" index="0" instance=ExtResource( 13 )]
 inverted = true
@@ -98,6 +100,23 @@ position = Vector2( 33, 225 )
 
 [node name="Pioneeres2" parent="Objects" index="8" instance=ExtResource( 2 )]
 position = Vector2( 272, 192 )
+
+[node name="Brain" type="Node2D" parent="Objects/Pioneeres2" index="8"]
+script = ExtResource( 10 )
+
+[node name="Actions" type="Node" parent="Objects/Pioneeres2/Brain" index="0"]
+
+[node name="SayAction" type="Node" parent="Objects/Pioneeres2/Brain/Actions" index="0"]
+script = ExtResource( 17 )
+replica = "Сап, Нічан"
+
+[node name="DelayAction" parent="Objects/Pioneeres2/Brain/Actions" index="1" instance=ExtResource( 9 )]
+
+[node name="SayAction2" type="Node" parent="Objects/Pioneeres2/Brain/Actions" index="2"]
+script = ExtResource( 17 )
+replica = "АМІР вітає"
+
+[node name="DelayAction2" parent="Objects/Pioneeres2/Brain/Actions" index="3" instance=ExtResource( 9 )]
 
 [node name="Pioneeres3" parent="Objects" index="9" instance=ExtResource( 2 )]
 position = Vector2( 416, 144 )

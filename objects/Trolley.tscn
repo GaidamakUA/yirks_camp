@@ -9,11 +9,11 @@ extents = Vector2( 20.6183, 13.1386 )
 [node name="trolley" instance=ExtResource( 2 )]
 
 [node name="Sprite" parent="." index="0"]
-position = Vector2( -0.89093, 3.5636 )
+position = Vector2( 5, -5 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 352, 160, 64, 64 )
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2( -3.30356, 5.66325 )
+position = Vector2( 3, -1 )
 shape = SubResource( 1 )
