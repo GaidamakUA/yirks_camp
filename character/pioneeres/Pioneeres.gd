@@ -6,5 +6,5 @@ func _ready():
 	if $Brain:
 		$Brain.start()
 
-func _on_HurtBox_area_entered(area):
+func _on_HurtBox_area_entered(_area):
 	die()

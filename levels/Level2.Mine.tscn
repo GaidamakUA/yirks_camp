@@ -636,7 +636,7 @@ points = PoolVector2Array( 24, 32, 0, 32, 0, 24, 24, 24 )
 [sub_resource type="OccluderPolygon2D" id=28]
 polygon = PoolVector2Array( -480.571, -88.6313, -475.236, -88.0697, -468.692, -54.0878, -485.934, -54.0878 )
 
-[sub_resource type="Animation" id=40]
+[sub_resource type="Animation" id=29]
 resource_name = "fall"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:position")
@@ -687,37 +687,37 @@ tracks/3/keys = {
 } ]
 }
 
-[sub_resource type="RectangleShape2D" id=41]
+[sub_resource type="RectangleShape2D" id=30]
 extents = Vector2( 37, 48 )
 
-[sub_resource type="ConvexPolygonShape2D" id=29]
+[sub_resource type="ConvexPolygonShape2D" id=31]
 points = PoolVector2Array( 32, 32, 24, 32, 24, 16, 32, 16 )
 
-[sub_resource type="ConvexPolygonShape2D" id=30]
+[sub_resource type="ConvexPolygonShape2D" id=32]
 points = PoolVector2Array( 32, 32, 0, 32, 0, 16, 32, 16 )
 
-[sub_resource type="ConvexPolygonShape2D" id=31]
+[sub_resource type="ConvexPolygonShape2D" id=33]
 points = PoolVector2Array( 8, 32, 0, 32, 0, 16, 8, 16 )
 
-[sub_resource type="ConvexPolygonShape2D" id=32]
+[sub_resource type="ConvexPolygonShape2D" id=34]
 points = PoolVector2Array( 32, 32, 24, 32, 24, 0, 32, 0 )
 
-[sub_resource type="ConvexPolygonShape2D" id=33]
+[sub_resource type="ConvexPolygonShape2D" id=35]
 points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
-[sub_resource type="ConvexPolygonShape2D" id=34]
+[sub_resource type="ConvexPolygonShape2D" id=36]
 points = PoolVector2Array( 8, 32, 0, 32, 0, 0, 8, 0 )
 
-[sub_resource type="ConvexPolygonShape2D" id=35]
+[sub_resource type="ConvexPolygonShape2D" id=37]
 points = PoolVector2Array( 8, 24, 0, 24, 0, 0, 8, 0 )
 
-[sub_resource type="ConvexPolygonShape2D" id=36]
+[sub_resource type="ConvexPolygonShape2D" id=38]
 points = PoolVector2Array( 32, 24, 0, 24, 0, 0, 32, 0 )
 
-[sub_resource type="ConvexPolygonShape2D" id=37]
+[sub_resource type="ConvexPolygonShape2D" id=39]
 points = PoolVector2Array( 32, 24, 24, 24, 24, 0, 32, 0 )
 
-[sub_resource type="TileSet" id=38]
+[sub_resource type="TileSet" id=40]
 0/name = "nettle.png 0"
 0/texture = ExtResource( 5 )
 0/tex_offset = Vector2( 0, 0 )
@@ -737,67 +737,67 @@ points = PoolVector2Array( 32, 24, 24, 24, 24, 0, 32, 0 )
 0/navigation_offset = Vector2( 0, 0 )
 0/shape_offset = Vector2( 0, 0 )
 0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-0/shape = SubResource( 29 )
+0/shape = SubResource( 31 )
 0/shape_one_way = false
 0/shape_one_way_margin = 1.0
 0/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 29 ),
+"shape": SubResource( 31 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 1, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 30 ),
+"shape": SubResource( 32 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 2, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 31 ),
+"shape": SubResource( 33 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 0, 1 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 32 ),
+"shape": SubResource( 34 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 1, 1 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 33 ),
+"shape": SubResource( 35 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 2, 1 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 34 ),
+"shape": SubResource( 36 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 2, 2 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 35 ),
+"shape": SubResource( 37 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 1, 2 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 36 ),
+"shape": SubResource( 38 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 0, 2 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 37 ),
+"shape": SubResource( 39 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 0/z_index = 0
 
-[sub_resource type="Animation" id=39]
+[sub_resource type="Animation" id=41]
 length = 1.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -936,7 +936,7 @@ position = Vector2( 1627, 832 )
 script = ExtResource( 19 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Objects/trolley"]
-anims/fall = SubResource( 40 )
+anims/fall = SubResource( 29 )
 
 [node name="Area2D" type="Area2D" parent="Objects/trolley"]
 collision_layer = 0
@@ -944,7 +944,7 @@ collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/trolley/Area2D"]
 position = Vector2( -53, 0 )
-shape = SubResource( 41 )
+shape = SubResource( 30 )
 
 [node name="LampsEnd" type="YSort" parent="Objects"]
 script = ExtResource( 16 )
@@ -966,7 +966,7 @@ position = Vector2( 1984, 511 )
 position = Vector2( 1648, -4 )
 
 [node name="Foreground" type="TileMap" parent="."]
-tile_set = SubResource( 38 )
+tile_set = SubResource( 40 )
 cell_size = Vector2( 32, 32 )
 collision_layer = 8
 collision_mask = 0
@@ -987,7 +987,7 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="DeathAnimation"]
-anims/death1 = SubResource( 39 )
+anims/death1 = SubResource( 41 )
 [connection signal="timeout" from="Objects/WallLamp5/ChangeBrightnessTimer" to="Objects/WallLamp5" method="_on_ChangeBrightnessTimer_timeout"]
 [connection signal="switch_flipped" from="Objects/SwitchStart" to="Objects/LampsStart" method="_on_switch_flipped"]
 [connection signal="switch_flipped" from="Objects/SwitchEnd" to="Objects/LampsEnd" method="_on_switch_flipped"]

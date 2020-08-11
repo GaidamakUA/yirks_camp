@@ -1,12 +1,19 @@
-extends AtomicAction
+extends Node
 
-class_name CompositeAction, "res://assets/class_icons/stairs-goal.png"
+const INVALID_WEIGHT := -1
 
+onready var brain = get_parent()
 var actions: Array
 
-func _perform():
+# Should be modified in children
+var weight := 0
+
+func _recalculate_weight():
+	pass
+
+func _persue():
 	actions = get_children()
-	print(actions)
+	print("persue ", self, " ", actions)
 	_perform_next_action()
 
 func action_finished(action: AtomicAction):
@@ -22,3 +29,9 @@ func _perform_next_action():
 	print("next_Action: ", action)
 	action.connect("done", self, "action_finished")
 	action.perform(brain)
+
+func _notify_done():
+	weight = INVALID_WEIGHT
+
+func _to_string() -> String:
+	return "BaseGoal"

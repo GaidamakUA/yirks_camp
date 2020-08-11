@@ -18,13 +18,13 @@ onready var dash_raycast = $DashCollision
 func _ready():
 	$Sprite.texture = yeerk_land
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if tween.is_active() && dash_raycast.is_colliding():
 		tween.seek(tween.tell() - 0.02)
 		tween.remove_all()
 		spawn.stop()
 
-func _process(delta):
+func _process(_delta):
 	if tween.is_active():
 		return
 	if Input.is_action_just_pressed("dash"):

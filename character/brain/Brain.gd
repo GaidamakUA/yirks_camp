@@ -2,7 +2,8 @@ extends Node2D
 
 onready var actions = $Actions.get_children()
 onready var actor = get_parent()
-onready var hand_reach_sensor: Area2D = $HeandReachSensor
+onready var navigation = $Navigation
+onready var hand_reach_sensor: Area2D = $HandReachSensor
 
 func start():
 	print(actions)

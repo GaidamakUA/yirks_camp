@@ -55,14 +55,14 @@ var is_ready := false
 func _ready():
 	is_ready = true
 	
-func show_emotion(emotion: String):
+func show_emotion(new_emotion: String):
 	_set_style("speaking_square")
-	_set_emotion(emotion)
+	_set_emotion(new_emotion)
 	_indicate()
 
-func think_emotion(emotion: String):
+func think_emotion(new_emotion: String):
 	_set_style("thinking")
-	_set_emotion(emotion)
+	_set_emotion(new_emotion)
 	_indicate()
 
 func _set_style(style_id: String):

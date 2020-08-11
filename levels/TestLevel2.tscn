@@ -2,21 +2,21 @@
 
 [ext_resource path="res://levels/BaseLevel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://character/pioneeres/Pioneeres.tscn" type="PackedScene" id=2]
-[ext_resource path="res://objects/fire/Fire.tscn" type="PackedScene" id=3]
+[ext_resource path="res://objects/gathering_place/GatheringPlace.tscn" type="PackedScene" id=3]
 [ext_resource path="res://objects/Statue.tscn" type="PackedScene" id=4]
 [ext_resource path="res://objects/Bird.tscn" type="PackedScene" id=5]
 [ext_resource path="res://objects/bus/Laz.tscn" type="PackedScene" id=6]
 [ext_resource path="res://objects/toilet/Toilet.tscn" type="PackedScene" id=7]
-[ext_resource path="res://character/brain/actions/InteractAction.tscn" type="PackedScene" id=8]
-[ext_resource path="res://character/brain/actions/DelayAction.tscn" type="PackedScene" id=9]
+[ext_resource path="res://character/brain/actions/InteractAction.gd" type="Script" id=8]
+[ext_resource path="res://character/brain/actions/GoToAction.gd" type="Script" id=9]
 [ext_resource path="res://character/brain/Brain.gd" type="Script" id=10]
 [ext_resource path="res://character/brain/Navigation.tscn" type="PackedScene" id=11]
-[ext_resource path="res://character/brain/actions/GoToAction.tscn" type="PackedScene" id=12]
-[ext_resource path="res://character/brain/preconditions/IsToiletFree.tscn" type="PackedScene" id=13]
-[ext_resource path="res://character/brain/actions/SayAction.tscn" type="PackedScene" id=14]
+[ext_resource path="res://character/brain/actions/DelayAction.gd" type="Script" id=12]
+[ext_resource path="res://character/brain/preconditions/IsToiletFree.gd" type="Script" id=13]
+[ext_resource path="res://character/brain/actions/CompositeAction.gd" type="Script" id=14]
 [ext_resource path="res://objects/interactive/switch/Switch.tscn" type="PackedScene" id=15]
 [ext_resource path="res://objects/WallLamp.tscn" type="PackedScene" id=16]
-[ext_resource path="res://character/brain/actions/SayAction.gd" type="Script" id=17]
+[ext_resource path="res://character/brain/preconditions/IsDoorOpen.gd" type="Script" id=17]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -52,84 +52,98 @@ frame = 1
 position = Vector2( 160, 80 )
 frame = 0
 
-[node name="Fire" parent="Objects" index="5" instance=ExtResource( 3 )]
-position = Vector2( 560, 112 )
-
-[node name="Character" parent="Objects" index="6"]
+[node name="Character" parent="Objects" index="5"]
 position = Vector2( 340, 347 )
 
-[node name="Pioneeres" parent="Objects" index="7" instance=ExtResource( 2 )]
-position = Vector2( 33, 225 )
+[node name="Pioneeres" parent="Objects" index="6" instance=ExtResource( 2 )]
+position = Vector2( 134, 255 )
 
 [node name="Brain" type="Node2D" parent="Objects/Pioneeres" index="8"]
 script = ExtResource( 10 )
 
 [node name="Navigation" parent="Objects/Pioneeres/Brain" index="0" instance=ExtResource( 11 )]
 
-[node name="HeandReachSensor" type="Area2D" parent="Objects/Pioneeres/Brain" index="1"]
+[node name="HandReachSensor" type="Area2D" parent="Objects/Pioneeres/Brain" index="1"]
 collision_layer = 0
 collision_mask = 128
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Pioneeres/Brain/HeandReachSensor" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Pioneeres/Brain/HandReachSensor" index="0"]
 shape = SubResource( 1 )
 
 [node name="Actions" type="Node" parent="Objects/Pioneeres/Brain" index="2"]
 
-[node name="DelayAction" parent="Objects/Pioneeres/Brain/Actions" index="0" instance=ExtResource( 9 )]
-wait_time = 2.0
+[node name="CompositeAction" type="Node" parent="Objects/Pioneeres/Brain/Actions" index="0"]
+script = ExtResource( 14 )
 
-[node name="InteractAction" parent="Objects/Pioneeres/Brain/Actions" index="1" instance=ExtResource( 8 )]
+[node name="GoNearToilet" type="Node" parent="Objects/Pioneeres/Brain/Actions/CompositeAction" index="0"]
+script = ExtResource( 9 )
 
-[node name="IsToiletFree" parent="Objects/Pioneeres/Brain/Actions/InteractAction" index="0" instance=ExtResource( 13 )]
+[node name="Position2D" type="Position2D" parent="Objects/Pioneeres/Brain/Actions/CompositeAction/GoNearToilet" index="0"]
+position = Vector2( 32, 224 )
 
-[node name="SayAction" parent="Objects/Pioneeres/Brain/Actions" index="2" instance=ExtResource( 14 )]
-replica = "Курво"
+[node name="OpenToilet" type="Node" parent="Objects/Pioneeres/Brain/Actions/CompositeAction" index="1"]
+script = ExtResource( 8 )
 
-[node name="IsToiletFree" parent="Objects/Pioneeres/Brain/Actions/SayAction" index="0" instance=ExtResource( 13 )]
+[node name="IsToiletFree" type="Node" parent="Objects/Pioneeres/Brain/Actions/CompositeAction/OpenToilet" index="0"]
+script = ExtResource( 13 )
+
+[node name="IsDoorOpen" type="Node" parent="Objects/Pioneeres/Brain/Actions/CompositeAction/OpenToilet" index="1"]
+script = ExtResource( 17 )
 inverted = true
 
-[node name="GoToAction" parent="Objects/Pioneeres/Brain/Actions" index="3" instance=ExtResource( 12 )]
+[node name="EnterToilet" type="Node" parent="Objects/Pioneeres/Brain/Actions/CompositeAction" index="2"]
+script = ExtResource( 9 )
 
-[node name="Destination" parent="Objects/Pioneeres/Brain/Actions/GoToAction" index="0"]
-position = Vector2( 155, 304 )
+[node name="Position2D" type="Position2D" parent="Objects/Pioneeres/Brain/Actions/CompositeAction/EnterToilet" index="0"]
+position = Vector2( 32, 198 )
 
-[node name="GoToAction2" parent="Objects/Pioneeres/Brain/Actions" index="4" instance=ExtResource( 12 )]
+[node name="CloseToilet" type="Node" parent="Objects/Pioneeres/Brain/Actions/CompositeAction" index="3"]
+script = ExtResource( 8 )
 
-[node name="Destination" parent="Objects/Pioneeres/Brain/Actions/GoToAction2" index="0"]
-position = Vector2( 33, 225 )
+[node name="Pee" type="Node" parent="Objects/Pioneeres/Brain/Actions/CompositeAction" index="4"]
+script = ExtResource( 12 )
+wait_time = 2.0
 
-[node name="Pioneeres2" parent="Objects" index="8" instance=ExtResource( 2 )]
+[node name="OpenToilet2" type="Node" parent="Objects/Pioneeres/Brain/Actions/CompositeAction" index="5"]
+script = ExtResource( 8 )
+
+[node name="ExitToilet" type="Node" parent="Objects/Pioneeres/Brain/Actions/CompositeAction" index="6"]
+script = ExtResource( 9 )
+
+[node name="Position2D" type="Position2D" parent="Objects/Pioneeres/Brain/Actions/CompositeAction/ExitToilet" index="0"]
+position = Vector2( 32, 224 )
+
+[node name="CloseToilet2" type="Node" parent="Objects/Pioneeres/Brain/Actions/CompositeAction" index="7"]
+script = ExtResource( 8 )
+
+[node name="GoToAction4" type="Node" parent="Objects/Pioneeres/Brain/Actions" index="1"]
+script = ExtResource( 9 )
+
+[node name="Position2D" type="Position2D" parent="Objects/Pioneeres/Brain/Actions/GoToAction4" index="0"]
+position = Vector2( 256, 288 )
+
+[node name="Pioneeres2" parent="Objects" index="7" instance=ExtResource( 2 )]
 position = Vector2( 272, 192 )
 
-[node name="Brain" type="Node2D" parent="Objects/Pioneeres2" index="8"]
-script = ExtResource( 10 )
-
-[node name="Actions" type="Node" parent="Objects/Pioneeres2/Brain" index="0"]
-
-[node name="SayAction" type="Node" parent="Objects/Pioneeres2/Brain/Actions" index="0"]
-script = ExtResource( 17 )
-replica = "Сап, Нічан"
-
-[node name="DelayAction" parent="Objects/Pioneeres2/Brain/Actions" index="1" instance=ExtResource( 9 )]
-
-[node name="SayAction2" type="Node" parent="Objects/Pioneeres2/Brain/Actions" index="2"]
-script = ExtResource( 17 )
-replica = "АМІР вітає"
-
-[node name="DelayAction2" parent="Objects/Pioneeres2/Brain/Actions" index="3" instance=ExtResource( 9 )]
-
-[node name="Pioneeres3" parent="Objects" index="9" instance=ExtResource( 2 )]
+[node name="Pioneeres3" parent="Objects" index="8" instance=ExtResource( 2 )]
 position = Vector2( 416, 144 )
 
-[node name="Pioneeres4" parent="Objects" index="10" instance=ExtResource( 2 )]
+[node name="Pioneeres4" parent="Objects" index="9" instance=ExtResource( 2 )]
 position = Vector2( 336, 160 )
 
-[node name="WallLamp" parent="Objects" index="11" instance=ExtResource( 16 )]
+[node name="WallLamp" parent="Objects" index="10" instance=ExtResource( 16 )]
 position = Vector2( 723, 132 )
 
-[node name="Switch" parent="Objects" index="12" instance=ExtResource( 15 )]
+[node name="Switch" parent="Objects" index="11" instance=ExtResource( 15 )]
 position = Vector2( 688, 166 )
 is_on = true
+
+[node name="GatheringPlace" parent="Objects" index="12" instance=ExtResource( 3 )]
+position = Vector2( 288, 288 )
 
 [node name="Bird" parent="." index="5" instance=ExtResource( 5 )]
 position = Vector2( 240, -27 )
@@ -138,7 +152,3 @@ position = Vector2( 240, -27 )
 tile_data = PoolIntArray( -524270, 0, 0, -524269, 0, 2, -458734, 0, 65536, -458733, 0, 65538, -393198, 0, 65536, -393197, 0, 65538, -327662, 0, 65536, -327661, 0, 65538, -262126, 0, 65536, -262125, 0, 65538, -196590, 0, 131072, -196589, 0, 131074, 458772, 0, 0, 458773, 0, 2, 458776, 0, 0, 458777, 0, 1, 458778, 0, 1, 458779, 0, 2, 524308, 0, 65536, 524309, 0, 65538, 524312, 0, 65536, 524313, 0, 65537, 524314, 0, 65537, 524315, 0, 65538, 589836, 0, 0, 589837, 0, 2, 589839, 0, 0, 589840, 0, 1, 589841, 0, 1, 589842, 0, 2, 589844, 0, 65536, 589845, 0, 65538, 589848, 0, 65536, 589849, 0, 65537, 589850, 0, 65537, 589851, 0, 65538, 655372, 0, 131072, 655373, 0, 131074, 655375, 0, 131072, 655376, 0, 131073, 655377, 0, 131073, 655378, 0, 131074, 655380, 0, 131072, 655381, 0, 131074, 655384, 0, 131072, 655385, 0, 131073, 655386, 0, 131073, 655387, 0, 131074 )
 [connection signal="direction_update" from="Objects/Pioneeres/Brain/Navigation" to="Objects/Pioneeres" method="_on_direction"]
 [connection signal="switch_flipped" from="Objects/Switch" to="Objects/WallLamp" method="_on_switch_flipped"]
-
-[editable path="Objects/Pioneeres/Brain/Actions/GoToAction"]
-
-[editable path="Objects/Pioneeres/Brain/Actions/GoToAction2"]

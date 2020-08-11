@@ -20,7 +20,7 @@ func _ready():
 func set_destination(destination: Vector2):
 	_destination = destination
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if not _is_active():
 		return
 	elif _is_arrived():
@@ -35,7 +35,6 @@ func _physics_process(delta):
 		if raycast.is_colliding() && _remaining_distance() > distance_to_collision:
 			var displacement = raycast.get_collision_normal().rotated(_preferred_direction)
 			var displacement_scale = (raycast_length - distance_to_collision) / raycast_length
-			var displacement_scale_inv = 1 / displacement_scale
 			direction = direction * displacement_scale + displacement * displacement_scale
 		direction_indicator.look_at(global_position + direction)
 		

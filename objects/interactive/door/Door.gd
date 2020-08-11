@@ -1,7 +1,13 @@
 extends BaseInteractiveObject
 
+class_name Door
+
 onready var animation_player = $AnimationPlayer
 onready var collision_shape = $Collision/CollisionShape2D
+
+func _ready():
+	animation_player.current_animation = "open_door"
+	animation_player.stop(true)
 
 func _interact():
 	print("door interact")

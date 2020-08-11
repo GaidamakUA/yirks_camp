@@ -20,9 +20,19 @@ _global_script_classes=[ {
 "path": "res://objects/interactive/base/BaseInteractiveObject.gd"
 }, {
 "base": "AtomicAction",
+"class": "CompositeAction",
+"language": "GDScript",
+"path": "res://character/brain/actions/CompositeAction.gd"
+}, {
+"base": "AtomicAction",
 "class": "DelayAction",
 "language": "GDScript",
 "path": "res://character/brain/actions/DelayAction.gd"
+}, {
+"base": "BaseInteractiveObject",
+"class": "Door",
+"language": "GDScript",
+"path": "res://objects/interactive/door/Door.gd"
 }, {
 "base": "AtomicAction",
 "class": "GoToAction",
@@ -33,6 +43,11 @@ _global_script_classes=[ {
 "class": "InteractAction",
 "language": "GDScript",
 "path": "res://character/brain/actions/InteractAction.gd"
+}, {
+"base": "Precondition",
+"class": "IsDoorOpen",
+"language": "GDScript",
+"path": "res://character/brain/preconditions/IsDoorOpen.gd"
 }, {
 "base": "Precondition",
 "class": "IsToiletFree",
@@ -62,9 +77,12 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "AtomicAction": "res://assets/class_icons/check-mark.png",
 "BaseInteractiveObject": "",
+"CompositeAction": "res://assets/class_icons/stairs-goal.png",
 "DelayAction": "res://assets/class_icons/pocket-watch.png",
+"Door": "",
 "GoToAction": "res://assets/class_icons/walk.png",
 "InteractAction": "res://assets/class_icons/click.png",
+"IsDoorOpen": "res://assets/class_icons/door-open.png",
 "IsToiletFree": "res://assets/class_icons/toilet.png",
 "Precondition": "",
 "SayAction": "res://assets/class_icons/chat-bubble.png",
@@ -175,5 +193,6 @@ interact={
 
 [rendering]
 
+quality/driver/driver_name="GLES2"
 quality/2d/use_pixel_snap=true
 environment/default_environment="res://default_env.tres"

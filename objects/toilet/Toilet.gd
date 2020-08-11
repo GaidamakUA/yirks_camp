@@ -7,7 +7,7 @@ var occupant
 func _on_OccupationArea_body_entered(body):
 	occupant = body
 
-func _on_OccupationArea_body_exited(body):
+func _on_OccupationArea_body_exited(_body):
 	occupant = null
 
 func is_free() -> bool:
