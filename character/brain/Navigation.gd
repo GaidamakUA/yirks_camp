@@ -20,6 +20,9 @@ func _ready():
 func set_destination(destination: Vector2):
 	_destination = destination
 
+func drop():
+	_destination = global_position
+
 func _physics_process(_delta):
 	if not _is_active():
 		return

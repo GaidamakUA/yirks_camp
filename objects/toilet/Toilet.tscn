@@ -10,7 +10,9 @@ extents = Vector2( 15, 5 )
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 24.0
 
-[node name="Toilet" type="YSort"]
+[node name="Toilet" type="YSort" groups=[
+"POI",
+]]
 script = ExtResource( 2 )
 
 [node name="ToiletSprite" type="Sprite" parent="."]

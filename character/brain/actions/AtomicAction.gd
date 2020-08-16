@@ -23,6 +23,9 @@ func perform(_brain):
 	print(self, " perform")
 	_perform()
 
+func drop():
+	pass
+
 func is_relevant() -> bool:
 	if preconditions.empty():
 		return true

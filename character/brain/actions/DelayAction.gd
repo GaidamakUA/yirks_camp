@@ -10,6 +10,9 @@ func _ready():
 	add_child(timer)
 	timer.connect("timeout", self, "_on_Timer_timeout")
 
+func drop():
+	timer.stop()
+
 func _perform():
 	timer.start(wait_time)
 

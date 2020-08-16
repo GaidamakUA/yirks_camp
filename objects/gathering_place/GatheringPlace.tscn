@@ -4,7 +4,9 @@
 [ext_resource path="res://objects/gathering_place/GatheringSpot.tscn" type="PackedScene" id=2]
 [ext_resource path="res://objects/gathering_place/GatheringPlace.gd" type="Script" id=3]
 
-[node name="GatheringPlace" type="Node2D"]
+[node name="GatheringPlace" type="Node2D" groups=[
+"POI",
+]]
 script = ExtResource( 3 )
 
 [node name="Fire" parent="." instance=ExtResource( 1 )]

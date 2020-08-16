@@ -12,6 +12,9 @@ func _perform():
 	navigation.set_destination(target.global_position)
 	navigation.connect("arrived", self, "_on_navigation_finished")
 
+func drop():
+	navigation.drop()
+
 func _on_navigation_finished():
 	_notify_done()
 	navigation.disconnect("arrived", self, "_on_navigation_finished")
