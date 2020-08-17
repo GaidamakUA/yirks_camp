@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://levels/BaseLevel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://character/pioneeres/Pioneeres.tscn" type="PackedScene" id=2]
@@ -20,6 +20,11 @@
 [ext_resource path="res://character/brain/sensors/Bladder.gd" type="Script" id=18]
 [ext_resource path="res://character/brain/goals/IdleGoal.gd" type="Script" id=19]
 [ext_resource path="res://character/brain/actions/EmptyBladderAction.gd" type="Script" id=20]
+[ext_resource path="res://character/brain/actions/EmojiAction.gd" type="Script" id=21]
+[ext_resource path="res://assets/emotes/emote_laugh.png" type="Texture" id=22]
+[ext_resource path="res://assets/emotes/emote_4.png" type="Texture" id=23]
+[ext_resource path="res://assets/emotes/emote_sleep.png" type="Texture" id=24]
+[ext_resource path="res://assets/emotes/emote_drop.png" type="Texture" id=25]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -88,7 +93,12 @@ shape = SubResource( 1 )
 [node name="IdleGoal" type="Node" parent="Objects/Pioneeres/Brain/Goals" index="0"]
 script = ExtResource( 19 )
 
-[node name="GoToAction4" type="Node" parent="Objects/Pioneeres/Brain/Goals/IdleGoal" index="0"]
+[node name="EmojiAction" type="Node" parent="Objects/Pioneeres/Brain/Goals/IdleGoal" index="0"]
+script = ExtResource( 21 )
+background = ExtResource( 23 )
+emoji_icon = ExtResource( 24 )
+
+[node name="GoToAction4" type="Node" parent="Objects/Pioneeres/Brain/Goals/IdleGoal" index="1"]
 script = ExtResource( 9 )
 
 [node name="Position2D" type="Position2D" parent="Objects/Pioneeres/Brain/Goals/IdleGoal/GoToAction4" index="0"]
@@ -97,13 +107,18 @@ position = Vector2( 256, 288 )
 [node name="PeeGoal" type="Node" parent="Objects/Pioneeres/Brain/Goals" index="1"]
 script = ExtResource( 14 )
 
-[node name="GoNearToilet" type="Node" parent="Objects/Pioneeres/Brain/Goals/PeeGoal" index="0"]
+[node name="EmojiWantToPee" type="Node" parent="Objects/Pioneeres/Brain/Goals/PeeGoal" index="0"]
+script = ExtResource( 21 )
+background = ExtResource( 23 )
+emoji_icon = ExtResource( 25 )
+
+[node name="GoNearToilet" type="Node" parent="Objects/Pioneeres/Brain/Goals/PeeGoal" index="1"]
 script = ExtResource( 9 )
 
 [node name="Position2D" type="Position2D" parent="Objects/Pioneeres/Brain/Goals/PeeGoal/GoNearToilet" index="0"]
 position = Vector2( 32, 224 )
 
-[node name="OpenToilet" type="Node" parent="Objects/Pioneeres/Brain/Goals/PeeGoal" index="1"]
+[node name="OpenToilet" type="Node" parent="Objects/Pioneeres/Brain/Goals/PeeGoal" index="2"]
 script = ExtResource( 8 )
 
 [node name="IsToiletFree" type="Node" parent="Objects/Pioneeres/Brain/Goals/PeeGoal/OpenToilet" index="0"]
@@ -113,33 +128,38 @@ script = ExtResource( 13 )
 script = ExtResource( 17 )
 inverted = true
 
-[node name="EnterToilet" type="Node" parent="Objects/Pioneeres/Brain/Goals/PeeGoal" index="2"]
+[node name="EnterToilet" type="Node" parent="Objects/Pioneeres/Brain/Goals/PeeGoal" index="3"]
 script = ExtResource( 9 )
 
 [node name="Position2D" type="Position2D" parent="Objects/Pioneeres/Brain/Goals/PeeGoal/EnterToilet" index="0"]
 position = Vector2( 32, 198 )
 
-[node name="CloseToilet" type="Node" parent="Objects/Pioneeres/Brain/Goals/PeeGoal" index="3"]
+[node name="CloseToilet" type="Node" parent="Objects/Pioneeres/Brain/Goals/PeeGoal" index="4"]
 script = ExtResource( 8 )
 
-[node name="Pee" type="Node" parent="Objects/Pioneeres/Brain/Goals/PeeGoal" index="4"]
+[node name="Pee" type="Node" parent="Objects/Pioneeres/Brain/Goals/PeeGoal" index="5"]
 script = ExtResource( 12 )
 wait_time = 2.0
 
-[node name="OpenToilet2" type="Node" parent="Objects/Pioneeres/Brain/Goals/PeeGoal" index="5"]
+[node name="OpenToilet2" type="Node" parent="Objects/Pioneeres/Brain/Goals/PeeGoal" index="6"]
 script = ExtResource( 8 )
 
-[node name="ExitToilet" type="Node" parent="Objects/Pioneeres/Brain/Goals/PeeGoal" index="6"]
+[node name="ExitToilet" type="Node" parent="Objects/Pioneeres/Brain/Goals/PeeGoal" index="7"]
 script = ExtResource( 9 )
 
 [node name="Position2D" type="Position2D" parent="Objects/Pioneeres/Brain/Goals/PeeGoal/ExitToilet" index="0"]
 position = Vector2( 32, 224 )
 
-[node name="CloseToilet2" type="Node" parent="Objects/Pioneeres/Brain/Goals/PeeGoal" index="7"]
+[node name="CloseToilet2" type="Node" parent="Objects/Pioneeres/Brain/Goals/PeeGoal" index="8"]
 script = ExtResource( 8 )
 
-[node name="EmptyBladderAction" type="Node" parent="Objects/Pioneeres/Brain/Goals/PeeGoal" index="8"]
+[node name="EmptyBladderAction" type="Node" parent="Objects/Pioneeres/Brain/Goals/PeeGoal" index="9"]
 script = ExtResource( 20 )
+
+[node name="EmojiHappy" type="Node" parent="Objects/Pioneeres/Brain/Goals/PeeGoal" index="10"]
+script = ExtResource( 21 )
+background = ExtResource( 23 )
+emoji_icon = ExtResource( 22 )
 
 [node name="Pioneeres2" parent="Objects" index="7" instance=ExtResource( 2 )]
 position = Vector2( 272, 192 )
