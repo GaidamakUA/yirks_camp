@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=76 format=2]
+[gd_resource type="TileSet" load_steps=78 format=2]
 
 [ext_resource path="res://assets/build_atlas.png" type="Texture" id=1]
 [ext_resource path="res://assets/nettle.png" type="Texture" id=2]
@@ -209,6 +209,12 @@ polygon = PoolVector2Array( 9.83817, 28.6777, 9.43631, 41.1359, 25.9133, 42.7434
 
 [sub_resource type="ConvexPolygonShape2D" id=68]
 points = PoolVector2Array( 16, 96, 24, 80, 72, 80, 80, 96, 72, 104, 24, 104 )
+
+[sub_resource type="ConvexPolygonShape2D" id=71]
+points = PoolVector2Array( 4.41272, 15.085, 20.8228, 14.7501, 27.8556, 21.1132, 23.502, 28.4808, 5.41742, 25.4668 )
+
+[sub_resource type="ConvexPolygonShape2D" id=72]
+points = PoolVector2Array( 0.174744, 16.0897, 5.53314, 10.3964, 23.6176, 11.4011, 24.9572, 26.1366, 5.53314, 25.8017 )
 
 [sub_resource type="ConvexPolygonShape2D" id=69]
 points = PoolVector2Array( 24, 80, 32, 80, 40, 96, 16, 96 )
@@ -707,7 +713,7 @@ points = PoolVector2Array( 40, 96, 56, 96, 72, 112, 56, 120, 40, 120, 24, 112 )
 16/tile_mode = 1
 16/autotile/bitmask_mode = 0
 16/autotile/bitmask_flags = [ Vector2( 0, 0 ), 256, Vector2( 0, 1 ), 260, Vector2( 0, 2 ), 4, Vector2( 1, 0 ), 320, Vector2( 1, 1 ), 357, Vector2( 1, 2 ), 5, Vector2( 2, 0 ), 64, Vector2( 2, 1 ), 65, Vector2( 2, 2 ), 1, Vector2( 3, 0 ), 324, Vector2( 3, 1 ), 261, Vector2( 4, 0 ), 321, Vector2( 4, 1 ), 69 ]
-16/autotile/icon_coordinate = Vector2( 1, 1 )
+16/autotile/icon_coordinate = Vector2( 3, 1 )
 16/autotile/tile_size = Vector2( 32, 32 )
 16/autotile/spacing = 0
 16/autotile/occluder_map = [  ]
@@ -1009,34 +1015,6 @@ points = PoolVector2Array( 40, 96, 56, 96, 72, 112, 56, 120, 40, 120, 24, 112 )
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 31/z_index = 0
-33/name = "plate_1"
-33/texture = ExtResource( 5 )
-33/tex_offset = Vector2( 0, 0 )
-33/modulate = Color( 1, 1, 1, 1 )
-33/region = Rect2( 256, 672, 64, 64 )
-33/tile_mode = 0
-33/occluder_offset = Vector2( 0, 0 )
-33/navigation_offset = Vector2( 0, 0 )
-33/shape_offset = Vector2( 0, 0 )
-33/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-33/shape_one_way = false
-33/shape_one_way_margin = 0.0
-33/shapes = [  ]
-33/z_index = 0
-35/name = "skelet_mario"
-35/texture = ExtResource( 4 )
-35/tex_offset = Vector2( 0, 0 )
-35/modulate = Color( 1, 1, 1, 1 )
-35/region = Rect2( 288, 256, 64, 32 )
-35/tile_mode = 0
-35/occluder_offset = Vector2( 0, 0 )
-35/navigation_offset = Vector2( 0, 0 )
-35/shape_offset = Vector2( 0, 0 )
-35/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-35/shape_one_way = false
-35/shape_one_way_margin = 0.0
-35/shapes = [  ]
-35/z_index = 0
 43/name = "net_01"
 43/texture = ExtResource( 4 )
 43/tex_offset = Vector2( 0, 0 )
@@ -1297,20 +1275,6 @@ points = PoolVector2Array( 40, 96, 56, 96, 72, 112, 56, 120, 40, 120, 24, 112 )
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 58/z_index = 0
-59/name = "plate_2"
-59/texture = ExtResource( 5 )
-59/tex_offset = Vector2( 0, 0 )
-59/modulate = Color( 1, 1, 1, 1 )
-59/region = Rect2( 320, 672, 32, 64 )
-59/tile_mode = 0
-59/occluder_offset = Vector2( 0, 0 )
-59/navigation_offset = Vector2( 0, 0 )
-59/shape_offset = Vector2( 0, 0 )
-59/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-59/shape_one_way = false
-59/shape_one_way_margin = 0.0
-59/shapes = [  ]
-59/z_index = 0
 60/name = "plate_3"
 60/texture = ExtResource( 5 )
 60/tex_offset = Vector2( 0, 0 )
@@ -1468,3 +1432,45 @@ points = PoolVector2Array( 40, 96, 56, 96, 72, 112, 56, 120, 40, 120, 24, 112 )
 69/shape_one_way_margin = 0.0
 69/shapes = [  ]
 69/z_index = 0
+70/name = "rock0"
+70/texture = ExtResource( 3 )
+70/tex_offset = Vector2( 0, 0 )
+70/modulate = Color( 1, 1, 1, 1 )
+70/region = Rect2( 672, 672, 32, 32 )
+70/tile_mode = 0
+70/occluder_offset = Vector2( 0, 0 )
+70/navigation_offset = Vector2( 0, 0 )
+70/shape_offset = Vector2( 0, 0 )
+70/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+70/shape = SubResource( 71 )
+70/shape_one_way = false
+70/shape_one_way_margin = 1.0
+70/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 71 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+70/z_index = 0
+71/name = "rock1"
+71/texture = ExtResource( 3 )
+71/tex_offset = Vector2( 0, 0 )
+71/modulate = Color( 1, 1, 1, 1 )
+71/region = Rect2( 768, 672, 32, 32 )
+71/tile_mode = 0
+71/occluder_offset = Vector2( 0, 0 )
+71/navigation_offset = Vector2( 0, 0 )
+71/shape_offset = Vector2( 0, 0 )
+71/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+71/shape = SubResource( 72 )
+71/shape_one_way = false
+71/shape_one_way_margin = 1.0
+71/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 72 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+71/z_index = 0
