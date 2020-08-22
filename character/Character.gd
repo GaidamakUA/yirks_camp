@@ -22,6 +22,8 @@ func _ready():
 	animation_tree.active = true
 	emotion_bubble.hide()
 	_set_last_direction(Vector2.DOWN)
+	if $Brain:
+		$Brain.start()
 
 func _on_direction(new_direction: Vector2):
 	_direction = new_direction.normalized()
@@ -46,7 +48,6 @@ func die():
 func interact():
 	if interactive_object != null:
 		interactive_object.interact()
-	print("interacting")
 
 func _set_last_direction(direction: Vector2):
 	last_direction = direction
@@ -58,13 +59,11 @@ func _on_InteractBox_area_entered(area):
 	if area.get_collision_layer_bit(6):
 		interactive_object = area
 		interactive_object.connect("finished_interaction", self, "_on_interaction_finished")
-	print("entered ",  area.get_collision_layer_bit(6))
 
 func _on_InteractBox_area_exited(area):
 	if area.get_collision_layer_bit(6):
 		interactive_object.disconnect("finished_interaction", self, "_on_interaction_finished")
 		interactive_object = null
-	print("exited ", area)
 
 func _on_interaction_finished():
 	emit_signal("interaction_finished")

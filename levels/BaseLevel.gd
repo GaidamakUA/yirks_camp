@@ -6,10 +6,18 @@ onready var actors = $Objects
 onready var death_animation = $DeathAnimation
 onready var yeerk = $Objects/Character
 
+var death_cinematics = [
+	preload("res://assets/dath_video/pioneeres_death_0.png"),
+	preload("res://assets/dath_video/pioneeres_death_1.png"),
+	preload("res://assets/dath_video/pioneeres_death_2.png")
+]
+
 func _ready():
 	randomize()
 
 func _on_Pioneeres_dying(place_of_death):
+	var index = randi() % death_cinematics.size()
+	death_animation.texture = death_cinematics[index]
 	death_animation._on_Pioneeres_dying(place_of_death)
 	
 	var cedaver = Cedaver.instance()

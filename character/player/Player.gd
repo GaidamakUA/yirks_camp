@@ -1,5 +1,7 @@
 extends "../Character.gd"
 
+class_name Player
+
 var dash_distance: float = 200
 export(float) var dash_time := 0.7
 

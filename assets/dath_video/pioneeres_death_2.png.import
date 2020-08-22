@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pioneres_death.png-b21ea89481f983fb467b09f55b3758de.stex"
+path="res://.import/pioneeres_death_2.png-ff2a488b36650379dcb60a3d35c05463.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/pioneres_death.png"
-dest_files=[ "res://.import/pioneres_death.png-b21ea89481f983fb467b09f55b3758de.stex" ]
+source_file="res://assets/dath_video/pioneeres_death_2.png"
+dest_files=[ "res://.import/pioneeres_death_2.png-ff2a488b36650379dcb60a3d35c05463.stex" ]
 
 [params]
 

@@ -5,7 +5,7 @@
 [ext_resource path="res://character/player/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/terrain_atlas.png" type="Texture" id=4]
 [ext_resource path="res://assets/nettle.png" type="Texture" id=5]
-[ext_resource path="res://assets/pioneres_death.png" type="Texture" id=6]
+[ext_resource path="res://assets/dath_video/pioneeres_death_0.png" type="Texture" id=6]
 [ext_resource path="res://levels/ObjectTiles.tres" type="TileSet" id=7]
 [ext_resource path="res://levels/BackgroundOverlay.tres" type="TileSet" id=8]
 [ext_resource path="res://assets/terrain_3.png" type="Texture" id=9]
@@ -19,6 +19,10 @@
 [ext_resource path="res://objects/interactive/switch/Switch.tscn" type="PackedScene" id=17]
 [ext_resource path="res://levels/BlinkingLamp.gd" type="Script" id=18]
 [ext_resource path="res://objects/Trolley.gd" type="Script" id=19]
+
+
+
+
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )

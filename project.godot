@@ -89,6 +89,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://character/brain/goals/PeeGoal.gd"
 }, {
+"base": "BaseGoal",
+"class": "PersueYeerkGoal",
+"language": "GDScript",
+"path": "res://character/brain/goals/PersueYeerkGoal.gd"
+}, {
+"base": "",
+"class": "Player",
+"language": "GDScript",
+"path": "res://character/player/Player.gd"
+}, {
 "base": "Node",
 "class": "Precondition",
 "language": "GDScript",
@@ -126,6 +136,8 @@ _global_script_class_icons={
 "IsDoorOpen": "res://assets/class_icons/door-open.png",
 "IsToiletFree": "res://assets/class_icons/toilet.png",
 "PeeGoal": "",
+"PersueYeerkGoal": "",
+"Player": "",
 "Precondition": "",
 "SayAction": "res://assets/class_icons/chat-bubble.png",
 "Toilet": "",

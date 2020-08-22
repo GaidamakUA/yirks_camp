@@ -16,6 +16,8 @@ var _preferred_direction = PI / 2
 
 func _ready():
 	_randomize_preferred_direction()
+	var actor = get_parent().get_parent()
+	self.connect("direction_update", actor, "_on_direction")
 
 func set_destination(destination: Vector2):
 	_destination = destination

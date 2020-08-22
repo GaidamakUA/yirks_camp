@@ -10,7 +10,6 @@ func _ready():
 	animation_player.stop(true)
 
 func _interact():
-	print("door interact")
 	if is_open():
 		close()
 	else:

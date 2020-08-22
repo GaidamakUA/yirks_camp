@@ -18,7 +18,6 @@ func calculate_weight() -> int:
 
 func persue():
 	actions = get_children()
-	print("persue ", self, " ", actions)
 	_perform_next_action()
 
 func drop():
@@ -26,16 +25,16 @@ func drop():
 		current_action.drop()
 
 func action_finished(action: AtomicAction):
-	print(self, " action ", action, " finished")
 	action.disconnect("done", self, "action_finished")
 	if actions.size() > 0:
 		_perform_next_action()
+	else:
+		current_action = null
 
 func _perform_next_action():
-	var action: AtomicAction = actions.pop_front()
-	print("next_Action: ", action)
-	action.connect("done", self, "action_finished")
-	action.perform(brain)
+	current_action = actions.pop_front()
+	current_action.connect("done", self, "action_finished")
+	current_action.perform(brain)
 
 func _to_string() -> String:
 	return "BaseGoal"

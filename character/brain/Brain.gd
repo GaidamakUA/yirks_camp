@@ -27,10 +27,8 @@ func _process(delta):
 		pass
 
 func _think():
-	print("thinking")
 	_update_weights()
 	_sort_goals()
-	print(goals)
 	var top_goal = goals[0]
 	if top_goal != current_goal:
 		if current_goal != null:
