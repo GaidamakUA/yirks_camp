@@ -174,7 +174,6 @@ frame = 13
 [node name="EmotionBubble" parent="." instance=ExtResource( 15 )]
 visible = false
 position = Vector2( 0, -58 )
-emotion = "alert"
 
 [node name="DialogPosition" type="Position2D" parent="."]
 position = Vector2( 0, -68 )

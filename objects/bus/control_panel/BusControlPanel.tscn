@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://objects/bus/control_panel/BusControlPanel.gd" type="Script" id=1]
+[ext_resource path="res://assets/yeerk_eye.png" type="Texture" id=2]
+[ext_resource path="res://objects/interactive/base/BaseInteractiveObject.tscn" type="PackedScene" id=3]
+[ext_resource path="res://objects/bus/control_panel/ControlPanelPopup.tscn" type="PackedScene" id=4]
+
+[node name="BusControlPanel" instance=ExtResource( 3 )]
+script = ExtResource( 1 )
+
+[node name="Sprite" parent="." index="0"]
+visible = false
+
+[node name="YeerkPalm" parent="." index="1"]
+position = Vector2( 7, -27 )
+texture = ExtResource( 2 )
+
+[node name="InteractiveArea" parent="." index="2"]
+visible = true
+
+[node name="ControlPanelPopup" parent="." index="3" instance=ExtResource( 4 )]
+position = Vector2( 260, -7 )
+
+[editable path="InteractiveArea"]
