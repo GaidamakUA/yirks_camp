@@ -1,9 +1,35 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://objects/bus/control_panel/BusControlPanel.gd" type="Script" id=1]
-[ext_resource path="res://assets/yeerk_eye.png" type="Texture" id=2]
+[ext_resource path="res://assets/yeerks_eye.png" type="Texture" id=2]
 [ext_resource path="res://objects/interactive/base/BaseInteractiveObject.tscn" type="PackedScene" id=3]
 [ext_resource path="res://objects/bus/control_panel/ControlPanelPopup.tscn" type="PackedScene" id=4]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 30, 30 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 2 )
+region = Rect2( 30, 0, 30, 30 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 2 )
+region = Rect2( 60, 0, 30, 30 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 2 )
+region = Rect2( 90, 0, 30, 30 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=6]
 
 [node name="BusControlPanel" instance=ExtResource( 3 )]
 script = ExtResource( 1 )
@@ -13,12 +39,19 @@ visible = false
 
 [node name="YeerkPalm" parent="." index="1"]
 position = Vector2( 7, -27 )
-texture = ExtResource( 2 )
+z_index = 1
+frames = SubResource( 5 )
 
 [node name="InteractiveArea" parent="." index="2"]
 visible = true
 
+[node name="CollisionShape2D2" parent="InteractiveArea" index="0"]
+shape = SubResource( 6 )
+
 [node name="ControlPanelPopup" parent="." index="3" instance=ExtResource( 4 )]
+visible = false
 position = Vector2( 260, -7 )
+[connection signal="back_door_new_state" from="ControlPanelPopup" to="." method="_on_ControlPanelPopup_back_door_new_state"]
+[connection signal="front_door_new_state" from="ControlPanelPopup" to="." method="_on_ControlPanelPopup_front_door_new_state"]
 
 [editable path="InteractiveArea"]

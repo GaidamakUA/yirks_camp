@@ -1,37 +1,94 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/mini_popups/wheel.png" type="Texture" id=1]
 [ext_resource path="res://assets/mini_popups/popup_ui.png" type="Texture" id=2]
 [ext_resource path="res://objects/bus/control_panel/ControlPanelPopup.gd" type="Script" id=3]
 [ext_resource path="res://assets/mini_popups/beeper.png" type="Texture" id=4]
 [ext_resource path="res://assets/mini_popups/background.png" type="Texture" id=5]
-[ext_resource path="res://objects/bus/control_panel/BeeperSprite.gd" type="Script" id=6]
+[ext_resource path="res://objects/bus/control_panel/BeeperButton.gd" type="Script" id=6]
+[ext_resource path="res://assets/sounds/laz_beep.wav" type="AudioStream" id=7]
+[ext_resource path="res://objects/bus/control_panel/Switch.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/mini_popups/button_table.png" type="Texture" id=9]
+[ext_resource path="res://objects/bus/control_panel/BaseClickableArea.tscn" type="PackedScene" id=10]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 14.8564
-height = 11.732
+height = 12.4641
 
 [node name="ControlPanelPopup" type="Node2D"]
 z_index = 1
 script = ExtResource( 3 )
 
-[node name="LAZ_01-1" type="Sprite" parent="."]
+[node name="bachground" type="Sprite" parent="."]
 texture = ExtResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="wheel" type="Sprite" parent="."]
 texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="BeeperButton" type="Area2D" parent="."]
+[node name="BeeperButton" parent="." instance=ExtResource( 10 )]
 position = Vector2( -88, -3 )
 script = ExtResource( 6 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BeeperButton"]
-position = Vector2( -1, 0 )
+[node name="CollisionShape2D" parent="BeeperButton" index="0"]
+position = Vector2( 7.62939e-06, 0 )
 rotation = 0.523598
 shape = SubResource( 1 )
 
 [node name="BeeperSprite" type="Sprite" parent="BeeperButton"]
+position = Vector2( 7.62939e-06, 2.38419e-07 )
 texture = ExtResource( 4 )
+
+[node name="SwithcTable" type="Sprite" parent="."]
+texture = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="BottomRow" type="Node2D" parent="SwithcTable"]
+position = Vector2( 126, -11 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Switch5" parent="SwithcTable/BottomRow" instance=ExtResource( 8 )]
+position = Vector2( -18, -6 )
+
+[node name="Switch4" parent="SwithcTable/BottomRow" instance=ExtResource( 8 )]
+position = Vector2( -9, -3 )
+
+[node name="Switch3" parent="SwithcTable/BottomRow" instance=ExtResource( 8 )]
+
+[node name="BackDoorsSwitch" parent="SwithcTable/BottomRow" instance=ExtResource( 8 )]
+position = Vector2( 9, 3 )
+
+[node name="FronDoorsSwitch" parent="SwithcTable/BottomRow" instance=ExtResource( 8 )]
+position = Vector2( 18, 6 )
+is_on = true
+
+[node name="TopRow" type="Node2D" parent="SwithcTable"]
+position = Vector2( 133, -40 )
+
+[node name="Switch5" parent="SwithcTable/TopRow" instance=ExtResource( 8 )]
+position = Vector2( -18, -4.5 )
+
+[node name="Switch4" parent="SwithcTable/TopRow" instance=ExtResource( 8 )]
+position = Vector2( -9, -2 )
+
+[node name="Switch3" parent="SwithcTable/TopRow" instance=ExtResource( 8 )]
+position = Vector2( 0, 0.5 )
+
+[node name="Switch2" parent="SwithcTable/TopRow" instance=ExtResource( 8 )]
+position = Vector2( 9, 3 )
+
+[node name="Switch1" parent="SwithcTable/TopRow" instance=ExtResource( 8 )]
+position = Vector2( 18, 6 )
 
 [node name="Window" type="Sprite" parent="."]
 position = Vector2( -10, 0 )
@@ -39,5 +96,12 @@ texture = ExtResource( 2 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="BeepPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 7 )
+[connection signal="beeping" from="BeeperButton" to="BeepPlayer" method="play"]
 [connection signal="beeping" from="BeeperButton" to="." method="_on_BeeperButton_beeping"]
-[connection signal="input_event" from="BeeperButton" to="BeeperButton" method="_on_BeeperButton_input_event"]
+[connection signal="changed_state" from="SwithcTable/BottomRow/BackDoorsSwitch" to="." method="_on_BackDoorsSwitch_changed_state"]
+[connection signal="changed_state" from="SwithcTable/BottomRow/FronDoorsSwitch" to="." method="_on_FronDoorsSwitch_changed_state"]
+
+[editable path="BeeperButton"]

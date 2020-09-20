@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/LAZ_01-4.png-2288881f7110adc899757019877bf73a.stex"
+path="res://.import/button_table.png-560f4467311eaaf1d11e1d478815df0d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/mini_popups/LAZ_01-4.png"
-dest_files=[ "res://.import/LAZ_01-4.png-2288881f7110adc899757019877bf73a.stex" ]
+source_file="res://assets/mini_popups/button_table.png"
+dest_files=[ "res://.import/button_table.png-560f4467311eaaf1d11e1d478815df0d.stex" ]
 
 [params]
 

@@ -14,10 +14,20 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://character/brain/actions/AtomicAction.gd"
 }, {
+"base": "Area2D",
+"class": "BaseClickableArea",
+"language": "GDScript",
+"path": "res://objects/bus/control_panel/BaseInteractiveArea.gd"
+}, {
 "base": "Node",
 "class": "BaseGoal",
 "language": "GDScript",
 "path": "res://character/brain/goals/BaseGoal.gd"
+}, {
+"base": "Area2D",
+"class": "BaseInteractiveArea",
+"language": "GDScript",
+"path": "res://objects/bus/control_panel/BaseClickableArea.gd"
 }, {
 "base": "Node2D",
 "class": "BaseInteractiveObject",
@@ -121,7 +131,9 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "AtomicAction": "res://assets/class_icons/check-mark.png",
+"BaseClickableArea": "",
 "BaseGoal": "",
+"BaseInteractiveArea": "",
 "BaseInteractiveObject": "",
 "Bladder": "",
 "CompositeAction": "res://assets/class_icons/stairs-goal.png",

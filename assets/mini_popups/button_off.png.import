@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/yeerk_eye.png-2b8dbdde3cabe6038f4496c57dde8679.stex"
+path="res://.import/button_off.png-ea4a5068d02ad137cbc7133c5fa3eb14.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/yeerk_eye.png"
-dest_files=[ "res://.import/yeerk_eye.png-2b8dbdde3cabe6038f4496c57dde8679.stex" ]
+source_file="res://assets/mini_popups/button_off.png"
+dest_files=[ "res://.import/button_off.png-ea4a5068d02ad137cbc7133c5fa3eb14.stex" ]
 
 [params]
 

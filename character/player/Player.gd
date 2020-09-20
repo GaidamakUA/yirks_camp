@@ -92,8 +92,8 @@ func _on_exited_water(body):
 
 func _on_InteractBox_area_entered(area):
 	._on_InteractBox_area_entered(area)
-	area.show_palm()
+	area.player_entered()
 
 func _on_InteractBox_area_exited(area):
-	._on_InteractBox_area_entered(area)
-	area.hide_palm()
+	._on_InteractBox_area_exited(area)
+	area.player_exited()

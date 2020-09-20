@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/switch_off_click.wav-a95715a00ba26f74c82ec04cb0f71b11.sample"
+
+[deps]
+
+source_file="res://assets/sounds/switch_off_click.wav"
+dest_files=[ "res://.import/switch_off_click.wav-a95715a00ba26f74c82ec04cb0f71b11.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -5,11 +5,11 @@ signal finished_interaction
 func interact():
 	get_parent()._interact()
 
-func show_palm():
-	get_parent().show_palm()
+func player_entered():
+	get_parent().player_entered()
 
-func hide_palm():
-	get_parent().hide_palm()
+func player_exited():
+	get_parent().player_exited()
 
 func _on_AnimationPlayer_animation_finished(_anim_name):
 	emit_signal("finished_interaction")

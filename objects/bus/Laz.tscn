@@ -89,3 +89,5 @@ position = Vector2( 258.2, 149.8 )
 
 [node name="BusControlPanel" parent="." instance=ExtResource( 4 )]
 position = Vector2( 304, 104 )
+[connection signal="back_door_new_state" from="BusControlPanel" to="DoorBack" method="_set_opened"]
+[connection signal="front_door_new_state" from="BusControlPanel" to="DoorFront" method="_set_opened"]
