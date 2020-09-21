@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/engine_switch_on.png" type="Texture" id=1]
+[ext_resource path="res://assets/engine_switch_off.png" type="Texture" id=2]
+[ext_resource path="res://objects/bus/control_panel/BaseClickableArea.tscn" type="PackedScene" id=3]
+[ext_resource path="res://objects/bus/control_panel/Switch.gd" type="Script" id=4]
+[ext_resource path="res://assets/sounds/lever_switch_click.wav" type="AudioStream" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 4.38134, 10 )
+
+[node name="EngineSwitch" instance=ExtResource( 3 )]
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D" parent="." index="0"]
+visible = false
+position = Vector2( -3, -1 )
+rotation = 0.261799
+shape = SubResource( 1 )
+
+[node name="ButtonOff" type="Sprite" parent="." index="1"]
+texture = ExtResource( 2 )
+
+[node name="ButtonOn" type="Sprite" parent="." index="2"]
+visible = false
+texture = ExtResource( 1 )
+
+[node name="OffPlayer" type="AudioStreamPlayer" parent="." index="3"]
+stream = ExtResource( 5 )
+
+[node name="OnPlayer" type="AudioStreamPlayer" parent="." index="4"]
+stream = ExtResource( 5 )

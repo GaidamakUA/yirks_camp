@@ -16,7 +16,7 @@ var is_ready := false
 func _ready():
 	is_ready = true
 
-func on_pressed():
+func _on_pressed():
 	_set_is_on(not is_on)
 	_play_sound()
 

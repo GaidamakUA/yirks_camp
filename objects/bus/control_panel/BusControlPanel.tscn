@@ -41,6 +41,7 @@ visible = false
 position = Vector2( 7, -27 )
 z_index = 1
 frames = SubResource( 5 )
+frame = 2
 
 [node name="InteractiveArea" parent="." index="2"]
 visible = true
@@ -53,5 +54,6 @@ visible = false
 position = Vector2( 260, -7 )
 [connection signal="back_door_new_state" from="ControlPanelPopup" to="." method="_on_ControlPanelPopup_back_door_new_state"]
 [connection signal="front_door_new_state" from="ControlPanelPopup" to="." method="_on_ControlPanelPopup_front_door_new_state"]
+[connection signal="start_engine" from="ControlPanelPopup" to="." method="_on_ControlPanelPopup_start_engine"]
 
 [editable path="InteractiveArea"]

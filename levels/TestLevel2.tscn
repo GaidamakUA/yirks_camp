@@ -48,6 +48,7 @@ position = Vector2( 32, 192 )
 [node name="Laz" parent="Objects" index="1" instance=ExtResource( 6 )]
 position = Vector2( 49, 352 )
 front_open = true
+back_open = false
 
 [node name="Statue" parent="Objects" index="2" instance=ExtResource( 4 )]
 position = Vector2( 0, 80 )
@@ -62,7 +63,7 @@ position = Vector2( 160, 80 )
 frame = 0
 
 [node name="Character" parent="Objects" index="5"]
-position = Vector2( 624, 429 )
+position = Vector2( 300, 567 )
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Objects/Character" index="15"]
 remote_path = NodePath("../../Miner/Brain/Goals/PersueYeerkGoal/GoToAction/YeerkPosition")
@@ -172,7 +173,7 @@ position = Vector2( 476, 553 )
 parameters/playback = SubResource( 1 )
 
 [node name="YeerkPosition" parent="Objects/Miner/Brain/Goals/PersueYeerkGoal/GoToAction" index="0"]
-position = Vector2( 624, 429 )
+position = Vector2( 300, 567 )
 
 [node name="WallLamp" parent="Objects" index="13" instance=ExtResource( 16 )]
 position = Vector2( 723, 132 )

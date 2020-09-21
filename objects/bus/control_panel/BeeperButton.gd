@@ -4,9 +4,9 @@ signal beeping
 
 onready var sprite = $BeeperSprite
 
-func on_pressed():
+func _on_pressed():
 	sprite.hide()
 	emit_signal("beeping")
 
-func on_released():
+func _on_released():
 	sprite.show()

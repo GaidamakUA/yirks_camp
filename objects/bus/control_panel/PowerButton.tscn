@@ -1,0 +1,30 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/sounds/power_button.wav" type="AudioStream" id=1]
+[ext_resource path="res://assets/power_button_pressed.png" type="Texture" id=2]
+[ext_resource path="res://objects/bus/control_panel/BaseClickableArea.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/power_button.png" type="Texture" id=4]
+[ext_resource path="res://objects/bus/control_panel/PowerButton.gd" type="Script" id=5]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 4.24264
+height = 4.1411
+
+[node name="PowerButton" instance=ExtResource( 3 )]
+script = ExtResource( 5 )
+
+[node name="CollisionShape2D" parent="." index="0"]
+visible = false
+position = Vector2( -1, -1 )
+rotation = 0.261799
+shape = SubResource( 1 )
+
+[node name="ButtonIdle" type="Sprite" parent="." index="1"]
+texture = ExtResource( 4 )
+
+[node name="ButtonPressed" type="Sprite" parent="." index="2"]
+visible = false
+texture = ExtResource( 2 )
+
+[node name="PressedPlayer" type="AudioStreamPlayer" parent="." index="3"]
+stream = ExtResource( 1 )

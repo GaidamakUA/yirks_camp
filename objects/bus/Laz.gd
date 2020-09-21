@@ -28,3 +28,6 @@ func _set_back_opened(new_open: bool):
 	
 func _get_back_opened() -> bool:
 	return back_door.open
+
+func _on_BusControlPanel_start_engine():
+	$EngineFailedPlayer.play()
