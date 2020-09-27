@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://character/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://character/player/Player.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://character/player/EyesVisibilityArea.gd" type="Script" id=4]
 [ext_resource path="res://character/animations/idle_animation.tres" type="Animation" id=5]
 [ext_resource path="res://assets/yeerk_underwater.png" type="Texture" id=6]
+[ext_resource path="res://character/player/Energy.gd" type="Script" id=7]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=1]
 
@@ -79,6 +80,12 @@ collision_mask = 32
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WaterDetector" index="0"]
 position = Vector2( 0, -21 )
 shape = SubResource( 4 )
+
+[node name="Energy" type="Node" parent="." index="14"]
+script = ExtResource( 7 )
+
+[node name="HungerTimer" type="Timer" parent="Energy" index="0"]
+autostart = true
 [connection signal="tween_all_completed" from="DashTween" to="." method="_on_DashTween_tween_all_completed"]
 [connection signal="timeout" from="Spawn" to="." method="_on_Spawn_timeout"]
 [connection signal="timeout" from="Idle" to="." method="_on_Idle_timeout"]
@@ -86,3 +93,5 @@ shape = SubResource( 4 )
 [connection signal="body_exited" from="EyesVisibilityArea" to="EyesVisibilityArea" method="_on_EyesVisibilityArea_body_exited"]
 [connection signal="body_entered" from="WaterDetector" to="." method="_on_entered_water"]
 [connection signal="body_exited" from="WaterDetector" to="." method="_on_exited_water"]
+[connection signal="energy_changed" from="Energy" to="." method="_on_energy_changed"]
+[connection signal="timeout" from="Energy/HungerTimer" to="Energy" method="_on_HungerTimer_timeout"]

@@ -4,7 +4,6 @@ const Cedaver = preload("res://objects/cedaver/Cedaver.tscn")
 
 onready var actors = $Objects
 onready var death_animation = $DeathAnimation
-onready var yeerk = $Objects/Character
 
 var death_cinematics = [
 	preload("res://assets/dath_video/pioneeres_death_0.png"),

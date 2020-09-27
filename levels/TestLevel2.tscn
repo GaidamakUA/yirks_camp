@@ -62,12 +62,6 @@ frame = 1
 position = Vector2( 160, 80 )
 frame = 0
 
-[node name="Character" parent="Objects" index="5"]
-position = Vector2( 300, 567 )
-
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Objects/Character" index="15"]
-remote_path = NodePath("../../Miner/Brain/Goals/PersueYeerkGoal/GoToAction/YeerkPosition")
-
 [node name="Pioneeres" parent="Objects" index="6" instance=ExtResource( 2 )]
 pause_mode = 1
 position = Vector2( 134, 255 )

@@ -2,6 +2,8 @@ extends "../Character.gd"
 
 class_name Player
 
+signal energy_changed(value)
+
 var dash_distance: float = 200
 export(float) var dash_time := 0.7
 
@@ -97,3 +99,6 @@ func _on_InteractBox_area_entered(area):
 func _on_InteractBox_area_exited(area):
 	._on_InteractBox_area_exited(area)
 	area.player_exited()
+
+func _on_energy_changed(value: int):
+	emit_signal("energy_changed", value)
