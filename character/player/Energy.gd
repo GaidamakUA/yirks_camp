@@ -1,9 +1,13 @@
 extends Node
 
-signal energy_changed(value)
+signal energy_changed(max_value, value)
 
-export var starting_value = 1000
+export var max_value = 1000
+var value = max_value
+
+func _ready():
+	emit_signal("energy_changed", max_value, value)
 
 func _on_HungerTimer_timeout():
-	starting_value -= 1
-	emit_signal("energy_changed", starting_value)
+	value -= 1
+	emit_signal("energy_changed", max_value, value)
