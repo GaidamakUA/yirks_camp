@@ -7,6 +7,7 @@ onready var actor = get_parent()
 onready var navigation = $Navigation
 onready var hand_reach_sensor: Area2D = $HandReachSensor
 onready var bladder: Bladder = $Bladder
+onready var sight_cone: Area2D = $EyesightConeSensor
 
 onready var timer = Timer.new()
 
@@ -30,7 +31,7 @@ func _think():
 	_update_weights()
 	_sort_goals()
 	var top_goal = goals[0]
-	if top_goal != current_goal:
+	if top_goal != current_goal || current_goal.is_finished():
 		if current_goal != null:
 			current_goal.drop()
 		current_goal = top_goal

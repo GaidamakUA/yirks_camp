@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://levels/BaseLevel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://character/pioneeres/Pioneeres.tscn" type="PackedScene" id=2]
@@ -25,6 +25,8 @@
 [ext_resource path="res://assets/emotes/emote_4.png" type="Texture" id=23]
 [ext_resource path="res://assets/emotes/emote_sleep.png" type="Texture" id=24]
 [ext_resource path="res://assets/emotes/emote_drop.png" type="Texture" id=25]
+[ext_resource path="res://character/brain/goals/ReactOnYeerkGoal.gd" type="Script" id=27]
+[ext_resource path="res://assets/emotes/emote_alert.png" type="Texture" id=28]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=1]
 
@@ -47,7 +49,7 @@ position = Vector2( 32, 192 )
 
 [node name="Laz" parent="Objects" index="1" instance=ExtResource( 6 )]
 position = Vector2( 49, 352 )
-front_open = true
+front_open = false
 back_open = false
 
 [node name="Statue" parent="Objects" index="2" instance=ExtResource( 4 )]
@@ -61,6 +63,12 @@ frame = 1
 [node name="Statue3" parent="Objects" index="4" instance=ExtResource( 4 )]
 position = Vector2( 160, 80 )
 frame = 0
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Objects/Player" index="16"]
+remote_path = NodePath("../../Pioneeres2/Brain/Goals/ReactOnYeerkGoal/GoToAction/YeerkPosition")
+
+[node name="RemoteTransform2D2" type="RemoteTransform2D" parent="Objects/Player" index="17"]
+remote_path = NodePath("../../Miner/Brain/Goals/PersueYeerkGoal/GoToAction/YeerkPosition")
 
 [node name="Pioneeres" parent="Objects" index="6" instance=ExtResource( 2 )]
 pause_mode = 1
@@ -145,8 +153,54 @@ script = ExtResource( 21 )
 background = ExtResource( 23 )
 emoji_icon = ExtResource( 22 )
 
+[node name="ReactOnYeerkGoal" type="Node" parent="Objects/Pioneeres/Brain/Goals" index="2"]
+script = ExtResource( 27 )
+
+[node name="EmojiAction" type="Node" parent="Objects/Pioneeres/Brain/Goals/ReactOnYeerkGoal" index="0"]
+script = ExtResource( 21 )
+background = ExtResource( 23 )
+emoji_icon = ExtResource( 28 )
+
 [node name="Pioneeres2" parent="Objects" index="7" instance=ExtResource( 2 )]
-position = Vector2( 272, 192 )
+position = Vector2( 321, 243 )
+
+[node name="Brain" parent="Objects/Pioneeres2" index="8" instance=ExtResource( 10 )]
+
+[node name="WanderGoal" type="Node" parent="Objects/Pioneeres2/Brain/Goals" index="0"]
+script = ExtResource( 19 )
+
+[node name="GoToAction" type="Node" parent="Objects/Pioneeres2/Brain/Goals/WanderGoal" index="0"]
+script = ExtResource( 9 )
+
+[node name="Position2D" type="Position2D" parent="Objects/Pioneeres2/Brain/Goals/WanderGoal/GoToAction" index="0"]
+position = Vector2( 320, 288 )
+
+[node name="GoToAction2" type="Node" parent="Objects/Pioneeres2/Brain/Goals/WanderGoal" index="1"]
+script = ExtResource( 9 )
+
+[node name="Position2D" type="Position2D" parent="Objects/Pioneeres2/Brain/Goals/WanderGoal/GoToAction2" index="0"]
+position = Vector2( 368, 288 )
+
+[node name="GoToAction3" type="Node" parent="Objects/Pioneeres2/Brain/Goals/WanderGoal" index="2"]
+script = ExtResource( 9 )
+
+[node name="Position2D" type="Position2D" parent="Objects/Pioneeres2/Brain/Goals/WanderGoal/GoToAction3" index="0"]
+position = Vector2( 368, 240 )
+
+[node name="GoToAction4" type="Node" parent="Objects/Pioneeres2/Brain/Goals/WanderGoal" index="3"]
+script = ExtResource( 9 )
+
+[node name="Position2D" type="Position2D" parent="Objects/Pioneeres2/Brain/Goals/WanderGoal/GoToAction4" index="0"]
+position = Vector2( 320, 240 )
+
+[node name="ReactOnYeerkGoal" type="Node" parent="Objects/Pioneeres2/Brain/Goals" index="1"]
+script = ExtResource( 27 )
+
+[node name="GoToAction" type="Node" parent="Objects/Pioneeres2/Brain/Goals/ReactOnYeerkGoal" index="0"]
+script = ExtResource( 9 )
+
+[node name="YeerkPosition" type="Position2D" parent="Objects/Pioneeres2/Brain/Goals/ReactOnYeerkGoal/GoToAction" index="0"]
+position = Vector2( 560, 304 )
 
 [node name="Pioneeres3" parent="Objects" index="8" instance=ExtResource( 2 )]
 position = Vector2( 416, 144 )
@@ -167,7 +221,7 @@ position = Vector2( 476, 553 )
 parameters/playback = SubResource( 1 )
 
 [node name="YeerkPosition" parent="Objects/Miner/Brain/Goals/PersueYeerkGoal/GoToAction" index="0"]
-position = Vector2( 300, 567 )
+position = Vector2( 560, 304 )
 
 [node name="WallLamp" parent="Objects" index="13" instance=ExtResource( 16 )]
 position = Vector2( 723, 132 )
@@ -188,6 +242,8 @@ tile_data = PoolIntArray( -524270, 0, 0, -524269, 0, 2, -458734, 0, 65536, -4587
 [connection signal="switch_flipped" from="Objects/Switch" to="Objects/WallLamp" method="_on_switch_flipped"]
 
 [editable path="Objects/Pioneeres/Brain"]
+
+[editable path="Objects/Pioneeres2/Brain"]
 
 [editable path="Objects/Miner"]
 

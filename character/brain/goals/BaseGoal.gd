@@ -24,6 +24,9 @@ func drop():
 	if current_action:
 		current_action.drop()
 
+func is_finished() -> bool:
+	return current_action == null
+
 func action_finished(action: AtomicAction):
 	action.disconnect("done", self, "action_finished")
 	if actions.size() > 0:
