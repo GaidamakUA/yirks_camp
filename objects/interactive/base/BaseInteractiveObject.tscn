@@ -33,3 +33,6 @@ playing = true
 
 [node name="InteractiveArea" parent="." instance=ExtResource( 2 )]
 visible = false
+[connection signal="interact" from="InteractiveArea" to="." method="_interact"]
+[connection signal="player_entered" from="InteractiveArea" to="." method="player_entered"]
+[connection signal="player_exited" from="InteractiveArea" to="." method="player_exited"]

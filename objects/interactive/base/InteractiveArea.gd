@@ -1,15 +1,18 @@
 extends Area2D
 
+signal interact
+signal player_entered
+signal player_exited
 signal finished_interaction
 
 func interact():
-	get_parent()._interact()
+	emit_signal("interact")
 
 func player_entered():
-	get_parent().player_entered()
+	emit_signal("player_entered")
 
 func player_exited():
-	get_parent().player_exited()
+	emit_signal("player_exited")
 
 func _on_AnimationPlayer_animation_finished(_anim_name):
 	emit_signal("finished_interaction")
