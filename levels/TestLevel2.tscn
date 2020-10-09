@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://levels/BaseLevel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://character/pioneeres/Pioneeres.tscn" type="PackedScene" id=2]
@@ -28,6 +28,7 @@
 [ext_resource path="res://objects/interactive/Drawer.tscn" type="PackedScene" id=26]
 [ext_resource path="res://character/brain/goals/ReactOnYeerkGoal.gd" type="Script" id=27]
 [ext_resource path="res://assets/emotes/emote_alert.png" type="Texture" id=28]
+[ext_resource path="res://objects/interactive/Bag.tscn" type="PackedScene" id=29]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=1]
 
@@ -242,6 +243,9 @@ tile_data = PoolIntArray( -524270, 0, 0, -524269, 0, 2, -458734, 0, 65536, -4587
 
 [node name="Drawer" parent="." index="9" instance=ExtResource( 26 )]
 position = Vector2( -32, 496 )
+
+[node name="Bag" parent="." index="10" instance=ExtResource( 29 )]
+position = Vector2( -32, 560 )
 [connection signal="timeout" from="Objects/Pioneeres/Brain/Bladder/PeeIncreaseTimer" to="Objects/Pioneeres/Brain/Bladder" method="increase_pee_level"]
 [connection signal="switch_flipped" from="Objects/Switch" to="Objects/WallLamp" method="_on_switch_flipped"]
 

@@ -25,4 +25,6 @@ animations = [ {
 frames = SubResource( 3 )
 
 [node name="YeerkPalm" parent="." index="1"]
-position = Vector2( 0, 16 )
+visible = true
+position = Vector2( 9, 16 )
+frame = 0
