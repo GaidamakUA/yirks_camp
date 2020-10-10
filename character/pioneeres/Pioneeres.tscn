@@ -19,6 +19,7 @@ parameters/Resting/blend_position = Vector2( 0, 0 )
 
 [node name="Sprite" parent="." index="3"]
 texture = ExtResource( 2 )
+vframes = 25
 frame = 39
 
 [node name="HurtBox" type="Area2D" parent="." index="4"]
