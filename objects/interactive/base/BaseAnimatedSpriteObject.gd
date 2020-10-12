@@ -13,6 +13,8 @@ func _interact():
 
 func _activated_changed(value: bool):
 	is_activated = value
+	if not is_initialized:
+		yield(self ,"ready")
 	if value:
 		animated_sprite.play("", true)
 	else:

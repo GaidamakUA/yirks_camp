@@ -14,6 +14,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://character/brain/actions/AtomicAction.gd"
 }, {
+"base": "AtomicAction",
+"class": "AttackAction",
+"language": "GDScript",
+"path": "res://character/brain/actions/AttackAction.gd"
+}, {
 "base": "Area2D",
 "class": "BaseClickableArea",
 "language": "GDScript",
@@ -38,6 +43,11 @@ _global_script_classes=[ {
 "class": "Bladder",
 "language": "GDScript",
 "path": "res://character/brain/sensors/Bladder.gd"
+}, {
+"base": "Precondition",
+"class": "CanHitYeerk",
+"language": "GDScript",
+"path": "res://character/brain/preconditions/CanHitYeerk.gd"
 }, {
 "base": "AtomicAction",
 "class": "CompositeAction",
@@ -90,11 +100,6 @@ _global_script_classes=[ {
 "path": "res://character/brain/preconditions/IsDoorOpen.gd"
 }, {
 "base": "Precondition",
-"class": "IsSeeingYeerk",
-"language": "GDScript",
-"path": "res://character/brain/preconditions/IsSeeingYeerk.gd"
-}, {
-"base": "Precondition",
 "class": "IsToiletFree",
 "language": "GDScript",
 "path": "res://character/brain/preconditions/IsToiletFree.gd"
@@ -108,6 +113,11 @@ _global_script_classes=[ {
 "class": "PersueYeerkGoal",
 "language": "GDScript",
 "path": "res://character/brain/goals/PersueYeerkGoal.gd"
+}, {
+"base": "",
+"class": "Pioneeres",
+"language": "GDScript",
+"path": "res://character/pioneeres/Pioneeres.gd"
 }, {
 "base": "",
 "class": "Player",
@@ -141,11 +151,13 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "AtomicAction": "res://assets/class_icons/check-mark.png",
+"AttackAction": "",
 "BaseClickableArea": "",
 "BaseGoal": "",
 "BaseInteractiveArea": "",
 "BaseInteractiveObject": "",
 "Bladder": "",
+"CanHitYeerk": "",
 "CompositeAction": "res://assets/class_icons/stairs-goal.png",
 "DelayAction": "res://assets/class_icons/pocket-watch.png",
 "Door": "",
@@ -156,10 +168,10 @@ _global_script_class_icons={
 "IdleGoal": "",
 "InteractAction": "res://assets/class_icons/click.png",
 "IsDoorOpen": "res://assets/class_icons/door-open.png",
-"IsSeeingYeerk": "",
 "IsToiletFree": "res://assets/class_icons/toilet.png",
 "PeeGoal": "",
 "PersueYeerkGoal": "",
+"Pioneeres": "",
 "Player": "",
 "Precondition": "",
 "ReactOnYeerkGoal": "",

@@ -3,7 +3,6 @@ extends Node2D
 signal arrived
 signal direction_update(direction)
 
-export(float, 0.1, 40) var arrival_threshhold := 10.0
 export(float, 10, 200) var raycast_length := 100
 
 onready var raycast: RayCast2D = $NavigationRaycast
@@ -13,14 +12,19 @@ onready var target = $Target
 
 var _destination: Vector2 = Vector2.INF
 var _preferred_direction = PI / 2
+var arrival_threshhold := 10.0
 
 func _ready():
 	_randomize_preferred_direction()
 	var actor = get_parent().get_parent()
 	self.connect("direction_update", actor, "_on_direction")
 
-func set_destination(destination: Vector2):
+func set_destination(destination: Vector2, desired_distance := 0.0):
 	_destination = destination
+	if desired_distance == 0.0:
+		arrival_threshhold = 10
+	else:
+		arrival_threshhold = desired_distance
 
 func drop():
 	_destination = global_position
