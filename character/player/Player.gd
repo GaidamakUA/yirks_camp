@@ -80,17 +80,13 @@ func _on_Idle_timeout():
 
 func _on_entered_water(body):
 	var splash: Sprite = Splash.instance()
-#	var sprite = $Sprite
-#	splash.global_position = sprite.global_position + Vector2(0, 8)
 	splash.position = Vector2(0, -20)
 	add_child(splash)
 	
 	$Sprite.texture = yeerk_underwater
-	print("entered ", body)
 
 func _on_exited_water(body):
 	$Sprite.texture = yeerk_land
-	print("exited ", body)
 
 func _on_InteractBox_area_entered(area):
 	._on_InteractBox_area_entered(area)
@@ -102,3 +98,20 @@ func _on_InteractBox_area_exited(area):
 
 func _on_energy_changed(max_value: int, value: int):
 	emit_signal("energy_changed", max_value, value)
+	if (value <= 0):
+		_die()
+
+func _die():
+	set_process(false)
+	set_physics_process(false)
+	set_process_input(false)
+	collision_layer = 0
+	$EyesVisibilityArea.monitorable = false
+	$EyesVisibilityArea.monitoring = false
+	$HitBox.set_deferred("monitorable", false)
+	$HitBox.monitoring = false
+	$Energy/HungerTimer.stop()
+	play_extra_animation("death", true)
+
+func take_damage_from_pioneeres():
+	$Energy.take_damage_from_pioneeres()

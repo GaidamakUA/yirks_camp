@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://character/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://character/player/Player.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://character/animations/idle_animation.tres" type="Animation" id=5]
 [ext_resource path="res://assets/yeerk_underwater.png" type="Texture" id=6]
 [ext_resource path="res://character/player/Energy.gd" type="Script" id=7]
+[ext_resource path="res://assets/yeerk.png" type="Texture" id=8]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=1]
 
@@ -19,6 +20,34 @@ height = 14.0
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 5, 4 )
+
+[sub_resource type="Animation" id=5]
+resource_name = "death"
+length = 1.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("ExtraSprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ExtraSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 260, 260, 261, 262, 263, 264, 265, 266, 267, 268, 269 ]
+}
 
 [node name="Player" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
@@ -83,9 +112,19 @@ shape = SubResource( 4 )
 
 [node name="Energy" type="Node" parent="." index="14"]
 script = ExtResource( 7 )
+pioneeres_damage = 300
 
 [node name="HungerTimer" type="Timer" parent="Energy" index="0"]
 autostart = true
+
+[node name="ExtraAnimationsPlayer" parent="." index="15"]
+anims/death = SubResource( 5 )
+
+[node name="ExtraSprite" parent="." index="16"]
+texture = ExtResource( 8 )
+vframes = 21
+hframes = 13
+frame = 270
 [connection signal="tween_all_completed" from="DashTween" to="." method="_on_DashTween_tween_all_completed"]
 [connection signal="timeout" from="Spawn" to="." method="_on_Spawn_timeout"]
 [connection signal="timeout" from="Idle" to="." method="_on_Idle_timeout"]

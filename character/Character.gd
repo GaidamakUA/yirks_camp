@@ -67,3 +67,14 @@ func _on_InteractBox_area_exited(area):
 
 func _on_interaction_finished():
 	emit_signal("interaction_finished")
+
+func play_extra_animation(animation_name: String, is_terminal := false):
+	$Sprite.hide()
+	$ExtraSprite.show()
+	
+	$ExtraAnimationsPlayer.play(animation_name)
+	yield($ExtraAnimationsPlayer, "animation_finished")
+	
+	if not is_terminal:
+		$Sprite.show()
+		$ExtraSprite.hide()

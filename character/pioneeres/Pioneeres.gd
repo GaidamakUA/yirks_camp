@@ -9,5 +9,5 @@ func _ready():
 func _on_HurtBox_area_entered(_area):
 	die()
 
-func attack():
-	state_machine.travel("Dash")
+func _on_Hitbox_area_entered(area):
+	area.get_parent().take_damage_from_pioneeres()

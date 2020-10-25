@@ -12,11 +12,13 @@ onready var hit_reach_sensor: Area2D = $HitReachSensor
 
 onready var timer = Timer.new()
 
-onready var goals = $Goals.get_children()
+var goals
 var current_goal: BaseGoal
 var _is_started := false
 
 func _ready():
+	var goals_node = find_node("Goals")
+	goals = goals_node.get_children()
 	add_child(timer)
 	timer.connect("timeout", self, "_think")
 
