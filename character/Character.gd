@@ -46,6 +46,8 @@ func die():
 	queue_free()
 
 func interact():
+	if interactive_object.get_parent() is EatInetaction:
+		$Energy.eat_pioneeres()
 	if interactive_object != null:
 		interactive_object.interact()
 

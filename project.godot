@@ -49,6 +49,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://character/brain/preconditions/CanHitYeerk.gd"
 }, {
+"base": "StaticBody2D",
+"class": "Cedaver",
+"language": "GDScript",
+"path": "res://objects/cedaver/Pivot.gd"
+}, {
 "base": "AtomicAction",
 "class": "CompositeAction",
 "language": "GDScript",
@@ -63,6 +68,11 @@ _global_script_classes=[ {
 "class": "Door",
 "language": "GDScript",
 "path": "res://objects/interactive/door/Door.gd"
+}, {
+"base": "BaseInteractiveObject",
+"class": "EatInetaction",
+"language": "GDScript",
+"path": "res://objects/cedaver/EatInteraction.gd"
 }, {
 "base": "AtomicAction",
 "class": "EmojiAction",
@@ -130,6 +140,11 @@ _global_script_classes=[ {
 "path": "res://character/brain/preconditions/Pecondition.gd"
 }, {
 "base": "BaseGoal",
+"class": "ReactOnCedaverGoal",
+"language": "GDScript",
+"path": "res://character/brain/goals/ReactOnCedaverGoal.gd"
+}, {
+"base": "BaseGoal",
 "class": "ReactOnYeerkGoal",
 "language": "GDScript",
 "path": "res://character/brain/goals/ReactOnYeerkGoal.gd"
@@ -158,9 +173,11 @@ _global_script_class_icons={
 "BaseInteractiveObject": "",
 "Bladder": "",
 "CanHitYeerk": "",
+"Cedaver": "",
 "CompositeAction": "res://assets/class_icons/stairs-goal.png",
 "DelayAction": "res://assets/class_icons/pocket-watch.png",
 "Door": "",
+"EatInetaction": "",
 "EmojiAction": "res://assets/class_icons/emoticon-happy-outline.png",
 "EmptyBladderAction": "res://assets/class_icons/toilet.png",
 "GatheringPlace": "",
@@ -174,6 +191,7 @@ _global_script_class_icons={
 "Pioneeres": "",
 "Player": "",
 "Precondition": "",
+"ReactOnCedaverGoal": "",
 "ReactOnYeerkGoal": "",
 "SayAction": "res://assets/class_icons/chat-bubble.png",
 "Toilet": "",

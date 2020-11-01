@@ -1,4 +1,6 @@
-extends Node2D
+extends StaticBody2D
+
+class_name Cedaver
 
 func _ready():
 	_init_random_sprite()
