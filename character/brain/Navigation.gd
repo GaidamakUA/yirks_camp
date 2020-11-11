@@ -41,7 +41,7 @@ func _physics_process(_delta):
 		var direction = global_position.direction_to(_destination)
 		raycast.look_at(_destination)
 		var distance_to_collision = raycast.get_collision_point().distance_to(global_position)
-		if raycast.is_colliding() && _remaining_distance() > distance_to_collision:
+		if raycast.is_colliding() && _remaining_distance() > distance_to_collision + arrival_threshhold:
 			var displacement = raycast.get_collision_normal().rotated(_preferred_direction)
 			var displacement_scale = (raycast_length - distance_to_collision) / raycast_length
 			direction = direction * displacement_scale + displacement * displacement_scale

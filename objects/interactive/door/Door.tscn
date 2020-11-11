@@ -35,7 +35,6 @@ position = Vector2( 16, 0 )
 shape = SubResource( 1 )
 
 [node name="DoorOpenedInfoProvider" type="Area2D" parent="." index="5"]
-visible = false
 collision_layer = 128
 collision_mask = 2147483648
 
@@ -43,6 +42,4 @@ collision_mask = 2147483648
 position = Vector2( 16, 3 )
 rotation = 1.5708
 shape = ExtResource( 4 )
-[connection signal="player_entered" from="InteractiveArea" to="." method="player_entered"]
-[connection signal="player_exited" from="InteractiveArea" to="." method="player_exited"]
 [connection signal="animation_finished" from="AnimationPlayer" to="InteractiveArea" method="_on_AnimationPlayer_animation_finished"]

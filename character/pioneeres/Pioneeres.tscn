@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://character/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/pioneer_girl.png" type="Texture" id=2]
@@ -125,6 +125,9 @@ graph_offset = Vector2( -228.162, 0 )
 
 [sub_resource type="CircleShape2D" id=27]
 
+[sub_resource type="CircleShape2D" id=28]
+radius = 36.0
+
 [node name="Pioneeres" instance=ExtResource( 1 )]
 collision_layer = 3
 collision_mask = 55
@@ -144,7 +147,7 @@ parameters/Resting/blend_position = Vector2( 0, 0 )
 
 [node name="Sprite" parent="." index="3"]
 texture = ExtResource( 2 )
-vframes = 25
+vframes = 29
 frame = 273
 
 [node name="HurtBox" type="Area2D" parent="." index="4"]
@@ -163,20 +166,18 @@ anims/attack_right = ExtResource( 5 )
 anims/attack_up = ExtResource( 6 )
 
 [node name="ExtraSprite" parent="." index="9"]
-position = Vector2( 0, -30 )
 texture = ExtResource( 2 )
-vframes = 25
+vframes = 29
 hframes = 13
-frame = 317
+frame = 356
 
 [node name="Hitbox" type="Area2D" parent="." index="10"]
 position = Vector2( 0, -5 )
+monitoring = false
 collision_layer = 0
 collision_mask = 2147483652
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hitbox" index="0"]
-rotation = 1.5708
-polygon = PoolVector2Array( 0, 0, 25, -38, 50, -1, 25, 33 )
-disabled = true
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" index="0"]
+shape = SubResource( 28 )
 [connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
 [connection signal="area_entered" from="Hitbox" to="." method="_on_Hitbox_area_entered"]

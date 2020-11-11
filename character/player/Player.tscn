@@ -16,7 +16,7 @@ extents = Vector2( 10, 4 )
 
 [sub_resource type="CapsuleShape2D" id=3]
 radius = 17.0
-height = 14.0
+height = 0.0
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 5, 4 )

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ZombieJawTest.png-cf9cf46166181ea28fe67373a2d9a861.stex"
+path="res://.import/loss_placeholder.jpg-21f2dbfb9f4e5119b72a9ccc27681d4d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ZombieJawTest.png"
-dest_files=[ "res://.import/ZombieJawTest.png-cf9cf46166181ea28fe67373a2d9a861.stex" ]
+source_file="res://assets/loss_placeholder.jpg"
+dest_files=[ "res://.import/loss_placeholder.jpg-21f2dbfb9f4e5119b72a9ccc27681d4d.stex" ]
 
 [params]
 

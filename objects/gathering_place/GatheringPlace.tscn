@@ -1,10 +1,11 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://objects/fire/Fire.tscn" type="PackedScene" id=1]
 [ext_resource path="res://objects/gathering_place/GatheringSpot.tscn" type="PackedScene" id=2]
 [ext_resource path="res://objects/gathering_place/GatheringPlace.gd" type="Script" id=3]
+[ext_resource path="res://assets/build_atlas.png" type="Texture" id=4]
 
-[node name="GatheringPlace" type="Node2D" groups=[
+[node name="GatheringPlace" type="YSort" groups=[
 "POI",
 ]]
 script = ExtResource( 3 )
@@ -14,13 +15,27 @@ script = ExtResource( 3 )
 [node name="RestPlaces" type="Node2D" parent="."]
 
 [node name="PlaceEast" parent="RestPlaces" instance=ExtResource( 2 )]
-position = Vector2( 32, 0 )
+position = Vector2( 48, -8 )
 
 [node name="PlaceSouth" parent="RestPlaces" instance=ExtResource( 2 )]
-position = Vector2( 0, 24 )
+position = Vector2( 48, 16 )
 
 [node name="PlaceWest" parent="RestPlaces" instance=ExtResource( 2 )]
-position = Vector2( -32, 0 )
+position = Vector2( -48, 16 )
 
 [node name="PlaceNorth" parent="RestPlaces" instance=ExtResource( 2 )]
-position = Vector2( 0, -24 )
+position = Vector2( -48, -16 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -48, -16 )
+texture = ExtResource( 4 )
+offset = Vector2( 0, 16 )
+region_enabled = true
+region_rect = Rect2( 928, 512, 32, 64 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 48, -16 )
+texture = ExtResource( 4 )
+offset = Vector2( 0, 16 )
+region_enabled = true
+region_rect = Rect2( 960, 512, 32, 64 )

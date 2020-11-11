@@ -8,7 +8,7 @@
 extents = Vector2( 15, 5 )
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 24.0
+radius = 46.0
 
 [node name="Toilet" type="YSort" groups=[
 "POI",

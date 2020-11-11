@@ -4,13 +4,12 @@ class_name PeeGoal
 
 onready var bladder: Bladder
 
-export(float, 0.5, 1.0) var pee_threshhold := 0.8
-export(int) var priority := 2
+export(int) var priority := 3
 
 func calculate_weight() -> int:
 	if not bladder:
 		bladder = brain.bladder
-	if bladder.pee_level > pee_threshhold:
+	if bladder.is_full():
 		return priority
 	else:
 		return 0

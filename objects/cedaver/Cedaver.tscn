@@ -1,55 +1,64 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://assets/blood_splat_2.png" type="Texture" id=1]
 [ext_resource path="res://assets/blood_splat_0.png" type="Texture" id=2]
 [ext_resource path="res://assets/blood_splat_1.png" type="Texture" id=3]
 [ext_resource path="res://objects/cedaver/Pivot.gd" type="Script" id=4]
 [ext_resource path="res://assets/pioneeres_death.png" type="Texture" id=5]
-[ext_resource path="res://assets/ZombieJawTest.png" type="Texture" id=6]
+[ext_resource path="res://assets/yeerk_jaw.png" type="Texture" id=6]
 [ext_resource path="res://objects/interactive/base/InteractiveArea.tscn" type="PackedScene" id=7]
 [ext_resource path="res://objects/cedaver/EatInteraction.gd" type="Script" id=8]
+[ext_resource path="res://assets/consumption.png" type="Texture" id=9]
 
 [sub_resource type="CircleShape2D" id=1]
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 6 )
-region = Rect2( 0, 0, 64, 64 )
+region = Rect2( 0, 0, 30, 31 )
 
 [sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 6 )
-region = Rect2( 64, 0, 64, 64 )
+region = Rect2( 30, 0, 30, 31 )
 
 [sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 6 )
-region = Rect2( 128, 0, 64, 64 )
+region = Rect2( 60, 0, 30, 31 )
 
 [sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 6 )
-region = Rect2( 192, 0, 64, 64 )
+region = Rect2( 90, 0, 30, 31 )
 
-[sub_resource type="AtlasTexture" id=6]
-atlas = ExtResource( 6 )
-region = Rect2( 256, 0, 64, 64 )
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [sub_resource type="AtlasTexture" id=7]
-atlas = ExtResource( 6 )
-region = Rect2( 320, 0, 64, 64 )
+atlas = ExtResource( 9 )
+region = Rect2( 0, 0, 60, 60 )
 
 [sub_resource type="AtlasTexture" id=8]
-atlas = ExtResource( 6 )
-region = Rect2( 384, 0, 64, 64 )
+atlas = ExtResource( 9 )
+region = Rect2( 60, 0, 60, 60 )
 
 [sub_resource type="AtlasTexture" id=9]
-atlas = ExtResource( 6 )
-region = Rect2( 448, 0, 64, 64 )
+atlas = ExtResource( 9 )
+region = Rect2( 120, 0, 60, 60 )
 
 [sub_resource type="AtlasTexture" id=10]
-atlas = ExtResource( 6 )
-region = Rect2( 512, 0, 64, 64 )
+atlas = ExtResource( 9 )
+region = Rect2( 180, 0, 60, 60 )
 
-[sub_resource type="SpriteFrames" id=11]
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 9 )
+region = Rect2( 240, 0, 60, 60 )
+
+[sub_resource type="SpriteFrames" id=12]
 animations = [ {
-"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
+"frames": [ SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -92,11 +101,19 @@ position = Vector2( 0, 19 )
 script = ExtResource( 8 )
 
 [node name="YeerkPalm" type="AnimatedSprite" parent="EatInteraction"]
-frames = SubResource( 11 )
+frames = SubResource( 6 )
 frame = 1
 playing = true
 
 [node name="InteractiveArea" parent="EatInteraction" instance=ExtResource( 7 )]
+
+[node name="Consupption" type="AnimatedSprite" parent="EatInteraction"]
+visible = false
+scale = Vector2( 2, 2 )
+z_index = 1
+frames = SubResource( 12 )
+speed_scale = 0.5
 [connection signal="interact" from="EatInteraction/InteractiveArea" to="EatInteraction" method="_interact"]
 [connection signal="player_entered" from="EatInteraction/InteractiveArea" to="EatInteraction" method="player_entered"]
 [connection signal="player_exited" from="EatInteraction/InteractiveArea" to="EatInteraction" method="player_exited"]
+[connection signal="animation_finished" from="EatInteraction/Consupption" to="EatInteraction" method="_on_Consupption_animation_finished"]
