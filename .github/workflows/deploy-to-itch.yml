@@ -21,8 +21,7 @@ jobs:
       - name: Windows Build
         run: |
           mkdir -v -p build/windows
-          cd $EXPORT_NAME
-          godot -v --export "Windows Desktop" ../build/windows/Yeerk.exe
+          godot -v --export "Windows Desktop" ./build/windows/Yeerk.exe
       - name: Upload Artifact
         run: |
           export BUTLER_API_KEY=${{ secrets.BUTLER_API_KEY }}
