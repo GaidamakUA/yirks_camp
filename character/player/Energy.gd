@@ -22,4 +22,4 @@ func eat_pioneeres():
 	value += pioneeres_food
 	if value > max_value:
 		value = max_value
-	emit_signal("energy_changed")
+	emit_signal("energy_changed", max_value, value)

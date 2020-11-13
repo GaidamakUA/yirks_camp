@@ -46,10 +46,11 @@ func die():
 	queue_free()
 
 func interact():
+	if interactive_object == null:
+		return
 	if interactive_object.get_parent() is EatInetaction:
 		$Energy.eat_pioneeres()
-	if interactive_object != null:
-		interactive_object.interact()
+	interactive_object.interact()
 
 func _set_last_direction(direction: Vector2):
 	last_direction = direction
@@ -63,7 +64,7 @@ func _on_InteractBox_area_entered(area):
 		interactive_object.connect("finished_interaction", self, "_on_interaction_finished")
 
 func _on_InteractBox_area_exited(area):
-	if area.get_collision_layer_bit(6):
+	if area.get_collision_layer_bit(6) && interactive_object == area:
 		interactive_object.disconnect("finished_interaction", self, "_on_interaction_finished")
 		interactive_object = null
 

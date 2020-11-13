@@ -63,7 +63,7 @@ position = Vector2( 160, 80 )
 frame = 0
 
 [node name="Player" parent="Objects" index="5"]
-position = Vector2( 512, 281 )
+position = Vector2( 104, 286 )
 
 [node name="RemoteTransform2D2" type="RemoteTransform2D" parent="Objects/Player" index="16"]
 remote_path = NodePath("../../Pioneeres2/Brain/Goals/ReactOnYeerkGoal/GoToAction/Position2D")
@@ -80,12 +80,14 @@ script = ExtResource( 19 )
 
 [node name="GoToAction" type="Node" parent="Objects/Pioneeres2/Brain/Goals/IdleGoal" index="0"]
 script = ExtResource( 9 )
+desired_distance = 10
 
 [node name="Position2D" type="Position2D" parent="Objects/Pioneeres2/Brain/Goals/IdleGoal/GoToAction" index="0"]
 position = Vector2( 224, 320 )
 
 [node name="GoToAction2" type="Node" parent="Objects/Pioneeres2/Brain/Goals/IdleGoal" index="1"]
 script = ExtResource( 9 )
+desired_distance = 10
 
 [node name="Position2D" type="Position2D" parent="Objects/Pioneeres2/Brain/Goals/IdleGoal/GoToAction2" index="0"]
 position = Vector2( 224, 27 )
@@ -98,7 +100,7 @@ script = ExtResource( 9 )
 desired_distance = 50
 
 [node name="Position2D" type="Position2D" parent="Objects/Pioneeres2/Brain/Goals/ReactOnYeerkGoal/GoToAction" index="0"]
-position = Vector2( 512, 281 )
+position = Vector2( 104, 286 )
 
 [node name="ReactOnYeerkReachableGoal" type="Node" parent="Objects/Pioneeres2/Brain/Goals" index="2"]
 script = ExtResource( 22 )

@@ -101,13 +101,14 @@ position = Vector2( 0, 19 )
 script = ExtResource( 8 )
 
 [node name="YeerkPalm" type="AnimatedSprite" parent="EatInteraction"]
+visible = false
 frames = SubResource( 6 )
-frame = 1
+frame = 3
 playing = true
 
 [node name="InteractiveArea" parent="EatInteraction" instance=ExtResource( 7 )]
 
-[node name="Consupption" type="AnimatedSprite" parent="EatInteraction"]
+[node name="Consumption" type="AnimatedSprite" parent="EatInteraction"]
 visible = false
 scale = Vector2( 2, 2 )
 z_index = 1
@@ -116,4 +117,3 @@ speed_scale = 0.5
 [connection signal="interact" from="EatInteraction/InteractiveArea" to="EatInteraction" method="_interact"]
 [connection signal="player_entered" from="EatInteraction/InteractiveArea" to="EatInteraction" method="player_entered"]
 [connection signal="player_exited" from="EatInteraction/InteractiveArea" to="EatInteraction" method="player_exited"]
-[connection signal="animation_finished" from="EatInteraction/Consupption" to="EatInteraction" method="_on_Consupption_animation_finished"]

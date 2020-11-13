@@ -9,7 +9,7 @@ func _interact():
 		return
 	interacting = true
 	$YeerkPalm.hide()
-	$Consupption.show()
-	$Consupption.play()
-	yield($Consupption, "animation_finished")
+	$Consumption.show()
+	$Consumption.play()
+	yield($Consumption, "animation_finished")
 	queue_free()

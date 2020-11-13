@@ -27,9 +27,6 @@ region_rect = Rect2( 0, 0, 64, 96 )
 position = Vector2( 0, 20 )
 polygon = PoolVector2Array( -16, -1, -16, -22, 16, -22, 16, -1, 22, -1, 22, -29, -22, -29, -22, -1 )
 
-[node name="Door" parent="." instance=ExtResource( 3 )]
-position = Vector2( -16, 15 )
-
 [node name="OccupationArea" type="Area2D" parent="."]
 collision_layer = 0
 
@@ -47,5 +44,15 @@ position = Vector2( 0, 18 )
 rotation = 1.5708
 z_index = 1
 shape = SubResource( 2 )
+
+[node name="Door" parent="." instance=ExtResource( 3 )]
+position = Vector2( -16, 15 )
+
+[node name="YeerkPalm" parent="Door" index="5"]
+frame = 1
 [connection signal="body_entered" from="OccupationArea" to="." method="_on_OccupationArea_body_entered"]
 [connection signal="body_exited" from="OccupationArea" to="." method="_on_OccupationArea_body_exited"]
+[connection signal="player_entered" from="Door/InteractiveArea" to="Door" method="player_entered"]
+[connection signal="player_exited" from="Door/InteractiveArea" to="Door" method="player_exited"]
+
+[editable path="Door"]
