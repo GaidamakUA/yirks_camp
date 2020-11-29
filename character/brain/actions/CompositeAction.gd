@@ -18,3 +18,6 @@ func _perform():
 func drop():
 	running = false
 	current_action.drop()
+
+func _to_string() -> String:
+	return "CompositeAction"

@@ -8,13 +8,11 @@ var dialog_buble
 
 func _perform():
 	dialog_buble = brain.actor.dialog.create_dialog_bubble(replica)
-	dialog_buble.connect("finished_replica", self, "_on_replica_finished")
+	yield(dialog_buble, "finished_replica")
+	_notify_done()
 
 func drop():
-	dialog_buble.disconnect("finished_replica", self, "_on_replica_finished")
-
-func _on_replica_finished():
-	dialog_buble.disconnect("finished_replica", self, "_on_replica_finished")
+	dialog_buble.hide()
 	_notify_done()
 
 func _to_string() -> String:

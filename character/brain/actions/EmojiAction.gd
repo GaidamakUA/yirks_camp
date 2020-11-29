@@ -10,13 +10,11 @@ var emotion_buble
 func _perform():
 	emotion_buble = brain.actor.emotion_bubble
 	emotion_buble.show_emotion(background, emoji_icon)
-	emotion_buble.connect("finished_emotion", self, "_on_emoji_finished")
+	yield(emotion_buble, "finished_emotion")
+	_notify_done()
 
 func drop():
-	emotion_buble.disconnect("finished_emotion", self, "_on_emoji_finished")
-
-func _on_emoji_finished():
-	emotion_buble.disconnect("finished_emotion", self, "_on_emoji_finished")
+	emotion_buble.hide()
 	_notify_done()
 
 func _to_string() -> String:

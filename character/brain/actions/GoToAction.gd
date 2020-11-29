@@ -12,7 +12,9 @@ var navigation
 func _perform():
 	navigation = brain.navigation
 	navigation.set_destination(target.global_position, desired_distance)
-	navigation.connect("arrived", self, "_on_navigation_finished")
+	yield(navigation, "arrived")
+	navigation = null
+	_notify_done()
 
 func _process(delta):
 	if navigation:
@@ -20,13 +22,6 @@ func _process(delta):
 
 func drop():
 	navigation.drop()
-	navigation.disconnect("arrived", self, "_on_navigation_finished")
-	navigation = null
-
-func _on_navigation_finished():
-	_notify_done()
-	navigation.disconnect("arrived", self, "_on_navigation_finished")
-	navigation = null
 
 func _get_configuration_warning() -> String:
 	if get_child_count() == 0:
