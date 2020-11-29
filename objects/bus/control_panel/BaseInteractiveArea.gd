@@ -1,6 +1,6 @@
 extends Area2D
 
-class_name BaseClickableArea
+class_name BaseInteractiveArea
 
 func _on_BaseInteractiveArea_input_event(viewport, event, shape_idx):
 	if not event is InputEventMouseButton:
@@ -8,14 +8,14 @@ func _on_BaseInteractiveArea_input_event(viewport, event, shape_idx):
 	if not event.button_index == BUTTON_LEFT:
 		return
 	if event.pressed:
-		_on_pressed()
+		on_pressed()
 	else:
-		_on_released()
+		on_released()
 
 # To be overriden by children
-func _on_pressed():
+func on_pressed():
 	pass
 
 # To be overriden by children
-func _on_released():
+func on_released():
 	pass

@@ -22,7 +22,7 @@ _global_script_classes=[ {
 "base": "Area2D",
 "class": "BaseClickableArea",
 "language": "GDScript",
-"path": "res://objects/bus/control_panel/BaseInteractiveArea.gd"
+"path": "res://objects/bus/control_panel/BaseClickableArea.gd"
 }, {
 "base": "Node",
 "class": "BaseGoal",
@@ -32,7 +32,7 @@ _global_script_classes=[ {
 "base": "Area2D",
 "class": "BaseInteractiveArea",
 "language": "GDScript",
-"path": "res://objects/bus/control_panel/BaseClickableArea.gd"
+"path": "res://objects/bus/control_panel/BaseInteractiveArea.gd"
 }, {
 "base": "Node2D",
 "class": "BaseInteractiveObject",
@@ -238,7 +238,9 @@ _global_script_class_icons={
 
 config/name="Yeerk's camp"
 run/main_scene="res://ui/MainMenu.tscn"
-config/icon="res://icon.png"
+config/icon="res://icon_512_512.png"
+config/macos_native_icon="res://icon_512_512.icns"
+config/windows_native_icon="res://icon_256_256.ico"
 
 [debug]
 
