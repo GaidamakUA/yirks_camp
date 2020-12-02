@@ -672,5 +672,6 @@ anims/death1 = SubResource( 37 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PlayerUI" parent="CanvasLayer" instance=ExtResource( 8 )]
+mouse_filter = 2
 script = ExtResource( 10 )
 [connection signal="energy_changed" from="Objects/Player" to="CanvasLayer/PlayerUI" method="_on_energy_changed"]
