@@ -2,33 +2,28 @@ extends AtomicAction
 
 class_name AttackAction
 
-var _actor
 var timer = Timer.new()
 
 func _ready():
 	timer.connect("timeout", self, "_on_animation_finished")
 
 func _perform():
-	_actor = brain.actor
-	yield(_actor.play_extra_animation(_get_animation_name()), "completed")
+	var actor = brain.actor
+	yield(actor.play_extra_animation(_get_animation_name()), "completed")
 	_notify_done()
 
 func _get_animation_name():
-	var direction: Vector2 = _actor.last_direction
-	print("direction ", direction)
-	var x = direction.x
-	var y = direction.y
-	var animation_name: String
-	if abs(x) > abs(y):
-		if x > 0:
-			return "attack_right"
-		else:
-			return "attack_left"
-	else:
-		if y > 0:
-			return "attack_down"
-		else:
-			return "attack_up"
+	var direct_sight: RayCast2D = brain.direct_sight_sensor
+	var rotation = direct_sight.rotation
+	print("rotation ", rotation)
+	if rotation > 7 * PI / 4 || rotation < PI / 4:
+		return "attack_right"
+	if rotation > 5 * PI / 4:
+		return "attack_up"
+	if rotation > 3 * PI / 4:
+		return "attack_left"
+	if rotation > PI / 4:
+		return "attack_down"
 
 func drop():
 	pass

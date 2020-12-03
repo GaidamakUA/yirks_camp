@@ -8,6 +8,7 @@ onready var navigation = $Navigation
 onready var hand_reach_sensor: Area2D = $HandReachSensor
 onready var bladder: Bladder = $Bladder
 onready var sight_cone: Area2D = $EyesightConeSensor
+onready var direct_sight_sensor: RayCast2D = $DirectSightSensor
 onready var hit_reach_sensor: Area2D = $HitReachSensor
 
 onready var timer = Timer.new()

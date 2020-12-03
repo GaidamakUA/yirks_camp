@@ -116,6 +116,3 @@ func _die():
 
 func take_damage_from_pioneeres():
 	$Energy.take_damage_from_pioneeres()
-
-func is_visible() -> bool:
-	return not $EyesVisibilityArea/Eyes.visible

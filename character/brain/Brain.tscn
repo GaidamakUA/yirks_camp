@@ -41,3 +41,6 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitReachSensor"]
 position = Vector2( 0, -8 )
 shape = SubResource( 2 )
+
+[node name="DirectSightSensor" type="RayCast2D" parent="."]
+cast_to = Vector2( 150, 0 )
