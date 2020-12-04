@@ -23,6 +23,10 @@ func _ready():
 	add_child(timer)
 	timer.connect("timeout", self, "_think")
 
+func die():
+	current_goal.drop()
+	timer.stop()
+
 func start():
 	_think()
 	_is_started = true

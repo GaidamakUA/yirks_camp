@@ -1,6 +1,5 @@
 extends KinematicBody2D
 
-signal dying(place_of_death)
 signal interaction_finished
 
 export(int) var acceleration := 400
@@ -41,10 +40,6 @@ func _physics_process(delta):
 		velocity = velocity.move_toward(max_speed * _direction, acceleration * delta)
 	velocity = move_and_slide(velocity)
 
-func die():
-	emit_signal("dying", position)
-	queue_free()
-
 func interact():
 	if interactive_object == null:
 		return
@@ -72,10 +67,11 @@ func _on_interaction_finished():
 	emit_signal("interaction_finished")
 
 func play_extra_animation(animation_name: String, is_terminal := false):
+	$ExtraAnimationsPlayer.play(animation_name)
+	
 	$Sprite.hide()
 	$ExtraSprite.show()
 	
-	$ExtraAnimationsPlayer.play(animation_name)
 	yield($ExtraAnimationsPlayer, "animation_finished")
 	
 	if not is_terminal:

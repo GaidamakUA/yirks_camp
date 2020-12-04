@@ -1,4 +1,4 @@
-extends "BaseLevel.gd"
+extends Node2D
 
 onready var yeerk = $Objects/Player
 
