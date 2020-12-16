@@ -112,7 +112,6 @@ func _die():
 	$HitBox.monitoring = false
 	$Energy/HungerTimer.stop()
 	play_extra_animation("death", true)
-	emit_signal("dying", position)
 
 func take_damage_from_pioneeres():
 	$Energy.take_damage_from_pioneeres()

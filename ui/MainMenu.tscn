@@ -1,10 +1,19 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://ui/button_theme.tres" type="Theme" id=1]
 [ext_resource path="res://ui/MainMenu.gd" type="Script" id=2]
 [ext_resource path="res://assets/menu_background.png" type="Texture" id=3]
 [ext_resource path="res://assets/menu_yeerk.png" type="Texture" id=4]
 [ext_resource path="res://ui/Menu.tscn" type="PackedScene" id=5]
+[ext_resource path="res://ui/OptionsMenu.gd" type="Script" id=6]
+[ext_resource path="res://ui/LanguageOptions.gd" type="Script" id=7]
+[ext_resource path="res://assets/DS_Moster.ttf" type="DynamicFontData" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+size = 51
+outline_size = 4
+outline_color = Color( 0.141176, 0.329412, 0.427451, 1 )
+font_data = ExtResource( 8 )
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
@@ -26,69 +35,190 @@ __meta__ = {
 }
 
 [node name="YeerkFace" type="TextureRect" parent="."]
-margin_left = -32.0
-margin_top = 32.0
-margin_right = 992.0
-margin_bottom = 632.0
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -615.0
+margin_top = -360.0
+margin_right = 409.0
+margin_bottom = 240.0
+rect_scale = Vector2( 0.6, 0.6 )
 mouse_filter = 2
 texture = ExtResource( 4 )
+flip_h = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="MainMenu" parent="." instance=ExtResource( 5 )]
-margin_left = 608.0
-margin_top = 288.0
-margin_right = -64.0
-margin_bottom = 40.0
+margin_left = 60.0
+margin_top = 60.0
+margin_right = -644.0
+custom_constants/separation = 20
 
 [node name="StartButton" type="Button" parent="MainMenu"]
-margin_right = 352.0
+margin_right = 320.0
 margin_bottom = 96.0
 rect_min_size = Vector2( 0, 96 )
 theme = ExtResource( 1 )
 text = "Старт"
 
 [node name="PickLevelButton" type="Button" parent="MainMenu"]
-margin_top = 136.0
-margin_right = 352.0
-margin_bottom = 232.0
+margin_top = 116.0
+margin_right = 320.0
+margin_bottom = 212.0
 rect_min_size = Vector2( 0, 96 )
 theme = ExtResource( 1 )
 text = "Обрати рівень"
 
+[node name="SettingsButton" type="Button" parent="MainMenu"]
+margin_top = 232.0
+margin_right = 320.0
+margin_bottom = 328.0
+rect_min_size = Vector2( 0, 96 )
+theme = ExtResource( 1 )
+text = "Налаштування"
+
 [node name="LevelMenu" parent="." instance=ExtResource( 5 )]
-margin_left = 1056.0
-margin_top = 255.0
-margin_right = 384.0
-margin_bottom = 7.0
-custom_constants/separation = 19
+visible = false
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -321.0
+margin_top = 60.0
+margin_right = -1.0
+margin_bottom = 388.0
+grow_horizontal = 0
+custom_constants/separation = 20
 shown = false
 
 [node name="TestLevel" type="Button" parent="LevelMenu"]
-margin_right = 352.0
+margin_right = 320.0
 margin_bottom = 96.0
 rect_min_size = Vector2( 0, 96 )
 theme = ExtResource( 1 )
 text = "Тестовий"
 
 [node name="Level1" type="Button" parent="LevelMenu"]
-margin_top = 115.0
-margin_right = 352.0
-margin_bottom = 211.0
+margin_top = 116.0
+margin_right = 320.0
+margin_bottom = 212.0
 rect_min_size = Vector2( 0, 96 )
 theme = ExtResource( 1 )
-text = "Рівень 1"
+text = "1: Табір"
 
 [node name="Level2Mine" type="Button" parent="LevelMenu"]
-margin_top = 230.0
-margin_right = 352.0
-margin_bottom = 326.0
+margin_top = 232.0
+margin_right = 320.0
+margin_bottom = 328.0
 rect_min_size = Vector2( 0, 96 )
 theme = ExtResource( 1 )
 text = "2: Штольня"
+
+[node name="OptionsMenu" parent="." instance=ExtResource( 5 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -446.0
+margin_top = 60.0
+margin_right = 1.0
+margin_bottom = 504.0
+grow_horizontal = 0
+custom_constants/separation = 20
+script = ExtResource( 6 )
+shown = false
+
+[node name="Fullscreen" type="Button" parent="OptionsMenu"]
+margin_right = 447.0
+margin_bottom = 96.0
+rect_min_size = Vector2( 0, 96 )
+theme = ExtResource( 1 )
+text = "На весь екран: Ні"
+
+[node name="Language" type="Button" parent="OptionsMenu"]
+margin_top = 116.0
+margin_right = 447.0
+margin_bottom = 212.0
+rect_min_size = Vector2( 0, 96 )
+theme = ExtResource( 1 )
+text = "Мова:"
+
+[node name="Audio" type="Button" parent="OptionsMenu"]
+margin_top = 232.0
+margin_right = 447.0
+margin_bottom = 328.0
+rect_min_size = Vector2( 0, 96 )
+theme = ExtResource( 1 )
+text = "Авдіо"
+
+[node name="Controls" type="Button" parent="OptionsMenu"]
+margin_top = 348.0
+margin_right = 447.0
+margin_bottom = 444.0
+rect_min_size = Vector2( 0, 96 )
+theme = ExtResource( 1 )
+text = "Керування"
+
+[node name="LanguageOptions" type="Panel" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -200.0
+margin_top = -200.0
+margin_right = 200.0
+margin_bottom = 200.0
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LanguageOptions"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -184.0
+margin_top = -143.0
+margin_right = 184.0
+margin_bottom = 143.0
+custom_constants/separation = 16
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="LanguageOptions/VBoxContainer"]
+margin_right = 368.0
+margin_bottom = 62.0
+custom_fonts/font = SubResource( 1 )
+text = "Мова"
+align = 1
+
+[node name="English" type="Button" parent="LanguageOptions/VBoxContainer"]
+margin_top = 78.0
+margin_right = 368.0
+margin_bottom = 174.0
+rect_min_size = Vector2( 0, 96 )
+theme = ExtResource( 1 )
+text = "English"
+
+[node name="Ukrainian" type="Button" parent="LanguageOptions/VBoxContainer"]
+margin_top = 190.0
+margin_right = 368.0
+margin_bottom = 286.0
+rect_min_size = Vector2( 0, 96 )
+theme = ExtResource( 1 )
+text = "Українська"
 [connection signal="pressed" from="MainMenu/StartButton" to="." method="_on_Level1_pressed"]
 [connection signal="pressed" from="MainMenu/PickLevelButton" to="." method="_on_PickLevelButton_pressed"]
+[connection signal="pressed" from="MainMenu/SettingsButton" to="." method="_on_SettingsButton_pressed"]
 [connection signal="pressed" from="LevelMenu/TestLevel" to="." method="_on_TestLevel_pressed"]
 [connection signal="pressed" from="LevelMenu/Level1" to="." method="_on_Level1_pressed"]
 [connection signal="pressed" from="LevelMenu/Level2Mine" to="." method="_on_Level2Mine_pressed"]
+[connection signal="pressed" from="OptionsMenu/Fullscreen" to="OptionsMenu" method="_on_Fullscreen_pressed"]
+[connection signal="pressed" from="OptionsMenu/Language" to="." method="_on_Language_pressed"]
+[connection signal="pressed" from="OptionsMenu/Audio" to="OptionsMenu" method="_on_Audio_pressed"]
+[connection signal="pressed" from="OptionsMenu/Controls" to="OptionsMenu" method="_on_Controls_pressed"]
+[connection signal="language_changed" from="LanguageOptions" to="OptionsMenu" method="_on_LanguageOptions_language_changed"]
+[connection signal="pressed" from="LanguageOptions/VBoxContainer/English" to="LanguageOptions" method="_on_English_pressed"]
+[connection signal="pressed" from="LanguageOptions/VBoxContainer/Ukrainian" to="LanguageOptions" method="_on_Ukrainian_pressed"]
