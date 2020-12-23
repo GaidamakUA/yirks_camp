@@ -100,42 +100,25 @@ position = Vector2( -64, 32 )
 
 [node name="KeyUp" parent="Objects/StaticObjects/Keys" index="0" instance=ExtResource( 5 )]
 position = Vector2( 288, 128 )
-text = "W"
 
 [node name="KeyLeft" parent="Objects/StaticObjects/Keys" index="1" instance=ExtResource( 5 )]
 position = Vector2( 256, 160 )
-text = "A"
+action = "ui_left"
 
 [node name="KeyDown" parent="Objects/StaticObjects/Keys" index="2" instance=ExtResource( 5 )]
 position = Vector2( 288, 160 )
-text = "S"
+action = "ui_down"
 
 [node name="KeyRight" parent="Objects/StaticObjects/Keys" index="3" instance=ExtResource( 5 )]
 position = Vector2( 320, 160 )
-text = "D"
+action = "ui_right"
 
-[node name="KeyArrowLeft" parent="Objects/StaticObjects/Keys" index="4" instance=ExtResource( 5 )]
-position = Vector2( 496, 208 )
-text = "<"
-
-[node name="KeyArrowDown" parent="Objects/StaticObjects/Keys" index="5" instance=ExtResource( 5 )]
-position = Vector2( 528, 208 )
-text = "V"
-
-[node name="KeyArrowUp" parent="Objects/StaticObjects/Keys" index="6" instance=ExtResource( 5 )]
-position = Vector2( 528, 176 )
-text = "^"
-
-[node name="KeyArrowRight" parent="Objects/StaticObjects/Keys" index="7" instance=ExtResource( 5 )]
-position = Vector2( 560, 208 )
-text = ">"
-
-[node name="KeyInteract" parent="Objects/StaticObjects/Keys" index="8" instance=ExtResource( 5 )]
+[node name="KeyInteract" parent="Objects/StaticObjects/Keys" index="4" instance=ExtResource( 5 )]
 position = Vector2( 1056, -176 )
-text = "E"
+action = "interact"
 
-[node name="Spacebar" parent="Objects/StaticObjects/Keys" index="9" instance=ExtResource( 7 )]
-position = Vector2( 368, 224 )
+[node name="Spacebar" parent="Objects/StaticObjects/Keys" index="5" instance=ExtResource( 7 )]
+position = Vector2( 448, 208 )
 
 [node name="Statue" parent="Objects/StaticObjects" index="7" instance=ExtResource( 12 )]
 position = Vector2( 1107.72, 441.785 )
@@ -1134,9 +1117,6 @@ polygon = PoolVector2Array( -24, -64, 24, -64, 24, -56, -24, -56 )
 [node name="Foreground" parent="." index="5"]
 tile_data = PoolIntArray( -524263, 0, 0, -524262, 0, 1, -524261, 0, 1, -524260, 0, 1, -524259, 0, 1, -524258, 0, 2, -458727, 0, 131072, -458726, 0, 131073, -458725, 0, 131073, -458724, 0, 131073, -458723, 0, 131073, -458722, 0, 131074, -393184, 0, 0, -393183, 0, 1, -393182, 0, 2, -327660, 0, 0, -327659, 0, 1, -327658, 0, 1, -327657, 0, 1, -327656, 0, 2, -327648, 0, 65536, -327647, 0, 65537, -327646, 0, 65538, -262124, 0, 65536, -262123, 0, 65537, -262122, 0, 65537, -262121, 0, 65537, -262120, 0, 65538, -262112, 0, 131072, -262111, 0, 131073, -262110, 0, 131074, -196588, 0, 65536, -196587, 0, 65537, -196586, 0, 65537, -196585, 0, 65537, -196584, 0, 65538, -131052, 0, 65536, -131051, 0, 65537, -131050, 0, 65537, -131049, 0, 65537, -131048, 0, 65538, -131045, 0, 0, -131044, 0, 1, -131043, 0, 1, -131042, 0, 1, -131041, 0, 2, -65516, 0, 131072, -65515, 0, 131073, -65514, 0, 131073, -65513, 0, 131073, -65512, 0, 131074, -65509, 0, 131072, -65508, 0, 131073, -65507, 0, 131073, -65506, 0, 131073, -65505, 0, 131074 )
 
-[node name="DeathAnimation" parent="." index="6"]
-frame = 1
-
 [node name="VictoryPlaceholder" type="TextureRect" parent="CanvasLayer/PlayerUI" index="3"]
 visible = false
 anchor_right = 1.0
@@ -1164,9 +1144,4 @@ stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="dying" from="Objects/Player" to="." method="_on_Player_dying"]
 [connection signal="yeerk_appeared" from="Objects/YeerksAppearance" to="." method="_on_YeerksAppearance_yeerk_appeared"]
-[connection signal="dying" from="Objects/DynamicObjects/Pioneeres" to="." method="_on_Pioneeres_dead"]
-[connection signal="dying" from="Objects/DynamicObjects/Pioneeres2" to="." method="_on_Pioneeres_dead"]
-[connection signal="dying" from="Objects/DynamicObjects/Pioneeres3" to="." method="_on_Pioneeres_dead"]
-[connection signal="dying" from="Objects/DynamicObjects/Pioneeres4" to="." method="_on_Pioneeres_dead"]

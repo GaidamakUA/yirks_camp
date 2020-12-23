@@ -25,6 +25,11 @@ func _on_SettingsButton_pressed():
 	main_menu.menu_hide()
 	options_menu.menu_show()
 
+func _on_BackToMain_pressed():
+	main_menu.menu_show()
+	options_menu.menu_hide()
+	level_menu.menu_hide()
+
 # Levels
 func _on_TestLevel_pressed():
 	get_tree().change_scene("res://levels/TestLevel2.tscn")
@@ -37,3 +42,6 @@ func _on_Level2Mine_pressed():
 
 func _on_Language_pressed():
 	$LanguageOptions.show()
+
+func _on_Controls_pressed():
+	$ControlsOptions.show()

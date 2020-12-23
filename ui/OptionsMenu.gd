@@ -18,8 +18,5 @@ func _on_Fullscreen_pressed():
 func _on_Audio_pressed():
 	OS.alert("Not implemented")
 
-func _on_Controls_pressed():
-	OS.alert("Not implemented")
-
 func _on_LanguageOptions_language_changed():
 	_init_fullscreen()
