@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://objects/bus/Laz.tscn" type="PackedScene" id=1]
 [ext_resource path="res://levels/BaseLevel.tscn" type="PackedScene" id=2]
@@ -34,6 +34,7 @@
 [ext_resource path="res://character/brain/goals/ReactOnYeerkReachableGoal.gd" type="Script" id=32]
 [ext_resource path="res://assets/loss_placeholder.jpg" type="Texture" id=33]
 [ext_resource path="res://assets/victory_placeholder.jpg" type="Texture" id=34]
+[ext_resource path="res://objects/ChristmasTree.tscn" type="PackedScene" id=35]
 
 [node name="Level" instance=ExtResource( 2 )]
 script = ExtResource( 9 )
@@ -1113,6 +1114,9 @@ max_pee = 400
 visible = false
 color = Color( 0.682353, 0.694118, 0.223529, 1 )
 polygon = PoolVector2Array( -24, -64, 24, -64, 24, -56, -24, -56 )
+
+[node name="ChristmasTree" parent="Objects" index="4" instance=ExtResource( 35 )]
+position = Vector2( 944, 413 )
 
 [node name="Foreground" parent="." index="5"]
 tile_data = PoolIntArray( -524263, 0, 0, -524262, 0, 1, -524261, 0, 1, -524260, 0, 1, -524259, 0, 1, -524258, 0, 2, -458727, 0, 131072, -458726, 0, 131073, -458725, 0, 131073, -458724, 0, 131073, -458723, 0, 131073, -458722, 0, 131074, -393184, 0, 0, -393183, 0, 1, -393182, 0, 2, -327660, 0, 0, -327659, 0, 1, -327658, 0, 1, -327657, 0, 1, -327656, 0, 2, -327648, 0, 65536, -327647, 0, 65537, -327646, 0, 65538, -262124, 0, 65536, -262123, 0, 65537, -262122, 0, 65537, -262121, 0, 65537, -262120, 0, 65538, -262112, 0, 131072, -262111, 0, 131073, -262110, 0, 131074, -196588, 0, 65536, -196587, 0, 65537, -196586, 0, 65537, -196585, 0, 65537, -196584, 0, 65538, -131052, 0, 65536, -131051, 0, 65537, -131050, 0, 65537, -131049, 0, 65537, -131048, 0, 65538, -131045, 0, 0, -131044, 0, 1, -131043, 0, 1, -131042, 0, 1, -131041, 0, 2, -65516, 0, 131072, -65515, 0, 131073, -65514, 0, 131073, -65513, 0, 131073, -65512, 0, 131074, -65509, 0, 131072, -65508, 0, 131073, -65507, 0, 131073, -65506, 0, 131073, -65505, 0, 131074 )

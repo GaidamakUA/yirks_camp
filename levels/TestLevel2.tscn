@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://levels/BaseLevel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://character/pioneeres/Pioneeres.tscn" type="PackedScene" id=2]
@@ -22,6 +22,8 @@
 [ext_resource path="res://character/brain/goals/ReactOnCedaverGoal.gd" type="Script" id=20]
 [ext_resource path="res://character/brain/actions/SayAction.gd" type="Script" id=21]
 [ext_resource path="res://character/brain/goals/ReactOnYeerkReachableGoal.gd" type="Script" id=22]
+[ext_resource path="res://objects/ChristmasTree.tscn" type="PackedScene" id=23]
+[ext_resource path="res://assets/red_hat.png" type="Texture" id=24]
 [ext_resource path="res://objects/interactive/Drawer.tscn" type="PackedScene" id=26]
 [ext_resource path="res://character/brain/goals/ReactOnYeerkGoal.gd" type="Script" id=27]
 [ext_resource path="res://objects/interactive/Bag.tscn" type="PackedScene" id=29]
@@ -161,17 +163,24 @@ is_on = true
 [node name="GatheringPlace" parent="Objects" index="14" instance=ExtResource( 3 )]
 position = Vector2( 288, 288 )
 
+[node name="ChristmasTree" parent="Objects" index="15" instance=ExtResource( 23 )]
+position = Vector2( 1024, 214 )
+
 [node name="Bird" parent="." index="5" instance=ExtResource( 5 )]
 position = Vector2( 240, -27 )
 
-[node name="Foreground" parent="." index="6"]
+[node name="red_hat" type="Sprite" parent="." index="6"]
+position = Vector2( 944, 176 )
+texture = ExtResource( 24 )
+
+[node name="Foreground" parent="." index="7"]
 tile_data = PoolIntArray( -524270, 0, 0, -524269, 0, 2, -458734, 0, 65536, -458733, 0, 65538, -393198, 0, 65536, -393197, 0, 65538, -327662, 0, 65536, -327661, 0, 65538, -262126, 0, 65536, -262125, 0, 65538, -196590, 0, 131072, -196589, 0, 131074, 8, 0, 0, 9, 0, 2, 65544, 0, 131072, 65545, 0, 131074, 458772, 0, 0, 458773, 0, 2, 458776, 0, 0, 458777, 0, 1, 458778, 0, 1, 458779, 0, 2, 524308, 0, 65536, 524309, 0, 65538, 524312, 0, 65536, 524313, 0, 65537, 524314, 0, 65537, 524315, 0, 65538, 589836, 0, 0, 589837, 0, 2, 589839, 0, 0, 589840, 0, 1, 589841, 0, 1, 589842, 0, 2, 589844, 0, 65536, 589845, 0, 65538, 589848, 0, 65536, 589849, 0, 65537, 589850, 0, 65537, 589851, 0, 65538, 655372, 0, 131072, 655373, 0, 131074, 655375, 0, 131072, 655376, 0, 131073, 655377, 0, 131073, 655378, 0, 131074, 655380, 0, 131072, 655381, 0, 131074, 655384, 0, 131072, 655385, 0, 131073, 655386, 0, 131073, 655387, 0, 131074 )
 
-[node name="Drawer" parent="." index="8" instance=ExtResource( 26 )]
+[node name="Drawer" parent="." index="9" instance=ExtResource( 26 )]
 position = Vector2( -32, 496 )
 is_activated = false
 
-[node name="Bag" parent="." index="9" instance=ExtResource( 29 )]
+[node name="Bag" parent="." index="10" instance=ExtResource( 29 )]
 position = Vector2( -32, 560 )
 is_activated = false
 [connection signal="switch_flipped" from="Objects/Switch" to="Objects/WallLamp" method="_on_switch_flipped"]
