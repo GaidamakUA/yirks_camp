@@ -1,13 +1,10 @@
 extends Panel
 
-const SETTINGS_DIR = "user://settings/"
-const CONFIG_FILE = "controls.json"
-var actions := PoolStringArray(["ui_up", "ui_down", "ui_left", "ui_right", "interact", "dash"])
+signal controls_changed
 
 var recording_action
 
 func _ready():
-	load_control_scheme()
 	update_keys()
 
 func update_keys():
@@ -48,37 +45,4 @@ func get_code_for_action(action_name: String) -> int:
 
 func _on_ClosePopup_pressed():
 	hide()
-	save_control_scheme()
-
-func save_control_scheme():
-	var keymap: Dictionary = get_keymap(actions)
-	
-	var dir = Directory.new()
-	if not dir.dir_exists(SETTINGS_DIR):
-		dir.make_dir_recursive(SETTINGS_DIR)
-	var file = File.new()
-	file.open(get_keybindings_file(), File.WRITE)
-	file.store_line(to_json(keymap))
-	file.close()
-
-func load_control_scheme():
-	var save_game = File.new()
-	if not save_game.file_exists(get_keybindings_file()):
-		return # Error! We don't have a save to load.
-	save_game.open(get_keybindings_file(), File.READ)
-	var keybindings: Dictionary = parse_json(save_game.get_line())
-	for action in keybindings.keys():
-		InputMap.action_erase_events(action)
-		var event: InputEventKey = InputEventKey.new()
-		event.scancode = keybindings[action]
-		InputMap.action_add_event(action, event)
-		print(action, ", ", OS.get_scancode_string(event.scancode), ", ", event.scancode)
-
-func get_keybindings_file() -> String:
-	return str(SETTINGS_DIR, CONFIG_FILE)
-
-func get_keymap(actions: PoolStringArray) -> Dictionary:
-	var dictionary := Dictionary()
-	for action in actions:
-		dictionary[action] = get_code_for_action(action)
-	return dictionary
+	emit_signal("controls_changed")

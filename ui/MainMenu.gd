@@ -45,3 +45,6 @@ func _on_Language_pressed():
 
 func _on_Controls_pressed():
 	$ControlsOptions.show()
+
+func _on_ControlsOptions_controls_changed():
+	SettingsSingleton.save_control_scheme()

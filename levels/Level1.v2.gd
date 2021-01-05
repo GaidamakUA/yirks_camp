@@ -24,7 +24,7 @@ func _on_Pioneeres_dead(place_of_death):
 		get_tree().change_scene("res://ui/MainMenu.tscn")
 
 
-func _on_Player_dying(place_of_death):
+func _on_Player_dying():
 	$CanvasLayer/PlayerUI/LossPlaceholder.show()
 	var timer = Timer.new()
 	timer.wait_time = 4

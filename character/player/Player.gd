@@ -3,6 +3,7 @@ extends "../Character.gd"
 class_name Player
 
 signal energy_changed(max_value, value)
+signal dying
 
 var dash_distance: float = 200
 export(float) var dash_time := 0.7
@@ -112,6 +113,7 @@ func _die():
 	$HitBox.monitoring = false
 	$Energy/HungerTimer.stop()
 	play_extra_animation("death", true)
+	emit_signal("dying")
 
 func take_damage_from_pioneeres():
 	$Energy.take_damage_from_pioneeres()

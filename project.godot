@@ -248,6 +248,10 @@ config/icon="res://icon_512_512.png"
 config/macos_native_icon="res://icon_512_512.icns"
 config/windows_native_icon="res://icon_512_512.ico"
 
+[autoload]
+
+SettingsSingleton="*res://ui/SettingsSingleton.gd"
+
 [debug]
 
 settings/stdout/print_fps=true

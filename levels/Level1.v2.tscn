@@ -101,6 +101,7 @@ position = Vector2( -64, 32 )
 
 [node name="KeyUp" parent="Objects/StaticObjects/Keys" index="0" instance=ExtResource( 5 )]
 position = Vector2( 288, 128 )
+action = "ui_up"
 
 [node name="KeyLeft" parent="Objects/StaticObjects/Keys" index="1" instance=ExtResource( 5 )]
 position = Vector2( 256, 160 )
@@ -1148,4 +1149,5 @@ stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="dying" from="Objects/Player" to="." method="_on_Player_dying"]
 [connection signal="yeerk_appeared" from="Objects/YeerksAppearance" to="." method="_on_YeerksAppearance_yeerk_appeared"]

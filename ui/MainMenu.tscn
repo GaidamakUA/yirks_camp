@@ -427,6 +427,7 @@ text = "W"
 [connection signal="pressed" from="LanguageOptions/VBoxContainer/HBoxContainer/ClosePopup" to="LanguageOptions" method="_on_ClosePopup_pressed"]
 [connection signal="pressed" from="LanguageOptions/VBoxContainer/English" to="LanguageOptions" method="_on_English_pressed"]
 [connection signal="pressed" from="LanguageOptions/VBoxContainer/Ukrainian" to="LanguageOptions" method="_on_Ukrainian_pressed"]
+[connection signal="controls_changed" from="ControlsOptions" to="." method="_on_ControlsOptions_controls_changed"]
 [connection signal="pressed" from="ControlsOptions/MarginContainer/VBoxContainer/HBoxContainer2/ClosePopup" to="ControlsOptions" method="_on_ClosePopup_pressed"]
 [connection signal="pressed" from="ControlsOptions/MarginContainer/VBoxContainer/ScrollContainer/GridContainer/Up" to="ControlsOptions" method="_on_English_pressed"]
 [connection signal="pressed" from="ControlsOptions/MarginContainer/VBoxContainer/ScrollContainer/GridContainer/Down" to="ControlsOptions" method="_on_English_pressed"]
