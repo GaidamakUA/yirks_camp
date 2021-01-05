@@ -29,6 +29,7 @@ func _on_BackToMain_pressed():
 	main_menu.menu_show()
 	options_menu.menu_hide()
 	level_menu.menu_hide()
+	SettingsSingleton.save_settings()
 
 # Levels
 func _on_TestLevel_pressed():

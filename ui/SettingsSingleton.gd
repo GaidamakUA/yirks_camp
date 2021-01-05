@@ -1,19 +1,19 @@
 extends Node
 
 const SETTINGS_DIR = "user://settings/"
-const CONFIG_FILE = "controls.json"
+const CONTROLS_FILE = "controls.json"
+const SETTINGS_FILE = "settings.json"
 
 var actions := PoolStringArray(["ui_up", "ui_down", "ui_left", "ui_right", "interact", "dash"])
+var FULSCREEN_KEY = "fulscreen"
+var LANGUAGE_KEY = "language"
 
 func _ready():
 	_load_control_scheme()
+	_load_settings()
 
 func _load_control_scheme():
-	var save_game = File.new()
-	if not save_game.file_exists(_get_keybindings_file()):
-		return # Error! We don't have a save to load.
-	save_game.open(_get_keybindings_file(), File.READ)
-	var keybindings: Dictionary = parse_json(save_game.get_line())
+	var keybindings: Dictionary = _load_data_from_file(CONTROLS_FILE)
 	for action in keybindings.keys():
 		InputMap.action_erase_events(action)
 		var event: InputEventKey = InputEventKey.new()
@@ -21,26 +21,42 @@ func _load_control_scheme():
 		InputMap.action_add_event(action, event)
 		print(action, ", ", OS.get_scancode_string(event.scancode), ", ", event.scancode)
 
-func _get_keybindings_file() -> String:
-	return str(SETTINGS_DIR, CONFIG_FILE)
+func _load_settings():
+	var data = _load_data_from_file(SETTINGS_FILE)
+	if data:
+		OS.window_fullscreen = data[FULSCREEN_KEY]
+		TranslationServer.set_locale(data[LANGUAGE_KEY])
+
+func _load_data_from_file(file_name: String):
+	var save_game = File.new()
+	var full_name = str(SETTINGS_DIR, file_name)
+	if not save_game.file_exists(full_name):
+		return # Error! We don't have a save to load.
+	save_game.open(full_name, File.READ)
+	return parse_json(save_game.get_line())
 
 func save_control_scheme():
-	var keymap: Dictionary = _get_keymap(actions)
-	
-	var dir = Directory.new()
-	if not dir.dir_exists(SETTINGS_DIR):
-		dir.make_dir_recursive(SETTINGS_DIR)
-	var file = File.new()
-	file.open(_get_keybindings_file(), File.WRITE)
-	file.store_line(to_json(keymap))
-	file.close()
-
-func _get_keymap(actions: PoolStringArray) -> Dictionary:
-	var dictionary := Dictionary()
+	var data := Dictionary()
 	for action in actions:
-		dictionary[action] = _get_code_for_action(action)
-	return dictionary
+		data[action] = _get_code_for_action(action)
+	_save_data_to_file(data, CONTROLS_FILE)
 
 func _get_code_for_action(action_name: String) -> int:
 	var input_event := InputMap.get_action_list(action_name)[0] as InputEventKey
 	return input_event.scancode
+
+func save_settings():
+	var data := Dictionary()
+	data[FULSCREEN_KEY] = OS.window_fullscreen
+	data[LANGUAGE_KEY] = TranslationServer.get_locale()
+	_save_data_to_file(data, SETTINGS_FILE)
+
+func _save_data_to_file(data: Dictionary, file_name: String):
+	var dir = Directory.new()
+	if not dir.dir_exists(SETTINGS_DIR):
+		dir.make_dir_recursive(SETTINGS_DIR)
+	var file = File.new()
+	var full_name = str(SETTINGS_DIR, file_name)
+	file.open(full_name, File.WRITE)
+	file.store_line(to_json(data))
+	file.close()
