@@ -246,7 +246,7 @@ config/name="Yeerk's camp"
 run/main_scene="res://ui/MainMenu.tscn"
 config/icon="res://icon_512_512.png"
 config/macos_native_icon="res://icon_512_512.icns"
-config/windows_native_icon="res://icon_512_512.ico"
+config/windows_native_icon="res://icon_256.ico"
 
 [autoload]
 
