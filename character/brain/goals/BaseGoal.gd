@@ -41,3 +41,14 @@ func _perform_next_action():
 
 func _to_string() -> String:
 	return "BaseGoal"
+
+func save():
+	var actions_data := []
+	for action in actions:
+		actions_data.append(action.save())
+	var data := {
+		"script" : get_script().resource_path,
+		"weight" : weight,
+		"actions" : actions_data,
+	}
+	return data

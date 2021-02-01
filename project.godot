@@ -157,7 +157,7 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "Precondition",
 "language": "GDScript",
-"path": "res://character/brain/preconditions/Pecondition.gd"
+"path": "res://character/brain/preconditions/Precondition.gd"
 }, {
 "base": "AtomicAction",
 "class": "RandomAction",

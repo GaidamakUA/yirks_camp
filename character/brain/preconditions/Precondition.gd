@@ -13,3 +13,10 @@ func is_valid(_brain) -> bool:
 #To be overriden by children
 func _is_valid(_brain) -> bool:
 	return inverted
+
+func save() -> Dictionary:
+	var data := {
+		"script" : get_script().resource_path,
+		"inverted" : inverted
+	}
+	return data

@@ -25,3 +25,11 @@ func is_full() -> bool:
 
 func reset_pee_level():
 	pee_level = 0
+
+func save() -> Dictionary:
+	var data := {
+		"filename" : get_filename(),
+		"pee_level" : pee_level,
+		"max_pee" : max_pee
+	}
+	return data

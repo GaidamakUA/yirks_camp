@@ -77,3 +77,12 @@ func play_extra_animation(animation_name: String, is_terminal := false):
 	if not is_terminal:
 		$Sprite.show()
 		$ExtraSprite.hide()
+
+func save() -> Dictionary:
+	var dict := {
+		"filename" : get_filename(),
+		"last_direction" : last_direction,
+		"pos_x" : position.x,
+		"pos_y" : position.y,
+	}
+	return dict

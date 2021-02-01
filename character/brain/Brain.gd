@@ -55,3 +55,14 @@ func _sort_goals():
 
 func _goals_comparator(a, b):
 	return a.weight > b.weight
+
+func save() -> Dictionary:
+	var goal_data := []
+	for goal in goals:
+		goal_data.append(goal.save())
+	var data := {
+		"script" : get_script().resource_path,
+		"goal_data" : goal_data,
+		"bladder" : bladder.save()
+	}
+	return data

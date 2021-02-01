@@ -128,7 +128,7 @@ graph_offset = Vector2( -228.162, 0 )
 
 [sub_resource type="CircleShape2D" id=27]
 
-[sub_resource type="Animation" id=29]
+[sub_resource type="Animation" id=28]
 resource_name = "death_0"
 length = 1.2
 tracks/0/type = "value"
@@ -204,7 +204,7 @@ tracks/5/keys = {
 "values": [ 1, 0 ]
 }
 
-[sub_resource type="Animation" id=30]
+[sub_resource type="Animation" id=29]
 resource_name = "death_1"
 length = 1.2
 tracks/0/type = "value"
@@ -280,7 +280,7 @@ tracks/5/keys = {
 "values": [ 1, 0 ]
 }
 
-[sub_resource type="Animation" id=31]
+[sub_resource type="Animation" id=30]
 resource_name = "death_2"
 length = 1.2
 tracks/0/type = "value"
@@ -356,7 +356,7 @@ tracks/5/keys = {
 "values": [ 1, 0 ]
 }
 
-[sub_resource type="CircleShape2D" id=28]
+[sub_resource type="CircleShape2D" id=31]
 radius = 36.0
 
 [node name="Pioneeres" instance=ExtResource( 1 )]
@@ -395,9 +395,9 @@ anims/attack_down = ExtResource( 7 )
 anims/attack_left = ExtResource( 4 )
 anims/attack_right = ExtResource( 5 )
 anims/attack_up = ExtResource( 6 )
-anims/death_0 = SubResource( 29 )
-anims/death_1 = SubResource( 30 )
-anims/death_2 = SubResource( 31 )
+anims/death_0 = SubResource( 28 )
+anims/death_1 = SubResource( 29 )
+anims/death_2 = SubResource( 30 )
 
 [node name="ExtraSprite" parent="." index="9"]
 texture = ExtResource( 8 )
@@ -411,6 +411,6 @@ collision_layer = 0
 collision_mask = 2147483652
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" index="0"]
-shape = SubResource( 28 )
+shape = SubResource( 31 )
 [connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
 [connection signal="area_entered" from="Hitbox" to="." method="_on_Hitbox_area_entered"]

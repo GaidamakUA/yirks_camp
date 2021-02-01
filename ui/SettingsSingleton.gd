@@ -60,3 +60,16 @@ func _save_data_to_file(data: Dictionary, file_name: String):
 	file.open(full_name, File.WRITE)
 	file.store_line(to_json(data))
 	file.close()
+
+func save_level():
+	var save_nodes = get_tree().get_nodes_in_group("Persist")
+	var node_data = []
+	for node in save_nodes:
+		if !node.has_method("save"):
+			print("persistent node '%s' is missing a save() function, skipped" % node.name)
+			continue
+		node_data.append(node.save())
+	var save_game = File.new()
+	save_game.open("user://savegame.save", File.WRITE)
+	save_game.store_line(to_json({"saved_objects": node_data}))
+	save_game.close()

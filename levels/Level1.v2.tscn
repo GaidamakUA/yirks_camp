@@ -1149,5 +1149,8 @@ stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Control" parent="PauseOverlay" index="0"]
+visible = false
 [connection signal="dying" from="Objects/Player" to="." method="_on_Player_dying"]
 [connection signal="yeerk_appeared" from="Objects/YeerksAppearance" to="." method="_on_YeerksAppearance_yeerk_appeared"]

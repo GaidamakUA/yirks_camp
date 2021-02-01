@@ -22,6 +22,7 @@ onready var dash_raycast = $DashCollision
 
 func _ready():
 	$Sprite.texture = yeerk_land
+	add_to_group("Persist")
 
 func _physics_process(_delta):
 	if tween.is_active() && dash_raycast.is_colliding():
@@ -117,3 +118,8 @@ func _die():
 
 func take_damage_from_pioneeres():
 	$Energy.take_damage_from_pioneeres()
+
+func save() -> Dictionary:
+	var dict := .save()
+	dict["energy"] = $Energy.value
+	return dict

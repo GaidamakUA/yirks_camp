@@ -6,6 +6,9 @@ const Cedaver = preload("res://objects/cedaver/Cedaver.tscn")
 
 onready var brain = $Brain
 
+func _ready():
+	add_to_group("Persist")
+
 func _on_HurtBox_area_entered(_area):
 	die()
 
@@ -27,3 +30,8 @@ func die():
 
 func _on_Hitbox_area_entered(area):
 	area.get_parent().take_damage_from_pioneeres()
+
+func save() -> Dictionary:
+	var dict := .save()
+	dict["brain"] = brain.save()
+	return dict

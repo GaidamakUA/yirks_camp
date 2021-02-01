@@ -44,3 +44,13 @@ func _notify_done():
 
 func _to_string() -> String:
 	return "AtomicAction"
+
+func save():
+	var preconditions_data := []
+	for precondition in preconditions:
+		preconditions_data.append(precondition.save())
+	var data := {
+		"script" : get_script().resource_path,
+		"preconditions" : preconditions_data
+	}
+	return data
