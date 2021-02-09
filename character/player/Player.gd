@@ -119,7 +119,11 @@ func _die():
 func take_damage_from_pioneeres():
 	$Energy.take_damage_from_pioneeres()
 
-func save() -> Dictionary:
-	var dict := .save()
+func serialize() -> Dictionary:
+	var dict := .serialize()
 	dict["energy"] = $Energy.value
 	return dict
+
+func deserialize(data: Dictionary):
+	.deserialize(data)
+	$Energy.value = data["energy"]

@@ -19,3 +19,14 @@ func drop():
 
 func _to_string() -> String:
 	return "EmojiAction"
+
+func serialize() -> Dictionary:
+	var data := .serialize()
+	data["background"] = background.resource_path
+	data["emoji_icon"] = emoji_icon.resource_path
+	return data
+
+func deserialize(data: Dictionary):
+	.deserialize(data)
+	background = load(data["background"])
+	emoji_icon = load(data["emoji_icon"])

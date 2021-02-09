@@ -78,11 +78,18 @@ func play_extra_animation(animation_name: String, is_terminal := false):
 		$Sprite.show()
 		$ExtraSprite.hide()
 
-func save() -> Dictionary:
+func serialize() -> Dictionary:
 	var dict := {
 		"filename" : get_filename(),
-		"last_direction" : last_direction,
+		"last_direction_x" : last_direction.x,
+		"last_direction_y" : last_direction.y,
 		"pos_x" : position.x,
 		"pos_y" : position.y,
 	}
 	return dict
+
+func deserialize(data: Dictionary):
+	last_direction.x = data["last_direction_x"]
+	last_direction.y = data["last_direction_y"]
+	position.x = data["pos_x"]
+	position.y = data["pos_y"]

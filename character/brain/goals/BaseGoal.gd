@@ -7,7 +7,7 @@ const INVALID_WEIGHT := -1
 var weight := 0
 
 onready var brain = get_parent().get_parent()
-var actions: Array
+onready var actions: Array
 var current_action: AtomicAction
 
 func update_weight():
@@ -42,13 +42,30 @@ func _perform_next_action():
 func _to_string() -> String:
 	return "BaseGoal"
 
-func save():
+func serialize():
 	var actions_data := []
-	for action in actions:
-		actions_data.append(action.save())
+	for action in get_children():
+		actions_data.append(action.serialize())
 	var data := {
 		"script" : get_script().resource_path,
 		"weight" : weight,
 		"actions" : actions_data,
 	}
 	return data
+
+func deserialize(data: Dictionary):
+	print(data)
+	weight = data["weight"]
+	
+	actions = []
+	var action_scripts := Dictionary()
+	var actions_data = data["actions"]
+	for data in actions_data:
+		var script_name = data["script"]
+		if not action_scripts.has(script_name):
+			action_scripts[script_name] = load(script_name)
+		var action = Node.new()
+		action.set_script(action_scripts[script_name])
+		action.deserialize(data)
+		actions.append(action)
+		call_deferred("add_child", action)

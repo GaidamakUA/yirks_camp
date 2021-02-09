@@ -14,7 +14,7 @@ onready var hit_reach_sensor: Area2D = $HitReachSensor
 onready var timer = Timer.new()
 
 var goals
-var current_goal: BaseGoal
+var current_goal
 var _is_started := false
 
 func _ready():
@@ -38,12 +38,13 @@ func _process(delta):
 func _think():
 	_update_weights()
 	_sort_goals()
-	var top_goal = goals[0]
-	if top_goal != current_goal || current_goal.is_finished():
-		if current_goal != null:
-			current_goal.drop()
-		current_goal = top_goal
-		current_goal.persue()
+	if not goals.empty():
+		var top_goal = goals[0]
+		if top_goal != current_goal || current_goal.is_finished():
+			if current_goal != null:
+				current_goal.drop()
+			current_goal = top_goal
+			current_goal.persue()
 	timer.start(1 / think_frequency)
 
 func _update_weights():
@@ -56,13 +57,44 @@ func _sort_goals():
 func _goals_comparator(a, b):
 	return a.weight > b.weight
 
-func save() -> Dictionary:
+func serialize() -> Dictionary:
 	var goal_data := []
 	for goal in goals:
-		goal_data.append(goal.save())
+		goal_data.append(goal.serialize())
 	var data := {
-		"script" : get_script().resource_path,
-		"goal_data" : goal_data,
-		"bladder" : bladder.save()
+		"script" : get_filename(),
+		"goal_data" : goal_data
 	}
+	if bladder:
+		data["bladder"] = bladder.serialize()
 	return data
+
+func deserialize(data: Dictionary):
+	timer.stop()
+
+	if data.has("bladder"):
+		var new_bladder = Node2D.new()
+		new_bladder.set_script(data["bladder"]["filename"])
+		new_bladder.deserialize(data["bladder"])
+		bladder = new_bladder
+		add_child(bladder)
+	
+	var goals_node := Node2D.new()
+	goals_node.name = "Goals"
+	add_child(goals_node)
+	goals = []
+	var goal_scripts := Dictionary()
+	var goals_data = data["goal_data"]
+	for data in goals_data:
+		var goal = Node.new()
+		var script_name = data["script"]
+		if not goal_scripts.has(script_name):
+			goal_scripts[script_name] = load(script_name)
+		var script = goal_scripts[script_name]
+		goal.set_script(script)
+		goal.deserialize(data)
+		goals_node.add_child(goal)
+		goals.append(goal)
+	print("goals initialized")
+	
+	timer.start(1 / think_frequency)

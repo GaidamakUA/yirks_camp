@@ -40,6 +40,11 @@ _global_script_classes=[ {
 "path": "res://objects/interactive/base/BaseInteractiveObject.gd"
 }, {
 "base": "Node2D",
+"class": "BaseLevel",
+"language": "GDScript",
+"path": "res://levels/BaseLevel.gd"
+}, {
+"base": "Node2D",
 "class": "Bladder",
 "language": "GDScript",
 "path": "res://character/brain/sensors/Bladder.gd"
@@ -206,6 +211,7 @@ _global_script_class_icons={
 "BaseGoal": "",
 "BaseInteractiveArea": "",
 "BaseInteractiveObject": "",
+"BaseLevel": "",
 "Bladder": "",
 "CanHitYeerk": "",
 "Cedaver": "",

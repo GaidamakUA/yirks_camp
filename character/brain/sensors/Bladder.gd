@@ -26,10 +26,14 @@ func is_full() -> bool:
 func reset_pee_level():
 	pee_level = 0
 
-func save() -> Dictionary:
+func serialize() -> Dictionary:
 	var data := {
 		"filename" : get_filename(),
 		"pee_level" : pee_level,
 		"max_pee" : max_pee
 	}
 	return data
+
+func deserialize(data: Dictionary):
+	pee_level = data["pee_level"]
+	max_pee = data["max_pee"]

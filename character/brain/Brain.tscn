@@ -44,3 +44,5 @@ shape = SubResource( 2 )
 
 [node name="DirectSightSensor" type="RayCast2D" parent="."]
 cast_to = Vector2( 150, 0 )
+
+[node name="Goals" type="Node" parent="."]

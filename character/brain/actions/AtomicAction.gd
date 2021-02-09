@@ -45,12 +45,19 @@ func _notify_done():
 func _to_string() -> String:
 	return "AtomicAction"
 
-func save():
+func serialize() -> Dictionary:
 	var preconditions_data := []
 	for precondition in preconditions:
-		preconditions_data.append(precondition.save())
+		preconditions_data.append(precondition.serialize())
 	var data := {
 		"script" : get_script().resource_path,
 		"preconditions" : preconditions_data
 	}
 	return data
+
+func deserialize(data: Dictionary):
+	var preconditions_data = data["preconditions"]
+	for data in preconditions_data:
+		var precondition: Node = Node.instance()
+		precondition.set_script(data["script"])
+		preconditions.append(precondition)

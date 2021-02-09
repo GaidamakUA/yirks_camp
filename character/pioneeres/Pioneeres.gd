@@ -31,7 +31,14 @@ func die():
 func _on_Hitbox_area_entered(area):
 	area.get_parent().take_damage_from_pioneeres()
 
-func save() -> Dictionary:
-	var dict := .save()
-	dict["brain"] = brain.save()
+func serialize() -> Dictionary:
+	var dict := .serialize()
+	dict["brain"] = brain.serialize()
 	return dict
+
+func deserialize(data: Dictionary):
+	.deserialize(data)
+	var brain_scene = load("res://character/brain/Brain.tscn")
+	var brain = brain_scene.instance()
+	add_child(brain)
+	brain.call_deferred("deserialize", data["brain"])

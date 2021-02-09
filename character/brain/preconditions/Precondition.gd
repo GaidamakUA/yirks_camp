@@ -14,9 +14,12 @@ func is_valid(_brain) -> bool:
 func _is_valid(_brain) -> bool:
 	return inverted
 
-func save() -> Dictionary:
+func serialize() -> Dictionary:
 	var data := {
 		"script" : get_script().resource_path,
 		"inverted" : inverted
 	}
 	return data
+
+func deserialize(data: Dictionary):
+	inverted = data["inverted"]

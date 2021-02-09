@@ -21,3 +21,19 @@ func drop():
 
 func _to_string() -> String:
 	return "CompositeAction"
+
+func serialize() -> Dictionary:
+	var data := .serialize()
+	var actions_data := []
+	for action in get_children():
+		actions_data.append(action.serialize())
+	data["actions"] = actions_data
+	return data
+
+func deserialize(data: Dictionary):
+	.deserialize(data)
+	var actions_data = data["actions"]
+	for data in actions_data:
+		var action: Node = Node.instance()
+		action.set_script(data["script"])
+		add_child(action)
