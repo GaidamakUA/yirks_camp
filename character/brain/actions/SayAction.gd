@@ -17,3 +17,12 @@ func drop():
 
 func _to_string() -> String:
 	return "SayAction"
+
+func serialize() -> Dictionary:
+	var data := .serialize()
+	data["replica"] = replica
+	return data
+
+func deserialize(data: Dictionary):
+	.deserialize(data)
+	replica = data["replica"]

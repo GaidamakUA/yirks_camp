@@ -1,13 +1,10 @@
-extends AtomicAction
+extends SetAction
 
 class_name RepeatingAction, "res://assets/class_icons/cycle.png"
 
-var actions := []
 var is_active := false
-var current_action
 
 func _perform():
-	_init_actions()
 	is_active = true
 	while is_active:
 		for action in actions:
@@ -22,14 +19,16 @@ func _perform():
 
 func drop():
 	is_active = false
-	if current_action:
-		current_action.drop()
-
-func _init_actions():
-	actions = []
-	for child in children:
-		if child is AtomicAction:
-			actions.append(child)
+	.drop()
 
 func _to_string() -> String:
 	return "RepeatingAction"
+
+func serialize() -> Dictionary:
+	var data := .serialize()
+	data["is_active"] = is_active
+	return data
+
+func deserialize(data: Dictionary):
+	.deserialize(data)
+	is_active = data["is_active"]

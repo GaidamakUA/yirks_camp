@@ -51,6 +51,7 @@ func _process(_delta):
 			idle_timer.stop()
 	
 	_on_direction(new_direction)
+	PlayerInfoSingleton.position = position
 
 func _unhandled_input(event):
 	if event.is_action_pressed("interact"):

@@ -59,7 +59,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://objects/cedaver/Pivot.gd"
 }, {
-"base": "AtomicAction",
+"base": "SetAction",
 "class": "CompositeAction",
 "language": "GDScript",
 "path": "res://character/brain/actions/CompositeAction.gd"
@@ -104,6 +104,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://character/brain/actions/GoToAction.gd"
 }, {
+"base": "AtomicAction",
+"class": "GoToYeerkAction",
+"language": "GDScript",
+"path": "res://character/brain/actions/GoToYeerkAction.gd"
+}, {
 "base": "BaseGoal",
 "class": "IdleGoal",
 "language": "GDScript",
@@ -134,7 +139,12 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://character/brain/goals/NearFireGoal.gd"
 }, {
-"base": "AtomicAction",
+"base": "SetAction",
+"class": "OneFromSetAction",
+"language": "GDScript",
+"path": "res://character/brain/actions/OneFromSetAction.gd"
+}, {
+"base": "OneFromSetAction",
 "class": "OrderAction",
 "language": "GDScript",
 "path": "res://character/brain/actions/OrderAction.gd"
@@ -164,7 +174,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://character/brain/preconditions/Precondition.gd"
 }, {
-"base": "AtomicAction",
+"base": "OneFromSetAction",
 "class": "RandomAction",
 "language": "GDScript",
 "path": "res://character/brain/actions/RandomAction.gd"
@@ -184,7 +194,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://character/brain/goals/ReactOnYeerkReachableGoal.gd"
 }, {
-"base": "AtomicAction",
+"base": "SetAction",
 "class": "RepeatingAction",
 "language": "GDScript",
 "path": "res://character/brain/actions/RepeatingAction.gd"
@@ -193,6 +203,11 @@ _global_script_classes=[ {
 "class": "SayAction",
 "language": "GDScript",
 "path": "res://character/brain/actions/SayAction.gd"
+}, {
+"base": "AtomicAction",
+"class": "SetAction",
+"language": "GDScript",
+"path": "res://character/brain/actions/SetAction.gd"
 }, {
 "base": "Node2D",
 "class": "Toilet",
@@ -224,13 +239,15 @@ _global_script_class_icons={
 "GatheringPlace": "",
 "GatheringSpot": "",
 "GoToAction": "res://assets/class_icons/walk.png",
+"GoToYeerkAction": "res://assets/class_icons/walk.png",
 "IdleGoal": "",
 "InteractAction": "res://assets/class_icons/click.png",
 "IsDoorOpen": "res://assets/class_icons/door-open.png",
 "IsToiletFree": "res://assets/class_icons/toilet.png",
 "Menu": "",
 "NearFireGoal": "",
-"OrderAction": "",
+"OneFromSetAction": "",
+"OrderAction": "res://assets/class_icons/checkbox-tree.png",
 "PeeGoal": "",
 "PersueYeerkGoal": "",
 "Pioneeres": "",
@@ -242,6 +259,7 @@ _global_script_class_icons={
 "ReactOnYeerkReachableGoal": "",
 "RepeatingAction": "res://assets/class_icons/cycle.png",
 "SayAction": "res://assets/class_icons/chat-bubble.png",
+"SetAction": "",
 "Toilet": "",
 "WallLamp": ""
 }
@@ -257,6 +275,7 @@ config/windows_native_icon="res://icon_256.ico"
 [autoload]
 
 SettingsSingleton="*res://ui/SettingsSingleton.gd"
+PlayerInfoSingleton="*res://character/player/PlayerInfoSingleton.gd"
 
 [debug]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://levels/BaseLevel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://character/pioneeres/Pioneeres.tscn" type="PackedScene" id=2]
@@ -8,15 +8,19 @@
 [ext_resource path="res://objects/bus/Laz.tscn" type="PackedScene" id=6]
 [ext_resource path="res://objects/toilet/Toilet.tscn" type="PackedScene" id=7]
 [ext_resource path="res://character/brain/actions/DelayAction.gd" type="Script" id=8]
-[ext_resource path="res://assets/emotes/emote_cross.png" type="Texture" id=9]
+[ext_resource path="res://character/brain/actions/GoToYeerkAction.gd" type="Script" id=9]
 [ext_resource path="res://character/brain/Brain.tscn" type="PackedScene" id=10]
-[ext_resource path="res://character/brain/sensors/Bladder.gd" type="Script" id=11]
+[ext_resource path="res://character/brain/actions/AttackAction.gd" type="Script" id=11]
 [ext_resource path="res://character/brain/actions/EmojiAction.gd" type="Script" id=12]
+[ext_resource path="res://character/brain/actions/GoToAction.gd" type="Script" id=13]
+[ext_resource path="res://character/brain/actions/CompositeAction.gd" type="Script" id=14]
 [ext_resource path="res://objects/interactive/switch/Switch.tscn" type="PackedScene" id=15]
 [ext_resource path="res://objects/WallLamp.tscn" type="PackedScene" id=16]
 [ext_resource path="res://assets/emotes/emote_1.png" type="Texture" id=17]
 [ext_resource path="res://assets/emotes/emote_alert.png" type="Texture" id=18]
 [ext_resource path="res://character/brain/goals/IdleGoal.gd" type="Script" id=19]
+[ext_resource path="res://character/brain/actions/InteractAction.gd" type="Script" id=20]
+[ext_resource path="res://character/brain/actions/SayAction.gd" type="Script" id=21]
 [ext_resource path="res://objects/ChristmasTree.tscn" type="PackedScene" id=23]
 [ext_resource path="res://assets/red_hat.png" type="Texture" id=24]
 [ext_resource path="res://objects/interactive/Drawer.tscn" type="PackedScene" id=26]
@@ -67,10 +71,6 @@ position = Vector2( 96, 116 )
 
 [node name="Brain" parent="Objects/Pioneeres2" index="8" instance=ExtResource( 10 )]
 
-[node name="Bladder" type="Node2D" parent="Objects/Pioneeres2/Brain" index="5"]
-position = Vector2( -96, -116 )
-script = ExtResource( 11 )
-
 [node name="IdleGoal" type="Node" parent="Objects/Pioneeres2/Brain/Goals" index="0"]
 script = ExtResource( 19 )
 
@@ -83,14 +83,33 @@ script = ExtResource( 12 )
 background = ExtResource( 17 )
 emoji_icon = ExtResource( 18 )
 
-[node name="DelayAction2" type="Node" parent="Objects/Pioneeres2/Brain/Goals/IdleGoal" index="2"]
-script = ExtResource( 8 )
-wait_time = 5.0
+[node name="AttackAction" type="Node" parent="Objects/Pioneeres2/Brain/Goals/IdleGoal" index="2"]
+script = ExtResource( 11 )
 
-[node name="EmojiAction2" type="Node" parent="Objects/Pioneeres2/Brain/Goals/IdleGoal" index="3"]
-script = ExtResource( 12 )
-background = ExtResource( 17 )
-emoji_icon = ExtResource( 9 )
+[node name="CompositeAction" type="Node" parent="Objects/Pioneeres2/Brain/Goals/IdleGoal" index="3"]
+script = ExtResource( 14 )
+
+[node name="GoToAction" type="Node" parent="Objects/Pioneeres2/Brain/Goals/IdleGoal/CompositeAction" index="0"]
+script = ExtResource( 13 )
+
+[node name="Position2D" type="Position2D" parent="Objects/Pioneeres2/Brain/Goals/IdleGoal/CompositeAction/GoToAction" index="0"]
+position = Vector2( 307, 128 )
+
+[node name="GoToAction2" type="Node" parent="Objects/Pioneeres2/Brain/Goals/IdleGoal/CompositeAction" index="1"]
+script = ExtResource( 13 )
+
+[node name="Position2D2" type="Position2D" parent="Objects/Pioneeres2/Brain/Goals/IdleGoal/CompositeAction/GoToAction2" index="0"]
+position = Vector2( 63, 224 )
+
+[node name="InteractAction" type="Node" parent="Objects/Pioneeres2/Brain/Goals/IdleGoal" index="4"]
+script = ExtResource( 20 )
+
+[node name="SayAction" type="Node" parent="Objects/Pioneeres2/Brain/Goals/IdleGoal" index="5"]
+script = ExtResource( 21 )
+replica = "Die Die Die"
+
+[node name="GoToYeerkAction" type="Node" parent="Objects/Pioneeres2/Brain/Goals/IdleGoal" index="6"]
+script = ExtResource( 9 )
 
 [node name="WallLamp" parent="Objects" index="7" instance=ExtResource( 16 )]
 position = Vector2( 723, 132 )
