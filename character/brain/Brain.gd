@@ -2,6 +2,8 @@ extends Node2D
 
 export(int, 1, 20) var think_frequency := 5
 
+var DEBUGGING := false
+
 #Action dependencies
 onready var actor = get_parent()
 onready var navigation = $Navigation
@@ -32,8 +34,8 @@ func start():
 	_is_started = true
 
 func _process(delta):
-	if _is_started:
-		pass
+	if DEBUGGING:
+		$DebugText.text = str(current_goal)
 
 func _think():
 	_update_weights()
@@ -54,7 +56,7 @@ func _update_weights():
 func _sort_goals():
 	goals.sort_custom(self, "_goals_comparator")
 
-func _goals_comparator(a, b):
+func _goals_comparator(a, b) -> bool:
 	return a.weight > b.weight
 
 func serialize() -> Dictionary:
@@ -74,7 +76,8 @@ func deserialize(data: Dictionary):
 
 	if data.has("bladder"):
 		var new_bladder = Node2D.new()
-		new_bladder.set_script(data["bladder"]["filename"])
+		var bladder_script = load(data["bladder"]["script"])
+		new_bladder.set_script(bladder_script)
 		new_bladder.deserialize(data["bladder"])
 		bladder = new_bladder
 		add_child(bladder)

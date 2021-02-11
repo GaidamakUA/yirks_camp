@@ -28,7 +28,7 @@ func reset_pee_level():
 
 func serialize() -> Dictionary:
 	var data := {
-		"filename" : get_filename(),
+		"script" : get_script().resource_path,
 		"pee_level" : pee_level,
 		"max_pee" : max_pee
 	}

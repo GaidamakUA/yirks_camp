@@ -20,7 +20,6 @@ func perform(_brain):
 	if not is_relevant():
 		_notify_done()
 		return
-	print(self, " perform")
 	_perform()
 
 func drop():
@@ -39,7 +38,6 @@ func _perform():
 	pass
 
 func _notify_done():
-	print(self, " done")
 	emit_signal("done", self)
 
 func _to_string() -> String:
@@ -58,6 +56,7 @@ func serialize() -> Dictionary:
 func deserialize(data: Dictionary):
 	var preconditions_data = data["preconditions"]
 	for data in preconditions_data:
-		var precondition: Node = Node.instance()
-		precondition.set_script(data["script"])
+		var precondition: Node = Node.new()
+		precondition.set_script(load(data["script"]))
+		precondition.deserialize(data)
 		preconditions.append(precondition)

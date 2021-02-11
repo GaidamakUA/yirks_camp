@@ -3,7 +3,7 @@ extends BaseGoal
 class_name IdleGoal
 
 func calculate_weight() -> int:
-	return 1
+	return priority
 
 func _to_string() -> String:
 	return "IdleGoal"

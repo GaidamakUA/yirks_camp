@@ -7,7 +7,7 @@ var index := 0
 
 func _get_next_action() -> AtomicAction:
 	var old_index := index
-	index += 1
+	index = (index + 1) % actions.size()
 	return actions[old_index]
 
 func _to_string() -> String:

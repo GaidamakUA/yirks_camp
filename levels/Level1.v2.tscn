@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://objects/bus/Laz.tscn" type="PackedScene" id=1]
 [ext_resource path="res://levels/BaseLevel.tscn" type="PackedScene" id=2]
@@ -35,6 +35,7 @@
 [ext_resource path="res://assets/loss_placeholder.jpg" type="Texture" id=33]
 [ext_resource path="res://assets/victory_placeholder.jpg" type="Texture" id=34]
 [ext_resource path="res://objects/ChristmasTree.tscn" type="PackedScene" id=35]
+[ext_resource path="res://character/brain/actions/GoToYeerkAction.gd" type="Script" id=36]
 
 [node name="Level" instance=ExtResource( 2 )]
 script = ExtResource( 9 )
@@ -58,18 +59,6 @@ tile_data = PoolIntArray( -1048580, 7, 0, -983041, 6, 0, -1048575, 6, 0, -104857
 
 [node name="Player" parent="Objects" index="0"]
 position = Vector2( 320, -48 )
-
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Objects/Player" index="18"]
-remote_path = NodePath("../../DynamicObjects/Pioneeres/Brain/Goals/ReactOnYeerkGoal/GoToAction/YeerkPosition")
-
-[node name="RemoteTransform2D2" type="RemoteTransform2D" parent="Objects/Player" index="19"]
-remote_path = NodePath("../../DynamicObjects/Pioneeres2/Brain/Goals/ReactOnYeerkGoal2/GoToAction/YeerkPosition")
-
-[node name="RemoteTransform2D3" type="RemoteTransform2D" parent="Objects/Player" index="20"]
-remote_path = NodePath("../../DynamicObjects/Pioneeres3/Brain/Goals/ReactOnYeerkGoal3/GoToAction/YeerkPosition")
-
-[node name="RemoteTransform2D4" type="RemoteTransform2D" parent="Objects/Player" index="21"]
-remote_path = NodePath("../../DynamicObjects/Pioneeres4/Brain/Goals/ReactOnYeerkGoal4/GoToAction/YeerkPosition")
 
 [node name="YeerksAppearance" parent="Objects" index="1" instance=ExtResource( 8 )]
 position = Vector2( 320, -48 )
@@ -141,6 +130,7 @@ position = Vector2( 656, 404 )
 
 [node name="PeeGoal" type="Node" parent="Objects/DynamicObjects/Pioneeres/Brain/Goals" index="0"]
 script = ExtResource( 14 )
+priority = 3
 
 [node name="GoToRoadStart" type="Node" parent="Objects/DynamicObjects/Pioneeres/Brain/Goals/PeeGoal" index="0"]
 script = ExtResource( 13 )
@@ -256,6 +246,7 @@ replica = "In the name of holy Shod"
 
 [node name="SingASong" type="Node" parent="Objects/DynamicObjects/Pioneeres/Brain/Goals" index="2"]
 script = ExtResource( 3 )
+priority = 2
 
 [node name="OrderAction" type="Node" parent="Objects/DynamicObjects/Pioneeres/Brain/Goals/SingASong" index="0"]
 script = ExtResource( 29 )
@@ -347,16 +338,14 @@ replica = "Bo wjedzie biały węgorz"
 
 [node name="ReactOnYeerkGoal" type="Node" parent="Objects/DynamicObjects/Pioneeres/Brain/Goals" index="3"]
 script = ExtResource( 31 )
+priority = 4
 
-[node name="GoToAction" type="Node" parent="Objects/DynamicObjects/Pioneeres/Brain/Goals/ReactOnYeerkGoal" index="0"]
-script = ExtResource( 13 )
-desired_distance = 50
-
-[node name="YeerkPosition" type="Position2D" parent="Objects/DynamicObjects/Pioneeres/Brain/Goals/ReactOnYeerkGoal/GoToAction" index="0"]
-position = Vector2( 320, -48 )
+[node name="GoToYeerkAction" type="Node" parent="Objects/DynamicObjects/Pioneeres/Brain/Goals/ReactOnYeerkGoal" index="0"]
+script = ExtResource( 36 )
 
 [node name="ReactOnYeerkReachableGoal" type="Node" parent="Objects/DynamicObjects/Pioneeres/Brain/Goals" index="4"]
 script = ExtResource( 32 )
+priority = 5
 
 [node name="AttackAction" type="Node" parent="Objects/DynamicObjects/Pioneeres/Brain/Goals/ReactOnYeerkReachableGoal" index="0"]
 script = ExtResource( 30 )
@@ -379,6 +368,7 @@ position = Vector2( 656, 432 )
 
 [node name="PeeGoal" type="Node" parent="Objects/DynamicObjects/Pioneeres2/Brain/Goals" index="0"]
 script = ExtResource( 14 )
+priority = 3
 
 [node name="GoToRoadStart" type="Node" parent="Objects/DynamicObjects/Pioneeres2/Brain/Goals/PeeGoal" index="0"]
 script = ExtResource( 13 )
@@ -494,6 +484,7 @@ replica = "In the name of holy Shod"
 
 [node name="SingASong" type="Node" parent="Objects/DynamicObjects/Pioneeres2/Brain/Goals" index="2"]
 script = ExtResource( 3 )
+priority = 2
 
 [node name="OrderAction" type="Node" parent="Objects/DynamicObjects/Pioneeres2/Brain/Goals/SingASong" index="0"]
 script = ExtResource( 29 )
@@ -583,18 +574,16 @@ replica = "Gdy już nie będę sam"
 script = ExtResource( 19 )
 replica = "Bo wjedzie biały węgorz"
 
-[node name="ReactOnYeerkGoal2" type="Node" parent="Objects/DynamicObjects/Pioneeres2/Brain/Goals" index="3"]
+[node name="ReactOnYeerkGoal" type="Node" parent="Objects/DynamicObjects/Pioneeres2/Brain/Goals" index="3"]
 script = ExtResource( 31 )
+priority = 4
 
-[node name="GoToAction" type="Node" parent="Objects/DynamicObjects/Pioneeres2/Brain/Goals/ReactOnYeerkGoal2" index="0"]
-script = ExtResource( 13 )
-desired_distance = 50
-
-[node name="YeerkPosition" type="Position2D" parent="Objects/DynamicObjects/Pioneeres2/Brain/Goals/ReactOnYeerkGoal2/GoToAction" index="0"]
-position = Vector2( 320, -48 )
+[node name="GoToYeerkAction" type="Node" parent="Objects/DynamicObjects/Pioneeres2/Brain/Goals/ReactOnYeerkGoal" index="0"]
+script = ExtResource( 36 )
 
 [node name="ReactOnYeerkReachableGoal2" type="Node" parent="Objects/DynamicObjects/Pioneeres2/Brain/Goals" index="4"]
 script = ExtResource( 32 )
+priority = 5
 
 [node name="AttackAction" type="Node" parent="Objects/DynamicObjects/Pioneeres2/Brain/Goals/ReactOnYeerkReachableGoal2" index="0"]
 script = ExtResource( 30 )
@@ -617,6 +606,7 @@ position = Vector2( 752, 432 )
 
 [node name="PeeGoal" type="Node" parent="Objects/DynamicObjects/Pioneeres3/Brain/Goals" index="0"]
 script = ExtResource( 14 )
+priority = 3
 
 [node name="GoToRoadStart" type="Node" parent="Objects/DynamicObjects/Pioneeres3/Brain/Goals/PeeGoal" index="0"]
 script = ExtResource( 13 )
@@ -732,6 +722,7 @@ replica = "In the name of holy Shod"
 
 [node name="SingASong" type="Node" parent="Objects/DynamicObjects/Pioneeres3/Brain/Goals" index="2"]
 script = ExtResource( 3 )
+priority = 2
 
 [node name="OrderAction" type="Node" parent="Objects/DynamicObjects/Pioneeres3/Brain/Goals/SingASong" index="0"]
 script = ExtResource( 29 )
@@ -821,18 +812,16 @@ replica = "Gdy już nie będę sam"
 script = ExtResource( 19 )
 replica = "Bo wjedzie biały węgorz"
 
-[node name="ReactOnYeerkGoal3" type="Node" parent="Objects/DynamicObjects/Pioneeres3/Brain/Goals" index="3"]
+[node name="ReactOnYeerkGoal" type="Node" parent="Objects/DynamicObjects/Pioneeres3/Brain/Goals" index="3"]
 script = ExtResource( 31 )
+priority = 4
 
-[node name="GoToAction" type="Node" parent="Objects/DynamicObjects/Pioneeres3/Brain/Goals/ReactOnYeerkGoal3" index="0"]
-script = ExtResource( 13 )
-desired_distance = 50
-
-[node name="YeerkPosition" type="Position2D" parent="Objects/DynamicObjects/Pioneeres3/Brain/Goals/ReactOnYeerkGoal3/GoToAction" index="0"]
-position = Vector2( 320, -48 )
+[node name="GoToYeerkAction" type="Node" parent="Objects/DynamicObjects/Pioneeres3/Brain/Goals/ReactOnYeerkGoal" index="0"]
+script = ExtResource( 36 )
 
 [node name="ReactOnYeerkReachableGoal3" type="Node" parent="Objects/DynamicObjects/Pioneeres3/Brain/Goals" index="4"]
 script = ExtResource( 32 )
+priority = 5
 
 [node name="AttackAction" type="Node" parent="Objects/DynamicObjects/Pioneeres3/Brain/Goals/ReactOnYeerkReachableGoal3" index="0"]
 script = ExtResource( 30 )
@@ -855,6 +844,7 @@ position = Vector2( 752, 408 )
 
 [node name="PeeGoal" type="Node" parent="Objects/DynamicObjects/Pioneeres4/Brain/Goals" index="0"]
 script = ExtResource( 14 )
+priority = 3
 
 [node name="GoToRoadStart" type="Node" parent="Objects/DynamicObjects/Pioneeres4/Brain/Goals/PeeGoal" index="0"]
 script = ExtResource( 13 )
@@ -970,6 +960,7 @@ replica = "In the name of holy Shod"
 
 [node name="SingASong" type="Node" parent="Objects/DynamicObjects/Pioneeres4/Brain/Goals" index="2"]
 script = ExtResource( 3 )
+priority = 2
 
 [node name="OrderAction" type="Node" parent="Objects/DynamicObjects/Pioneeres4/Brain/Goals/SingASong" index="0"]
 script = ExtResource( 29 )
@@ -1059,18 +1050,16 @@ replica = "Gdy już nie będę sam"
 script = ExtResource( 19 )
 replica = "Bo wjedzie biały węgorz"
 
-[node name="ReactOnYeerkGoal4" type="Node" parent="Objects/DynamicObjects/Pioneeres4/Brain/Goals" index="3"]
+[node name="ReactOnYeerkGoal" type="Node" parent="Objects/DynamicObjects/Pioneeres4/Brain/Goals" index="3"]
 script = ExtResource( 31 )
+priority = 4
 
-[node name="GoToAction" type="Node" parent="Objects/DynamicObjects/Pioneeres4/Brain/Goals/ReactOnYeerkGoal4" index="0"]
-script = ExtResource( 13 )
-desired_distance = 50
-
-[node name="YeerkPosition" type="Position2D" parent="Objects/DynamicObjects/Pioneeres4/Brain/Goals/ReactOnYeerkGoal4/GoToAction" index="0"]
-position = Vector2( 320, -48 )
+[node name="GoToYeerkAction" type="Node" parent="Objects/DynamicObjects/Pioneeres4/Brain/Goals/ReactOnYeerkGoal" index="0"]
+script = ExtResource( 36 )
 
 [node name="ReactOnYeerkReachableGoal4" type="Node" parent="Objects/DynamicObjects/Pioneeres4/Brain/Goals" index="4"]
 script = ExtResource( 32 )
+priority = 5
 
 [node name="AttackAction" type="Node" parent="Objects/DynamicObjects/Pioneeres4/Brain/Goals/ReactOnYeerkReachableGoal4" index="0"]
 script = ExtResource( 30 )
@@ -1117,5 +1106,8 @@ stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Control" parent="PauseOverlay" index="0"]
+visible = false
 [connection signal="dying" from="Objects/Player" to="." method="_on_Player_dying"]
 [connection signal="yeerk_appeared" from="Objects/YeerksAppearance" to="." method="_on_YeerksAppearance_yeerk_appeared"]

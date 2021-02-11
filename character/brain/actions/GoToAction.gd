@@ -35,7 +35,7 @@ func _get_configuration_warning() -> String:
 		return ""
 
 func _to_string() -> String:
-	return "GoToAction" + str(target_position)
+	return "GoToAction " + str(target_position)
 
 func serialize() -> Dictionary:
 	var data := .serialize()

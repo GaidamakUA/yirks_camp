@@ -4,8 +4,6 @@ class_name PeeGoal
 
 onready var bladder: Bladder
 
-export(int) var priority := 3
-
 func calculate_weight() -> int:
 	if not bladder:
 		bladder = brain.bladder
@@ -16,6 +14,6 @@ func calculate_weight() -> int:
 
 func _to_string() -> String:
 	if bladder:
-		return "PeeGoal {pee_level}".format({"pee_level":bladder.pee_level})
+		return "PeeGoal:\nPee = {pee_level}\nAction = {action}".format({"pee_level":bladder.pee_level, "action":current_action})
 	else:
 		return "PeeGoal"

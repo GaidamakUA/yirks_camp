@@ -4,6 +4,7 @@ class_name BaseGoal
 
 const INVALID_WEIGHT := -1
 
+export(int) var priority := 1
 var weight := 0
 
 onready var brain = get_parent().get_parent()
@@ -22,7 +23,9 @@ func persue():
 
 func drop():
 	if current_action:
+		current_action.disconnect("done", self, "action_finished")
 		current_action.drop()
+		current_action = null
 
 func is_finished() -> bool:
 	return current_action == null
@@ -50,12 +53,13 @@ func serialize():
 		"script" : get_script().resource_path,
 		"weight" : weight,
 		"actions" : actions_data,
+		"priority" : priority,
 	}
 	return data
 
 func deserialize(data: Dictionary):
-	print(data)
 	weight = data["weight"]
+	priority = data["priority"]
 	
 	actions = []
 	var action_scripts := Dictionary()

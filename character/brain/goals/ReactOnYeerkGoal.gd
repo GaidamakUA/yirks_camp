@@ -2,8 +2,6 @@ extends BaseGoal
 
 class_name ReactOnYeerkGoal
 
-export(int) var priority := 4
-
 func calculate_weight() -> int:
 	var sight_cone: Area2D = brain.sight_cone
 	var direct_sight: RayCast2D = brain.direct_sight_sensor
