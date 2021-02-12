@@ -29,7 +29,7 @@ func die():
 	queue_free()
 
 func _on_Hitbox_area_entered(area):
-	area.get_parent().take_damage_from_pioneeres()
+	area.get_parent().take_damage(global_position)
 
 func serialize() -> Dictionary:
 	var dict := .serialize()

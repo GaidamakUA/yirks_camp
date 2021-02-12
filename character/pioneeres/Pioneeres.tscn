@@ -400,9 +400,10 @@ anims/death_1 = SubResource( 29 )
 anims/death_2 = SubResource( 30 )
 
 [node name="ExtraSprite" parent="." index="9"]
-texture = ExtResource( 8 )
-hframes = 5
-frame = 4
+texture = ExtResource( 2 )
+vframes = 29
+hframes = 13
+frame = 364
 
 [node name="Hitbox" type="Area2D" parent="." index="10"]
 position = Vector2( 0, -5 )

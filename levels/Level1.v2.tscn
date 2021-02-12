@@ -134,18 +134,21 @@ priority = 3
 
 [node name="GoToRoadStart" type="Node" parent="Objects/DynamicObjects/Pioneeres/Brain/Goals/PeeGoal" index="0"]
 script = ExtResource( 13 )
+desired_distance = 10
 
 [node name="Position2D" type="Position2D" parent="Objects/DynamicObjects/Pioneeres/Brain/Goals/PeeGoal/GoToRoadStart" index="0"]
 position = Vector2( 832, 302 )
 
 [node name="GoToTurn" type="Node" parent="Objects/DynamicObjects/Pioneeres/Brain/Goals/PeeGoal" index="1"]
 script = ExtResource( 13 )
+desired_distance = 10
 
 [node name="Position2D" type="Position2D" parent="Objects/DynamicObjects/Pioneeres/Brain/Goals/PeeGoal/GoToTurn" index="0"]
 position = Vector2( 832, -64 )
 
 [node name="GoToToiletEntrance" type="Node" parent="Objects/DynamicObjects/Pioneeres/Brain/Goals/PeeGoal" index="2"]
 script = ExtResource( 13 )
+desired_distance = 10
 
 [node name="Position2D" type="Position2D" parent="Objects/DynamicObjects/Pioneeres/Brain/Goals/PeeGoal/GoToToiletEntrance" index="0"]
 position = Vector2( 928, -60 )
@@ -174,6 +177,7 @@ inverted = true
 
 [node name="EnterToilet" type="Node" parent="Objects/DynamicObjects/Pioneeres/Brain/Goals/PeeGoal" index="5"]
 script = ExtResource( 13 )
+desired_distance = 10
 
 [node name="Position2D" type="Position2D" parent="Objects/DynamicObjects/Pioneeres/Brain/Goals/PeeGoal/EnterToilet" index="0"]
 position = Vector2( 928, -106 )
@@ -190,18 +194,21 @@ script = ExtResource( 15 )
 
 [node name="GoToToiletEntrance2" type="Node" parent="Objects/DynamicObjects/Pioneeres/Brain/Goals/PeeGoal" index="9"]
 script = ExtResource( 13 )
+desired_distance = 10
 
 [node name="Position2D" type="Position2D" parent="Objects/DynamicObjects/Pioneeres/Brain/Goals/PeeGoal/GoToToiletEntrance2" index="0"]
 position = Vector2( 928, -60 )
 
 [node name="GoToTurn2" type="Node" parent="Objects/DynamicObjects/Pioneeres/Brain/Goals/PeeGoal" index="10"]
 script = ExtResource( 13 )
+desired_distance = 10
 
 [node name="Position2D" type="Position2D" parent="Objects/DynamicObjects/Pioneeres/Brain/Goals/PeeGoal/GoToTurn2" index="0"]
 position = Vector2( 832, -64 )
 
 [node name="GoToRoadStart2" type="Node" parent="Objects/DynamicObjects/Pioneeres/Brain/Goals/PeeGoal" index="11"]
 script = ExtResource( 13 )
+desired_distance = 10
 
 [node name="Position2D" type="Position2D" parent="Objects/DynamicObjects/Pioneeres/Brain/Goals/PeeGoal/GoToRoadStart2" index="0"]
 position = Vector2( 832, 302 )
@@ -214,6 +221,7 @@ script = ExtResource( 18 )
 
 [node name="GoToIdlePosition" type="Node" parent="Objects/DynamicObjects/Pioneeres/Brain/Goals/IdleGoal" index="0"]
 script = ExtResource( 13 )
+desired_distance = 10
 
 [node name="Position2D" type="Position2D" parent="Objects/DynamicObjects/Pioneeres/Brain/Goals/IdleGoal/GoToIdlePosition" index="0"]
 position = Vector2( 656, 404 )
@@ -372,18 +380,21 @@ priority = 3
 
 [node name="GoToRoadStart" type="Node" parent="Objects/DynamicObjects/Pioneeres2/Brain/Goals/PeeGoal" index="0"]
 script = ExtResource( 13 )
+desired_distance = 10
 
 [node name="Position2D" type="Position2D" parent="Objects/DynamicObjects/Pioneeres2/Brain/Goals/PeeGoal/GoToRoadStart" index="0"]
 position = Vector2( 832, 302 )
 
 [node name="GoToTurn" type="Node" parent="Objects/DynamicObjects/Pioneeres2/Brain/Goals/PeeGoal" index="1"]
 script = ExtResource( 13 )
+desired_distance = 10
 
 [node name="Position2D" type="Position2D" parent="Objects/DynamicObjects/Pioneeres2/Brain/Goals/PeeGoal/GoToTurn" index="0"]
 position = Vector2( 832, -64 )
 
 [node name="GoToToiletEntrance" type="Node" parent="Objects/DynamicObjects/Pioneeres2/Brain/Goals/PeeGoal" index="2"]
 script = ExtResource( 13 )
+desired_distance = 10
 
 [node name="Position2D" type="Position2D" parent="Objects/DynamicObjects/Pioneeres2/Brain/Goals/PeeGoal/GoToToiletEntrance" index="0"]
 position = Vector2( 928, -60 )
@@ -412,6 +423,7 @@ inverted = true
 
 [node name="EnterToilet" type="Node" parent="Objects/DynamicObjects/Pioneeres2/Brain/Goals/PeeGoal" index="5"]
 script = ExtResource( 13 )
+desired_distance = 10
 
 [node name="Position2D" type="Position2D" parent="Objects/DynamicObjects/Pioneeres2/Brain/Goals/PeeGoal/EnterToilet" index="0"]
 position = Vector2( 928, -106 )
@@ -428,18 +440,21 @@ script = ExtResource( 15 )
 
 [node name="GoToToiletEntrance2" type="Node" parent="Objects/DynamicObjects/Pioneeres2/Brain/Goals/PeeGoal" index="9"]
 script = ExtResource( 13 )
+desired_distance = 10
 
 [node name="Position2D" type="Position2D" parent="Objects/DynamicObjects/Pioneeres2/Brain/Goals/PeeGoal/GoToToiletEntrance2" index="0"]
 position = Vector2( 928, -60 )
 
 [node name="GoToTurn2" type="Node" parent="Objects/DynamicObjects/Pioneeres2/Brain/Goals/PeeGoal" index="10"]
 script = ExtResource( 13 )
+desired_distance = 10
 
 [node name="Position2D" type="Position2D" parent="Objects/DynamicObjects/Pioneeres2/Brain/Goals/PeeGoal/GoToTurn2" index="0"]
 position = Vector2( 832, -64 )
 
 [node name="GoToRoadStart2" type="Node" parent="Objects/DynamicObjects/Pioneeres2/Brain/Goals/PeeGoal" index="11"]
 script = ExtResource( 13 )
+desired_distance = 10
 
 [node name="Position2D" type="Position2D" parent="Objects/DynamicObjects/Pioneeres2/Brain/Goals/PeeGoal/GoToRoadStart2" index="0"]
 position = Vector2( 832, 302 )
@@ -452,6 +467,7 @@ script = ExtResource( 18 )
 
 [node name="GoToIdlePosition" type="Node" parent="Objects/DynamicObjects/Pioneeres2/Brain/Goals/IdleGoal" index="0"]
 script = ExtResource( 13 )
+desired_distance = 10
 
 [node name="Position2D" type="Position2D" parent="Objects/DynamicObjects/Pioneeres2/Brain/Goals/IdleGoal/GoToIdlePosition" index="0"]
 position = Vector2( 656, 432 )
@@ -610,18 +626,21 @@ priority = 3
 
 [node name="GoToRoadStart" type="Node" parent="Objects/DynamicObjects/Pioneeres3/Brain/Goals/PeeGoal" index="0"]
 script = ExtResource( 13 )
+desired_distance = 10
 
 [node name="Position2D" type="Position2D" parent="Objects/DynamicObjects/Pioneeres3/Brain/Goals/PeeGoal/GoToRoadStart" index="0"]
 position = Vector2( 832, 302 )
 
 [node name="GoToTurn" type="Node" parent="Objects/DynamicObjects/Pioneeres3/Brain/Goals/PeeGoal" index="1"]
 script = ExtResource( 13 )
+desired_distance = 10
 
 [node name="Position2D" type="Position2D" parent="Objects/DynamicObjects/Pioneeres3/Brain/Goals/PeeGoal/GoToTurn" index="0"]
 position = Vector2( 832, -64 )
 
 [node name="GoToToiletEntrance" type="Node" parent="Objects/DynamicObjects/Pioneeres3/Brain/Goals/PeeGoal" index="2"]
 script = ExtResource( 13 )
+desired_distance = 10
 
 [node name="Position2D" type="Position2D" parent="Objects/DynamicObjects/Pioneeres3/Brain/Goals/PeeGoal/GoToToiletEntrance" index="0"]
 position = Vector2( 928, -60 )
@@ -650,6 +669,7 @@ inverted = true
 
 [node name="EnterToilet" type="Node" parent="Objects/DynamicObjects/Pioneeres3/Brain/Goals/PeeGoal" index="5"]
 script = ExtResource( 13 )
+desired_distance = 10
 
 [node name="Position2D" type="Position2D" parent="Objects/DynamicObjects/Pioneeres3/Brain/Goals/PeeGoal/EnterToilet" index="0"]
 position = Vector2( 928, -106 )
@@ -666,18 +686,21 @@ script = ExtResource( 15 )
 
 [node name="GoToToiletEntrance2" type="Node" parent="Objects/DynamicObjects/Pioneeres3/Brain/Goals/PeeGoal" index="9"]
 script = ExtResource( 13 )
+desired_distance = 10
 
 [node name="Position2D" type="Position2D" parent="Objects/DynamicObjects/Pioneeres3/Brain/Goals/PeeGoal/GoToToiletEntrance2" index="0"]
 position = Vector2( 928, -60 )
 
 [node name="GoToTurn2" type="Node" parent="Objects/DynamicObjects/Pioneeres3/Brain/Goals/PeeGoal" index="10"]
 script = ExtResource( 13 )
+desired_distance = 10
 
 [node name="Position2D" type="Position2D" parent="Objects/DynamicObjects/Pioneeres3/Brain/Goals/PeeGoal/GoToTurn2" index="0"]
 position = Vector2( 832, -64 )
 
 [node name="GoToRoadStart2" type="Node" parent="Objects/DynamicObjects/Pioneeres3/Brain/Goals/PeeGoal" index="11"]
 script = ExtResource( 13 )
+desired_distance = 10
 
 [node name="Position2D" type="Position2D" parent="Objects/DynamicObjects/Pioneeres3/Brain/Goals/PeeGoal/GoToRoadStart2" index="0"]
 position = Vector2( 832, 302 )
@@ -690,6 +713,7 @@ script = ExtResource( 18 )
 
 [node name="GoToIdlePosition" type="Node" parent="Objects/DynamicObjects/Pioneeres3/Brain/Goals/IdleGoal" index="0"]
 script = ExtResource( 13 )
+desired_distance = 10
 
 [node name="Position2D" type="Position2D" parent="Objects/DynamicObjects/Pioneeres3/Brain/Goals/IdleGoal/GoToIdlePosition" index="0"]
 position = Vector2( 752, 432 )
@@ -848,18 +872,21 @@ priority = 3
 
 [node name="GoToRoadStart" type="Node" parent="Objects/DynamicObjects/Pioneeres4/Brain/Goals/PeeGoal" index="0"]
 script = ExtResource( 13 )
+desired_distance = 10
 
 [node name="Position2D" type="Position2D" parent="Objects/DynamicObjects/Pioneeres4/Brain/Goals/PeeGoal/GoToRoadStart" index="0"]
 position = Vector2( 832, 302 )
 
 [node name="GoToTurn" type="Node" parent="Objects/DynamicObjects/Pioneeres4/Brain/Goals/PeeGoal" index="1"]
 script = ExtResource( 13 )
+desired_distance = 10
 
 [node name="Position2D" type="Position2D" parent="Objects/DynamicObjects/Pioneeres4/Brain/Goals/PeeGoal/GoToTurn" index="0"]
 position = Vector2( 832, -64 )
 
 [node name="GoToToiletEntrance" type="Node" parent="Objects/DynamicObjects/Pioneeres4/Brain/Goals/PeeGoal" index="2"]
 script = ExtResource( 13 )
+desired_distance = 10
 
 [node name="Position2D" type="Position2D" parent="Objects/DynamicObjects/Pioneeres4/Brain/Goals/PeeGoal/GoToToiletEntrance" index="0"]
 position = Vector2( 928, -60 )
@@ -888,6 +915,7 @@ inverted = true
 
 [node name="EnterToilet" type="Node" parent="Objects/DynamicObjects/Pioneeres4/Brain/Goals/PeeGoal" index="5"]
 script = ExtResource( 13 )
+desired_distance = 10
 
 [node name="Position2D" type="Position2D" parent="Objects/DynamicObjects/Pioneeres4/Brain/Goals/PeeGoal/EnterToilet" index="0"]
 position = Vector2( 928, -106 )
@@ -904,18 +932,21 @@ script = ExtResource( 15 )
 
 [node name="GoToToiletEntrance2" type="Node" parent="Objects/DynamicObjects/Pioneeres4/Brain/Goals/PeeGoal" index="9"]
 script = ExtResource( 13 )
+desired_distance = 10
 
 [node name="Position2D" type="Position2D" parent="Objects/DynamicObjects/Pioneeres4/Brain/Goals/PeeGoal/GoToToiletEntrance2" index="0"]
 position = Vector2( 928, -60 )
 
 [node name="GoToTurn2" type="Node" parent="Objects/DynamicObjects/Pioneeres4/Brain/Goals/PeeGoal" index="10"]
 script = ExtResource( 13 )
+desired_distance = 10
 
 [node name="Position2D" type="Position2D" parent="Objects/DynamicObjects/Pioneeres4/Brain/Goals/PeeGoal/GoToTurn2" index="0"]
 position = Vector2( 832, -64 )
 
 [node name="GoToRoadStart2" type="Node" parent="Objects/DynamicObjects/Pioneeres4/Brain/Goals/PeeGoal" index="11"]
 script = ExtResource( 13 )
+desired_distance = 10
 
 [node name="Position2D" type="Position2D" parent="Objects/DynamicObjects/Pioneeres4/Brain/Goals/PeeGoal/GoToRoadStart2" index="0"]
 position = Vector2( 832, 302 )
@@ -928,6 +959,7 @@ script = ExtResource( 18 )
 
 [node name="GoToIdlePosition" type="Node" parent="Objects/DynamicObjects/Pioneeres4/Brain/Goals/IdleGoal" index="0"]
 script = ExtResource( 13 )
+desired_distance = 10
 
 [node name="Position2D" type="Position2D" parent="Objects/DynamicObjects/Pioneeres4/Brain/Goals/IdleGoal/GoToIdlePosition" index="0"]
 position = Vector2( 752, 408 )

@@ -117,7 +117,13 @@ func _die():
 	play_extra_animation("death", true)
 	emit_signal("dying")
 
-func take_damage_from_pioneeres():
+func take_damage(source_position: Vector2):
+	print("source_position: ", source_position)
+	var start: Vector2 = global_position
+	var finish: Vector2 = global_position + (global_position - source_position).normalized() * 32
+	tween.interpolate_property(self, "global_position", start, finish, 0.2,  Tween.TRANS_BACK,  Tween.EASE_OUT)
+	$AnimationPlayer.play("damage_taken")
+	tween.start()
 	$Energy.take_damage_from_pioneeres()
 
 func serialize() -> Dictionary:
