@@ -15,6 +15,8 @@ func _ready():
 	_load_settings()
 
 func _load_control_scheme():
+	if not _is_file_exist(SETTINGS_DIR, CONTROLS_FILE):
+		return
 	var keybindings: Dictionary = _load_data_from_file(SETTINGS_DIR, CONTROLS_FILE)
 	for action in keybindings.keys():
 		InputMap.action_erase_events(action)
@@ -24,6 +26,8 @@ func _load_control_scheme():
 		print(action, ", ", OS.get_scancode_string(event.scancode), ", ", event.scancode)
 
 func _load_settings():
+	if not _is_file_exist(SETTINGS_DIR, SETTINGS_FILE):
+		return
 	var data = _load_data_from_file(SETTINGS_DIR, SETTINGS_FILE)
 	if data:
 		OS.window_fullscreen = data[FULSCREEN_KEY]
@@ -36,6 +40,11 @@ func _load_data_from_file(dir_name: String, file_name: String):
 		return # Error! We don't have a save to load.
 	save_game.open(full_name, File.READ)
 	return parse_json(save_game.get_line())
+
+func _is_file_exist(dir_name: String, file_name: String) -> bool:
+	var save_game = File.new()
+	var full_name = str(dir_name, file_name)
+	return save_game.file_exists(full_name)
 
 func save_control_scheme():
 	var data := Dictionary()
