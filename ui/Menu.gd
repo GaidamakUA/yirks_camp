@@ -41,3 +41,6 @@ func _set_shown(is_shown: bool):
 		_tween.start()
 		yield(_tween, "tween_completed")
 		hide()
+
+func _on_ExitButton_pressed():
+	get_tree().quit()

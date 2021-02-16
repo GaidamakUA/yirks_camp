@@ -84,6 +84,14 @@ rect_min_size = Vector2( 0, 96 )
 theme = ExtResource( 1 )
 text = "Налаштування"
 
+[node name="ExitButton" type="Button" parent="MainMenu"]
+margin_top = 348.0
+margin_right = 320.0
+margin_bottom = 444.0
+rect_min_size = Vector2( 0, 96 )
+theme = ExtResource( 1 )
+text = "Вийти з гри"
+
 [node name="LevelMenu" parent="." instance=ExtResource( 5 )]
 visible = false
 anchor_right = 0.0
@@ -414,6 +422,7 @@ text = "W"
 [connection signal="pressed" from="MainMenu/StartButton" to="." method="_on_Level1_pressed"]
 [connection signal="pressed" from="MainMenu/PickLevelButton" to="." method="_on_PickLevelButton_pressed"]
 [connection signal="pressed" from="MainMenu/SettingsButton" to="." method="_on_SettingsButton_pressed"]
+[connection signal="pressed" from="MainMenu/ExitButton" to="MainMenu" method="_on_ExitButton_pressed"]
 [connection signal="pressed" from="LevelMenu/BackToMain" to="." method="_on_BackToMain_pressed"]
 [connection signal="pressed" from="LevelMenu/TestLevel" to="." method="_on_TestLevel_pressed"]
 [connection signal="pressed" from="LevelMenu/Level1" to="." method="_on_Level1_pressed"]
