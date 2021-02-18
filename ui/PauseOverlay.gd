@@ -18,6 +18,7 @@ func _toggle_pause():
 	if get_tree().paused:
 		$Control.show()
 	else:
+		_close_dialog()
 		$Control.hide()
 
 func _on_SaveButton_pressed():
