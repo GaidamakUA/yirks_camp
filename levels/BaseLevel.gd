@@ -2,7 +2,7 @@ extends Node2D
 
 class_name BaseLevel
 
-func save_data():
+func serialize() -> Dictionary:
 	var save_nodes := get_tree().get_nodes_in_group("Persist")
 	var node_data := []
 	var player_data: Dictionary
@@ -16,7 +16,7 @@ func save_data():
 		"objects" : node_data,
 		"player" : player_data
 	}
-	SettingsSingleton.save_level(data)
+	return data
 
 func load_data(game_data: Dictionary):
 	var save_nodes := get_tree().get_nodes_in_group("Persist")

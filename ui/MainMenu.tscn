@@ -11,7 +11,7 @@
 [ext_resource path="res://ui/ControlsOptions.gd" type="Script" id=9]
 [ext_resource path="res://assets/yeerks_font.res" type="DynamicFont" id=10]
 [ext_resource path="res://assets/back_button.png" type="Texture" id=11]
-[ext_resource path="res://assets/back_button_1.png" type="Texture" id=12]
+[ext_resource path="res://ui/LoadDialog.tscn" type="PackedScene" id=12]
 
 [sub_resource type="DynamicFont" id=1]
 size = 51
@@ -68,13 +68,13 @@ rect_min_size = Vector2( 0, 96 )
 theme = ExtResource( 1 )
 text = "Старт"
 
-[node name="PickLevelButton" type="Button" parent="MainMenu"]
+[node name="LoadButton" type="Button" parent="MainMenu"]
 margin_top = 116.0
 margin_right = 320.0
 margin_bottom = 212.0
 rect_min_size = Vector2( 0, 96 )
 theme = ExtResource( 1 )
-text = "Обрати рівень"
+text = "Завантажити"
 
 [node name="SettingsButton" type="Button" parent="MainMenu"]
 margin_top = 232.0
@@ -91,48 +91,6 @@ margin_bottom = 444.0
 rect_min_size = Vector2( 0, 96 )
 theme = ExtResource( 1 )
 text = "Вийти з гри"
-
-[node name="LevelMenu" parent="." instance=ExtResource( 5 )]
-visible = false
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = -321.0
-margin_top = 32.0
-margin_right = -1.0
-margin_bottom = 388.0
-grow_horizontal = 0
-custom_constants/separation = 20
-shown = false
-
-[node name="BackToMain" type="Button" parent="LevelMenu"]
-margin_right = 320.0
-margin_bottom = 76.0
-icon = ExtResource( 12 )
-flat = true
-
-[node name="TestLevel" type="Button" parent="LevelMenu"]
-margin_top = 96.0
-margin_right = 320.0
-margin_bottom = 192.0
-rect_min_size = Vector2( 0, 96 )
-theme = ExtResource( 1 )
-text = "Тестовий"
-
-[node name="Level1" type="Button" parent="LevelMenu"]
-margin_top = 212.0
-margin_right = 320.0
-margin_bottom = 308.0
-rect_min_size = Vector2( 0, 96 )
-theme = ExtResource( 1 )
-text = "1: Табір"
-
-[node name="Level2Mine" type="Button" parent="LevelMenu"]
-margin_top = 328.0
-margin_right = 320.0
-margin_bottom = 424.0
-rect_min_size = Vector2( 0, 96 )
-theme = ExtResource( 1 )
-text = "2: Штольня"
 
 [node name="OptionsMenu" parent="." instance=ExtResource( 5 )]
 visible = false
@@ -419,14 +377,13 @@ margin_bottom = 596.0
 rect_min_size = Vector2( 96, 96 )
 theme = ExtResource( 1 )
 text = "W"
+
+[node name="LoadSaveDialog" parent="." instance=ExtResource( 12 )]
+visible = false
 [connection signal="pressed" from="MainMenu/StartButton" to="." method="_on_Level1_pressed"]
-[connection signal="pressed" from="MainMenu/PickLevelButton" to="." method="_on_PickLevelButton_pressed"]
+[connection signal="pressed" from="MainMenu/LoadButton" to="." method="_on_LoadButton_pressed"]
 [connection signal="pressed" from="MainMenu/SettingsButton" to="." method="_on_SettingsButton_pressed"]
 [connection signal="pressed" from="MainMenu/ExitButton" to="MainMenu" method="_on_ExitButton_pressed"]
-[connection signal="pressed" from="LevelMenu/BackToMain" to="." method="_on_BackToMain_pressed"]
-[connection signal="pressed" from="LevelMenu/TestLevel" to="." method="_on_TestLevel_pressed"]
-[connection signal="pressed" from="LevelMenu/Level1" to="." method="_on_Level1_pressed"]
-[connection signal="pressed" from="LevelMenu/Level2Mine" to="." method="_on_Level2Mine_pressed"]
 [connection signal="pressed" from="OptionsMenu/BackToMain" to="." method="_on_BackToMain_pressed"]
 [connection signal="pressed" from="OptionsMenu/Fullscreen" to="OptionsMenu" method="_on_Fullscreen_pressed"]
 [connection signal="pressed" from="OptionsMenu/Language" to="." method="_on_Language_pressed"]
@@ -444,3 +401,4 @@ text = "W"
 [connection signal="pressed" from="ControlsOptions/MarginContainer/VBoxContainer/ScrollContainer/GridContainer/Right" to="ControlsOptions" method="_on_English_pressed"]
 [connection signal="pressed" from="ControlsOptions/MarginContainer/VBoxContainer/ScrollContainer/GridContainer/Interact" to="ControlsOptions" method="_on_English_pressed"]
 [connection signal="pressed" from="ControlsOptions/MarginContainer/VBoxContainer/ScrollContainer/GridContainer/Dash" to="ControlsOptions" method="_on_English_pressed"]
+[connection signal="close_popup" from="LoadSaveDialog" to="." method="_on_BackToMain_pressed"]

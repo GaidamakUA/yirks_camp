@@ -21,8 +21,22 @@ func _toggle_pause():
 		$Control.hide()
 
 func _on_SaveButton_pressed():
-	get_parent().save_data()
+	$Control/Panel.hide()
+	$Control/SaveDialog.show()
 
 func _on_LoadButton_pressed():
-	_toggle_pause()
-	SettingsSingleton.load_level()
+	$Control/Panel.hide()
+	$Control/LoadDialog.show()
+
+func _close_dialog():
+	$Control/Panel.show()
+	$Control/LoadDialog.hide()
+	$Control/SaveDialog.hide()
+
+func _on_LoadSaveDialog_load_triggered():
+	get_tree().paused = false
+
+func _on_SaveDialog_file_selected(filename):
+	var data = get_parent().serialize()
+	SettingsSingleton.save_level(filename, data)
+	$Control/SaveDialog._update_files()

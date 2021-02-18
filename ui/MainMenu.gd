@@ -6,8 +6,8 @@ onready var yeerk_position = $YeerkFace.rect_position
 onready var yeerk_face = $YeerkFace
 
 onready var main_menu = $MainMenu
-onready var level_menu = $LevelMenu
 onready var options_menu = $OptionsMenu
+onready var load_save = $LoadSaveDialog
 
 func _input(event):
 	if event is InputEventMouseMotion:
@@ -17,9 +17,6 @@ func _input(event):
 		yeerk_face.rect_position = yeerk_position - delta
 
 # Main menu
-func _on_PickLevelButton_pressed():
-	main_menu.menu_hide()
-	level_menu.menu_show()
 
 func _on_SettingsButton_pressed():
 	main_menu.menu_hide()
@@ -28,7 +25,7 @@ func _on_SettingsButton_pressed():
 func _on_BackToMain_pressed():
 	main_menu.menu_show()
 	options_menu.menu_hide()
-	level_menu.menu_hide()
+	load_save.hide()
 	SettingsSingleton.save_settings()
 
 # Levels
@@ -49,3 +46,7 @@ func _on_Controls_pressed():
 
 func _on_ControlsOptions_controls_changed():
 	SettingsSingleton.save_control_scheme()
+
+func _on_LoadButton_pressed():
+	main_menu.menu_hide()
+	load_save.show()
