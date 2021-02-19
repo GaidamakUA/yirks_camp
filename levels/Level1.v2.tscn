@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://objects/bus/Laz.tscn" type="PackedScene" id=1]
 [ext_resource path="res://levels/BaseLevel.tscn" type="PackedScene" id=2]
@@ -32,7 +32,6 @@
 [ext_resource path="res://character/brain/actions/AttackAction.gd" type="Script" id=30]
 [ext_resource path="res://character/brain/goals/ReactOnYeerkGoal.gd" type="Script" id=31]
 [ext_resource path="res://character/brain/goals/ReactOnYeerkReachableGoal.gd" type="Script" id=32]
-[ext_resource path="res://assets/loss_placeholder.jpg" type="Texture" id=33]
 [ext_resource path="res://assets/victory_placeholder.jpg" type="Texture" id=34]
 [ext_resource path="res://objects/ChristmasTree.tscn" type="PackedScene" id=35]
 [ext_resource path="res://character/brain/actions/GoToYeerkAction.gd" type="Script" id=36]
@@ -1125,21 +1124,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LossPlaceholder" type="TextureRect" parent="CanvasLayer/PlayerUI" index="4"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -112.0
-margin_top = -46.0
-margin_right = 144.0
-margin_bottom = 74.0
-texture = ExtResource( 33 )
-stretch_mode = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Control" parent="PauseOverlay" index="0"]
 visible = false
-[connection signal="dying" from="Objects/Player" to="." method="_on_Player_dying"]
 [connection signal="yeerk_appeared" from="Objects/YeerksAppearance" to="." method="_on_YeerksAppearance_yeerk_appeared"]

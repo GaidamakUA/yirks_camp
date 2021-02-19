@@ -34,3 +34,11 @@ func load_data(game_data: Dictionary):
 		var instance: Node = scenes[object["filename"]].instance()
 		instance.deserialize(object)
 		$Objects.add_child(instance)
+
+func _on_Player_dying():
+	var timer = Timer.new()
+	timer.wait_time = 3.5
+	add_child(timer)
+	timer.start()
+	yield(timer, "timeout")
+	get_tree().change_scene("res://ui/GameOver.tscn")

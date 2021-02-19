@@ -25,15 +25,6 @@ func _on_Pioneeres_dead(place_of_death):
 		yield(timer, "timeout")
 		get_tree().change_scene("res://ui/MainMenu.tscn")
 
-func _on_Player_dying():
-	$CanvasLayer/PlayerUI/LossPlaceholder.show()
-	var timer = Timer.new()
-	timer.wait_time = 4
-	add_child(timer)
-	timer.start()
-	yield(timer, "timeout")
-	get_tree().change_scene("res://ui/MainMenu.tscn")
-
 func load_data(game_data: Dictionary):
 	.load_data(game_data)
 	if not is_ready:

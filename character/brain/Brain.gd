@@ -1,6 +1,6 @@
 extends Node2D
 
-export(int, 1, 20) var think_frequency := 5
+export(int, 1, 20) var think_frequency := 20
 
 var DEBUGGING := false
 

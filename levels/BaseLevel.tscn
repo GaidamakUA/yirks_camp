@@ -840,6 +840,7 @@ margin_bottom = 96.0
 rect_min_size = Vector2( 0, 96 )
 theme = ExtResource( 2 )
 text = "Зберегти"
+[connection signal="dying" from="Objects/Player" to="." method="_on_Player_dying"]
 [connection signal="energy_changed" from="Objects/Player" to="CanvasLayer/PlayerUI" method="_on_energy_changed"]
 [connection signal="pressed" from="PauseOverlay/Control/Panel/VBoxContainer/SaveButton" to="PauseOverlay" method="_on_SaveButton_pressed"]
 [connection signal="pressed" from="PauseOverlay/Control/Panel/VBoxContainer/LoadButton" to="PauseOverlay" method="_on_LoadButton_pressed"]

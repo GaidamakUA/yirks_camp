@@ -9,7 +9,7 @@
 [ext_resource path="res://character/player/Energy.gd" type="Script" id=7]
 [ext_resource path="res://assets/yeerk.png" type="Texture" id=8]
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=1]
 resource_name = "damage_taken"
 length = 0.2
 tracks/0/type = "value"
@@ -25,20 +25,19 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=1]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=2]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 10, 4 )
 
-[sub_resource type="CapsuleShape2D" id=3]
+[sub_resource type="CapsuleShape2D" id=4]
 radius = 17.0
 height = 0.0
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 5, 4 )
 
-[sub_resource type="Animation" id=5]
-resource_name = "death"
+[sub_resource type="Animation" id=6]
 length = 1.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("ExtraSprite:visible")
@@ -69,14 +68,14 @@ tracks/1/keys = {
 script = ExtResource( 2 )
 
 [node name="AnimationPlayer" parent="." index="0"]
-anims/damage_taken = SubResource( 6 )
+anims/damage_taken = SubResource( 1 )
 anims/idle_animation = ExtResource( 5 )
 
 [node name="DashTween" type="Tween" parent="." index="1"]
 playback_process_mode = 0
 
 [node name="AnimationTree" parent="." index="2"]
-parameters/playback = SubResource( 1 )
+parameters/playback = SubResource( 2 )
 
 [node name="Spawn" type="Timer" parent="." index="3"]
 process_mode = 0
@@ -89,7 +88,7 @@ texture = ExtResource( 6 )
 frame = 26
 
 [node name="EyesVisibilityArea" type="Area2D" parent="." index="7"]
-position = Vector2( -1, -39 )
+position = Vector2( 0, -40 )
 collision_layer = 0
 collision_mask = 8
 script = ExtResource( 4 )
@@ -103,7 +102,7 @@ z_index = 5
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EyesVisibilityArea" index="1"]
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="HitBox" type="Area2D" parent="." index="8"]
 collision_layer = 4
@@ -112,7 +111,7 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" index="0"]
 position = Vector2( 0, -5 )
 rotation = 1.5708
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="DashCollision" type="RayCast2D" parent="." index="9"]
 enabled = true
@@ -125,7 +124,7 @@ collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WaterDetector" index="0"]
 position = Vector2( 0, -21 )
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="Energy" type="Node" parent="." index="14"]
 script = ExtResource( 7 )
@@ -135,7 +134,7 @@ pioneeres_damage = 300
 autostart = true
 
 [node name="ExtraAnimationsPlayer" parent="." index="15"]
-anims/death = SubResource( 5 )
+anims/death = SubResource( 6 )
 
 [node name="ExtraSprite" parent="." index="16"]
 texture = ExtResource( 8 )
