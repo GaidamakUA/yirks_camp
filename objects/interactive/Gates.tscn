@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://objects/interactive/base/BaseAnimatedSpriteObject.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/gates.png" type="Texture" id=2]
+[ext_resource path="res://objects/interactive/Gates.gd" type="Script" id=3]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 64, 128 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 128, 64, 128 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 10, 61 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 20, 13 )
+
+[node name="Gates" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+
+[node name="AnimatedSprite" parent="." index="0"]
+frames = SubResource( 3 )
+
+[node name="YeerkPalm" parent="." index="2"]
+frame = 0
+
+[node name="OpenedCollision" type="StaticBody2D" parent="." index="3"]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OpenedCollision" index="0"]
+position = Vector2( -15, 3 )
+shape = SubResource( 4 )
+disabled = true
+
+[node name="ClosedCollision" type="StaticBody2D" parent="." index="4"]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClosedCollision" index="0"]
+position = Vector2( 4, 46 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="ClosedCollision" index="1"]
+position = Vector2( 4, -28 )
+scale = Vector2( 0.996498, 1 )
+shape = SubResource( 5 )

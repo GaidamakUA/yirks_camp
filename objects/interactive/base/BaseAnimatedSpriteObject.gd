@@ -1,6 +1,8 @@
 tool
 extends BaseInteractiveObject
 
+class_name BaseAnimatedSpriteObject
+
 export var is_activated: bool = false setget _activated_changed
 
 onready var animated_sprite = $AnimatedSprite
