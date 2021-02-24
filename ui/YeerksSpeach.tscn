@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/yeerks_font.res" type="DynamicFont" id=1]
+[ext_resource path="res://assets/menu_yeerk.png" type="Texture" id=2]
+[ext_resource path="res://assets/button.9.png" type="Texture" id=3]
+[ext_resource path="res://ui/YeerksSpeach.gd" type="Script" id=4]
+
+[node name="YeerksSpeach" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="menu_yeerk" type="Sprite" parent="."]
+position = Vector2( -107, -45.9467 )
+rotation = 3.14159
+scale = Vector2( 0.286843, -0.286843 )
+texture = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.497416
+anchor_top = 0.5
+anchor_right = 0.497416
+anchor_bottom = 0.5
+margin_left = -222.897
+margin_top = -84.0
+margin_right = -222.897
+margin_bottom = -42.0
+grow_horizontal = 0
+grow_vertical = 2
+custom_fonts/font = ExtResource( 1 )
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Label"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -32.0
+margin_top = -32.0
+margin_right = 32.0
+margin_bottom = 32.0
+texture = ExtResource( 3 )
+patch_margin_left = 9
+patch_margin_top = 9
+patch_margin_right = 9
+patch_margin_bottom = 9
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+[connection signal="timeout" from="Timer" to="." method="show_next_character"]

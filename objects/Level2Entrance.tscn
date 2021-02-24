@@ -2,7 +2,7 @@
 
 [ext_resource path="res://assets/enter.png" type="Texture" id=1]
 
-[node name="StaticBody2D" type="StaticBody2D"]
+[node name="Level2Entrance" type="StaticBody2D"]
 
 [node name="enter" type="Sprite" parent="."]
 texture = ExtResource( 1 )

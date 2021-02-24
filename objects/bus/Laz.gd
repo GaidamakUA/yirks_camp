@@ -2,6 +2,8 @@ tool
 
 extends YSort
 
+signal engine_failed
+
 export(bool) var front_open := false setget _set_front_opened, _get_front_opened
 export(bool) var back_open := false setget _set_back_opened, _get_back_opened
 
@@ -30,4 +32,5 @@ func _get_back_opened() -> bool:
 	return back_door.open
 
 func _on_BusControlPanel_start_engine():
+	emit_signal("engine_failed")
 	$EngineFailedPlayer.play()

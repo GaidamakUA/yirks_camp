@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/loss_placeholder.jpg-21f2dbfb9f4e5119b72a9ccc27681d4d.stex"
+path="res://.import/barrels.png-cce436fdc3495a9cd3ba064b46ad24e4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/loss_placeholder.jpg"
-dest_files=[ "res://.import/loss_placeholder.jpg-21f2dbfb9f4e5119b72a9ccc27681d4d.stex" ]
+source_file="res://assets/barrels.png"
+dest_files=[ "res://.import/barrels.png-cce436fdc3495a9cd3ba064b46ad24e4.stex" ]
 
 [params]
 

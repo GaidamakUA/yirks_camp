@@ -11,8 +11,6 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_lock_": true
 }
-front_open = null
-back_open = null
 
 [node name="Background" type="Position2D" parent="."]
 position = Vector2( 77.2, 52.8 )

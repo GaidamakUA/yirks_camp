@@ -16,14 +16,6 @@ func _on_YeerksAppearance_yeerk_appeared():
 
 func _on_Pioneeres_dead(place_of_death):
 	pioneeres_count -= 1
-	if pioneeres_count == 0:
-		$CanvasLayer/PlayerUI/VictoryPlaceholder.show()
-		var timer = Timer.new()
-		timer.wait_time = 4
-		add_child(timer)
-		timer.start()
-		yield(timer, "timeout")
-		get_tree().change_scene("res://ui/MainMenu.tscn")
 
 func load_data(game_data: Dictionary):
 	.load_data(game_data)
@@ -31,3 +23,6 @@ func load_data(game_data: Dictionary):
 		yield(self, "ready")
 	$Objects/YeerksAppearance.hide()
 	_on_YeerksAppearance_yeerk_appeared()
+
+func _on_Level2Teleport_area_activated():
+	get_tree().change_scene("res://levels/Level2.Mine.tscn")

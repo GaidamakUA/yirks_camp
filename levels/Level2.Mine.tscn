@@ -1,11 +1,9 @@
-[gd_scene load_steps=65 format=2]
+[gd_scene load_steps=63 format=2]
 
 [ext_resource path="res://levels/BaseLevel.gd" type="Script" id=1]
-[ext_resource path="res://world/DeathAnimation.gd" type="Script" id=2]
 [ext_resource path="res://character/player/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/terrain_atlas.png" type="Texture" id=4]
 [ext_resource path="res://assets/nettle.png" type="Texture" id=5]
-[ext_resource path="res://assets/dath_video/pioneeres_death_0.png" type="Texture" id=6]
 [ext_resource path="res://levels/ObjectTiles.tres" type="TileSet" id=7]
 [ext_resource path="res://levels/BackgroundOverlay.tres" type="TileSet" id=8]
 [ext_resource path="res://assets/terrain_3.png" type="Texture" id=9]
@@ -999,19 +997,6 @@ format = 1
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 visible = false
 color = Color( 0, 0, 0, 1 )
-
-[node name="DeathAnimation" type="Sprite" parent="."]
-position = Vector2( -126, -118 )
-scale = Vector2( 2, 2 )
-texture = ExtResource( 6 )
-hframes = 5
-frame = 2
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="DeathAnimation"]
 [connection signal="timeout" from="Objects/WallLamp5/ChangeBrightnessTimer" to="Objects/WallLamp5" method="_on_ChangeBrightnessTimer_timeout"]
 [connection signal="switch_flipped" from="Objects/SwitchStart" to="Objects/LampsStart" method="_on_switch_flipped"]
 [connection signal="switch_flipped" from="Objects/SwitchEnd" to="Objects/LampsEnd" method="_on_switch_flipped"]
