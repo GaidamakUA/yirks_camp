@@ -115,11 +115,9 @@ position = Vector2( 448, 208 )
 
 [node name="Statue" parent="Objects/StaticObjects" index="7" instance=ExtResource( 12 )]
 position = Vector2( 1107.72, 441.785 )
-frame = 0
 
 [node name="Statue2" parent="Objects/StaticObjects" index="8" instance=ExtResource( 12 )]
 position = Vector2( 1138.83, 538.658 )
-frame = 0
 
 [node name="StaticBody2D" parent="Objects/StaticObjects" index="9" instance=ExtResource( 37 )]
 position = Vector2( 1584, 262 )

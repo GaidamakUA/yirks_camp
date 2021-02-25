@@ -24,3 +24,6 @@ func post_yeerks_replica(text: String):
 	yield(yeerks_speech, "finished_replica")
 	yield(get_tree().create_timer(1), "timeout")
 	yeerks_speech.queue_free()
+
+func show_barrel():
+	$BarrelCounter.show()

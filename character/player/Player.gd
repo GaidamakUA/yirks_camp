@@ -4,6 +4,7 @@ class_name Player
 
 signal energy_changed(max_value, value)
 signal dying
+signal item_picked
 
 var dash_distance: float = 200
 export(float) var dash_time := 0.7
@@ -134,3 +135,18 @@ func serialize() -> Dictionary:
 func deserialize(data: Dictionary):
 	.deserialize(data)
 	$Energy.value = data["energy"]
+
+func on_item_picked(texture, region_rect):
+	var sprite = Sprite.new()
+	sprite.texture = texture
+	sprite.region_enabled = true
+	sprite.region_rect = region_rect
+	sprite.position = $DialogPosition.position
+	add_child(sprite)
+	play_extra_animation("picking_up_item")
+	yield($ExtraAnimationsPlayer, "animation_finished")
+	sprite.queue_free()
+	emit_signal("item_picked")
+	PlayerInfoSingleton.barrel_picked = true
+	acceleration = acceleration / 2
+	max_speed = max_speed / 2

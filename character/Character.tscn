@@ -193,6 +193,6 @@ shape = SubResource( 28 )
 
 [node name="ExtraSprite" type="Sprite" parent="."]
 visible = false
-position = Vector2( 0, -30 )
+position = Vector2( 0, -23 )
 [connection signal="area_entered" from="InteractBox" to="." method="_on_InteractBox_area_entered"]
 [connection signal="area_exited" from="InteractBox" to="." method="_on_InteractBox_area_exited"]
