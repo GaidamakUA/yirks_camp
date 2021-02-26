@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 21, 29 )
 
-[node name="BaseInteractiveObject" instance=ExtResource( 2 )]
+[node name="ActivatableArea" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
 
 [node name="InteractiveArea" parent="." index="0"]
@@ -14,8 +14,5 @@ visible = true
 
 [node name="CollisionShape2D2" parent="InteractiveArea" index="0"]
 shape = SubResource( 1 )
-
-[node name="YeerkPalm" parent="." index="1"]
-frame = 0
 
 [editable path="InteractiveArea"]

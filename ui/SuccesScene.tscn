@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://ui/SuccesScene.gd" type="Script" id=1]
+[ext_resource path="res://assets/complited_2_2.png" type="Texture" id=2]
+[ext_resource path="res://assets/complited_2_1.png" type="Texture" id=3]
+[ext_resource path="res://assets/complited_2_3.png" type="Texture" id=4]
+
+[sub_resource type="Animation" id=1]
+resource_name = "New Anim"
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("MissionComplete:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.7, 1.5, 2.3, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.9, 0.9 ), Vector2( 1, 1 ), Vector2( 0.9, 0.9 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Bus:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4, 0.8, 1.2, 1.6, 2, 2.4, 2.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 489, 468 ), Vector2( 505, 466 ), Vector2( 517, 493 ), Vector2( 484, 508 ), Vector2( 469, 493 ), Vector2( 495, 470 ), Vector2( 496, 497 ), Vector2( 507, 466 ) ]
+}
+
+[node name="SuccesScene" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+"anims/New Anim" = SubResource( 1 )
+
+[node name="Background" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+centered = false
+
+[node name="MissionComplete" type="Sprite" parent="."]
+position = Vector2( 720, 143 )
+scale = Vector2( 1.04045, 1.04045 )
+texture = ExtResource( 2 )
+
+[node name="Bus" type="Sprite" parent="."]
+position = Vector2( 475.925, 483.693 )
+texture = ExtResource( 4 )

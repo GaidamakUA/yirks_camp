@@ -9,6 +9,9 @@ onready var main_menu = $MainMenu
 onready var options_menu = $OptionsMenu
 onready var load_save = $LoadSaveDialog
 
+func _ready():
+	PlayerInfoSingleton.reset()
+
 func _input(event):
 	if event is InputEventMouseMotion:
 		var  mouse_position = event.position

@@ -70,7 +70,6 @@ position = Vector2( 320, -48 )
 [node name="Laz" parent="Objects/StaticObjects" index="0" instance=ExtResource( 1 )]
 position = Vector2( 48, 288 )
 front_open = true
-back_open = false
 
 [node name="Toilet" parent="Objects/StaticObjects" index="1" instance=ExtResource( 6 )]
 position = Vector2( 928, -112 )
@@ -115,9 +114,11 @@ position = Vector2( 448, 208 )
 
 [node name="Statue" parent="Objects/StaticObjects" index="7" instance=ExtResource( 12 )]
 position = Vector2( 1107.72, 441.785 )
+frame = 0
 
 [node name="Statue2" parent="Objects/StaticObjects" index="8" instance=ExtResource( 12 )]
 position = Vector2( 1138.83, 538.658 )
+frame = 0
 
 [node name="StaticBody2D" parent="Objects/StaticObjects" index="9" instance=ExtResource( 37 )]
 position = Vector2( 1584, 262 )
@@ -1132,5 +1133,6 @@ tile_data = PoolIntArray( -524263, 0, 0, -524262, 0, 1, -524261, 0, 1, -524260, 
 visible = false
 [connection signal="yeerk_appeared" from="Objects/YeerksAppearance" to="." method="_on_YeerksAppearance_yeerk_appeared"]
 [connection signal="engine_failed" from="Objects/StaticObjects/Laz" to="CanvasLayer/PlayerUI" method="post_yeerks_replica" binds= [ "Cхоже, бракує бензину" ]]
+[connection signal="engine_started" from="Objects/StaticObjects/Laz" to="." method="_on_Laz_engine_started"]
 [connection signal="looked_at" from="Objects/StaticObjects/Barrels" to="CanvasLayer/PlayerUI" method="post_yeerks_replica" binds= [ "Тут був бензин" ]]
 [connection signal="area_activated" from="Objects/StaticObjects/Level2Teleport" to="." method="_on_Level2Teleport_area_activated"]

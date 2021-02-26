@@ -22,6 +22,9 @@ onready var idle_timer = $Idle
 onready var dash_raycast = $DashCollision
 
 func _ready():
+	if PlayerInfoSingleton.barrel_picked:
+		acceleration = acceleration / 2
+		max_speed = max_speed / 2
 	$Sprite.texture = yeerk_land
 	add_to_group("Persist")
 
@@ -150,3 +153,16 @@ func on_item_picked(texture, region_rect):
 	PlayerInfoSingleton.barrel_picked = true
 	acceleration = acceleration / 2
 	max_speed = max_speed / 2
+
+func fall_down():
+	set_process(false)
+	set_physics_process(false)
+	set_process_input(false)
+	collision_layer = 0
+	$EyesVisibilityArea.monitorable = false
+	$EyesVisibilityArea.monitoring = false
+	$HitBox.set_deferred("monitorable", false)
+	$HitBox.monitoring = false
+	$Energy/HungerTimer.stop()
+	play_extra_animation("falling", true)
+	emit_signal("dying")

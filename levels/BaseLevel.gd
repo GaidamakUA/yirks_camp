@@ -2,6 +2,10 @@ extends Node2D
 
 class_name BaseLevel
 
+func _ready():
+	if PlayerInfoSingleton.barrel_picked:
+		$CanvasLayer/PlayerUI.show_barrel()
+
 func serialize() -> Dictionary:
 	var save_nodes := get_tree().get_nodes_in_group("Persist")
 	var node_data := []

@@ -91,12 +91,14 @@ script = ExtResource( 14 )
 
 [node name="GoToAction" type="Node" parent="Objects/Pioneeres2/Brain/Goals/IdleGoal/CompositeAction" index="0"]
 script = ExtResource( 13 )
+desired_distance = 10.0
 
 [node name="Position2D" type="Position2D" parent="Objects/Pioneeres2/Brain/Goals/IdleGoal/CompositeAction/GoToAction" index="0"]
 position = Vector2( 307, 128 )
 
 [node name="GoToAction2" type="Node" parent="Objects/Pioneeres2/Brain/Goals/IdleGoal/CompositeAction" index="1"]
 script = ExtResource( 13 )
+desired_distance = 10.0
 
 [node name="Position2D2" type="Position2D" parent="Objects/Pioneeres2/Brain/Goals/IdleGoal/CompositeAction/GoToAction2" index="0"]
 position = Vector2( 63, 224 )
@@ -110,6 +112,7 @@ replica = "Die Die Die"
 
 [node name="GoToYeerkAction" type="Node" parent="Objects/Pioneeres2/Brain/Goals/IdleGoal" index="6"]
 script = ExtResource( 9 )
+desired_distance = 10.0
 
 [node name="WallLamp" parent="Objects" index="7" instance=ExtResource( 16 )]
 position = Vector2( 723, 132 )
