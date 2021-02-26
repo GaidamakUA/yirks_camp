@@ -230,7 +230,8 @@ shape = SubResource( 5 )
 
 [node name="Energy" type="Node" parent="." index="14"]
 script = ExtResource( 7 )
-pioneeres_damage = 300
+pioneeres_damage = 200
+pioneeres_food = 500
 
 [node name="HungerTimer" type="Timer" parent="Energy" index="0"]
 autostart = true

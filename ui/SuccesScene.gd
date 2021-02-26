@@ -4,7 +4,7 @@ func _ready():
 	$AnimationPlayer.play("New Anim")
 
 func _input(event):
-	if event is InputEventMouseButton || event is InputEventKey:
+	if event is InputEventKey:
 		go_to_main_menu()
 	print(event)
 

@@ -11,7 +11,7 @@ onready var label = $Label
 onready var timer = $Timer
 
 func post_text(posted_text: String):
-	text = posted_text
+	text = tr(posted_text)
 	$Timer.start(delay_s)
 
 func show_next_character():

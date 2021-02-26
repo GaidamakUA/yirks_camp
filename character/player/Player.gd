@@ -70,6 +70,7 @@ func _play_dash():
 	tween.start()
 	spawn.start()
 	dash_raycast.look_at(finish)
+	$Energy.take_damage_from_pioneeres()
 
 func _on_Spawn_timeout():
 	var afterimage: Sprite = Afterimage.instance()

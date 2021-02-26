@@ -70,6 +70,7 @@ position = Vector2( 320, -48 )
 [node name="Laz" parent="Objects/StaticObjects" index="0" instance=ExtResource( 1 )]
 position = Vector2( 48, 288 )
 front_open = true
+back_open = false
 
 [node name="Toilet" parent="Objects/StaticObjects" index="1" instance=ExtResource( 6 )]
 position = Vector2( 928, -112 )
@@ -252,7 +253,7 @@ replica = "Чого мені бракує в житті"
 
 [node name="SayAction2" type="Node" parent="Objects/DynamicObjects/Pioneeres/Brain/Goals/IdleGoal/RandomAction/CompositeAction" index="1"]
 script = ExtResource( 19 )
-replica = "Так це хуя"
+replica = "Так це Бандери"
 
 [node name="SayAction" type="Node" parent="Objects/DynamicObjects/Pioneeres/Brain/Goals/IdleGoal/RandomAction" index="1"]
 script = ExtResource( 19 )
@@ -260,11 +261,11 @@ replica = "Де вже та курва"
 
 [node name="SayAction2" type="Node" parent="Objects/DynamicObjects/Pioneeres/Brain/Goals/IdleGoal/RandomAction" index="2"]
 script = ExtResource( 19 )
-replica = "8agdg is love"
+replica = "Кропива то любов"
 
 [node name="SayAction3" type="Node" parent="Objects/DynamicObjects/Pioneeres/Brain/Goals/IdleGoal/RandomAction" index="3"]
 script = ExtResource( 19 )
-replica = "In the name of holy Shod"
+replica = "В ім'я Клари"
 
 [node name="SingASong" type="Node" parent="Objects/DynamicObjects/Pioneeres/Brain/Goals" index="2"]
 script = ExtResource( 3 )
@@ -300,39 +301,39 @@ replica = "Гей-гу, гей-га – чорти ми лісові!"
 script = ExtResource( 19 )
 replica = "Гей-гу, гей-га."
 
-[node name="Dixie" type="Node" parent="Objects/DynamicObjects/Pioneeres/Brain/Goals/SingASong/OrderAction" index="1"]
+[node name="WideVillage" type="Node" parent="Objects/DynamicObjects/Pioneeres/Brain/Goals/SingASong/OrderAction" index="1"]
 script = ExtResource( 28 )
 
-[node name="SayAction" type="Node" parent="Objects/DynamicObjects/Pioneeres/Brain/Goals/SingASong/OrderAction/Dixie" index="0"]
+[node name="SayAction" type="Node" parent="Objects/DynamicObjects/Pioneeres/Brain/Goals/SingASong/OrderAction/WideVillage" index="0"]
 script = ExtResource( 19 )
-replica = "I wish I was in Dixie, Hooray! Hooray!"
+replica = "Ой, видно село, широке село під горою,"
 
-[node name="SayAction2" type="Node" parent="Objects/DynamicObjects/Pioneeres/Brain/Goals/SingASong/OrderAction/Dixie" index="1"]
+[node name="SayAction2" type="Node" parent="Objects/DynamicObjects/Pioneeres/Brain/Goals/SingASong/OrderAction/WideVillage" index="1"]
 script = ExtResource( 19 )
-replica = "In Dixie Land, I'll take my stand"
+replica = "Ой, там ідуть стрільці, січовії стрільці до бою."
 
-[node name="SayAction3" type="Node" parent="Objects/DynamicObjects/Pioneeres/Brain/Goals/SingASong/OrderAction/Dixie" index="2"]
+[node name="SayAction3" type="Node" parent="Objects/DynamicObjects/Pioneeres/Brain/Goals/SingASong/OrderAction/WideVillage" index="2"]
 script = ExtResource( 19 )
-replica = "To live and die in Dixie"
+replica = "Іде, іде військо крізь широке поле,"
 
-[node name="SayAction4" type="Node" parent="Objects/DynamicObjects/Pioneeres/Brain/Goals/SingASong/OrderAction/Dixie" index="3"]
+[node name="SayAction4" type="Node" parent="Objects/DynamicObjects/Pioneeres/Brain/Goals/SingASong/OrderAction/WideVillage" index="3"]
 script = ExtResource( 19 )
-replica = "Away, away, away down south in Dixie"
+replica = "Дівчата ж то, дівчата, як соколи!"
 
-[node name="SayAction5" type="Node" parent="Objects/DynamicObjects/Pioneeres/Brain/Goals/SingASong/OrderAction/Dixie" index="4"]
+[node name="SayAction5" type="Node" parent="Objects/DynamicObjects/Pioneeres/Brain/Goals/SingASong/OrderAction/WideVillage" index="4"]
 script = ExtResource( 19 )
-replica = "Away, away, away down south in Dixie"
+replica = "Ха-ха-ха-ха-у-ха-ха-ха, гей!"
 
-[node name="SayAction6" type="Node" parent="Objects/DynamicObjects/Pioneeres/Brain/Goals/SingASong/OrderAction/Dixie" index="5"]
+[node name="SayAction6" type="Node" parent="Objects/DynamicObjects/Pioneeres/Brain/Goals/SingASong/OrderAction/WideVillage" index="5"]
 script = ExtResource( 19 )
-replica = "Away, away, away down south in Dixie"
+replica = "Дівчата ж то, дівчата, як соколи!"
 
 [node name="MooMoo" type="Node" parent="Objects/DynamicObjects/Pioneeres/Brain/Goals/SingASong/OrderAction" index="2"]
 script = ExtResource( 28 )
 
 [node name="SayAction" type="Node" parent="Objects/DynamicObjects/Pioneeres/Brain/Goals/SingASong/OrderAction/MooMoo" index="0"]
 script = ExtResource( 19 )
-replica = "Tylko jedno w głowie mam"
+replica = " Tylko jedno w głowie mam"
 
 [node name="SayAction2" type="Node" parent="Objects/DynamicObjects/Pioneeres/Brain/Goals/SingASong/OrderAction/MooMoo" index="1"]
 script = ExtResource( 19 )
@@ -547,32 +548,32 @@ replica = "Гей-гу, гей-га – чорти ми лісові!"
 script = ExtResource( 19 )
 replica = "Гей-гу, гей-га."
 
-[node name="Dixie" type="Node" parent="Objects/DynamicObjects/Pioneeres2/Brain/Goals/SingASong/OrderAction" index="1"]
+[node name="WideVillage" type="Node" parent="Objects/DynamicObjects/Pioneeres2/Brain/Goals/SingASong/OrderAction" index="1"]
 script = ExtResource( 28 )
 
-[node name="SayAction" type="Node" parent="Objects/DynamicObjects/Pioneeres2/Brain/Goals/SingASong/OrderAction/Dixie" index="0"]
+[node name="SayAction" type="Node" parent="Objects/DynamicObjects/Pioneeres2/Brain/Goals/SingASong/OrderAction/WideVillage" index="0"]
 script = ExtResource( 19 )
-replica = "I wish I was in Dixie, Hooray! Hooray!"
+replica = "Ой, видно село, широке село під горою,"
 
-[node name="SayAction2" type="Node" parent="Objects/DynamicObjects/Pioneeres2/Brain/Goals/SingASong/OrderAction/Dixie" index="1"]
+[node name="SayAction2" type="Node" parent="Objects/DynamicObjects/Pioneeres2/Brain/Goals/SingASong/OrderAction/WideVillage" index="1"]
 script = ExtResource( 19 )
-replica = "In Dixie Land, I'll take my stand"
+replica = "Ой, там ідуть стрільці, січовії стрільці до бою."
 
-[node name="SayAction3" type="Node" parent="Objects/DynamicObjects/Pioneeres2/Brain/Goals/SingASong/OrderAction/Dixie" index="2"]
+[node name="SayAction3" type="Node" parent="Objects/DynamicObjects/Pioneeres2/Brain/Goals/SingASong/OrderAction/WideVillage" index="2"]
 script = ExtResource( 19 )
-replica = "To live and die in Dixie"
+replica = "Іде, іде військо крізь широке поле,"
 
-[node name="SayAction4" type="Node" parent="Objects/DynamicObjects/Pioneeres2/Brain/Goals/SingASong/OrderAction/Dixie" index="3"]
+[node name="SayAction4" type="Node" parent="Objects/DynamicObjects/Pioneeres2/Brain/Goals/SingASong/OrderAction/WideVillage" index="3"]
 script = ExtResource( 19 )
-replica = "Away, away, away down south in Dixie"
+replica = "Дівчата ж то, дівчата, як соколи!"
 
-[node name="SayAction5" type="Node" parent="Objects/DynamicObjects/Pioneeres2/Brain/Goals/SingASong/OrderAction/Dixie" index="4"]
+[node name="SayAction5" type="Node" parent="Objects/DynamicObjects/Pioneeres2/Brain/Goals/SingASong/OrderAction/WideVillage" index="4"]
 script = ExtResource( 19 )
-replica = "Away, away, away down south in Dixie"
+replica = "Ха-ха-ха-ха-у-ха-ха-ха, гей!"
 
-[node name="SayAction6" type="Node" parent="Objects/DynamicObjects/Pioneeres2/Brain/Goals/SingASong/OrderAction/Dixie" index="5"]
+[node name="SayAction6" type="Node" parent="Objects/DynamicObjects/Pioneeres2/Brain/Goals/SingASong/OrderAction/WideVillage" index="5"]
 script = ExtResource( 19 )
-replica = "Away, away, away down south in Dixie"
+replica = "Дівчата ж то, дівчата, як соколи!"
 
 [node name="MooMoo" type="Node" parent="Objects/DynamicObjects/Pioneeres2/Brain/Goals/SingASong/OrderAction" index="2"]
 script = ExtResource( 28 )
@@ -794,32 +795,32 @@ replica = "Гей-гу, гей-га – чорти ми лісові!"
 script = ExtResource( 19 )
 replica = "Гей-гу, гей-га."
 
-[node name="Dixie" type="Node" parent="Objects/DynamicObjects/Pioneeres3/Brain/Goals/SingASong/OrderAction" index="1"]
+[node name="WideVillage" type="Node" parent="Objects/DynamicObjects/Pioneeres3/Brain/Goals/SingASong/OrderAction" index="1"]
 script = ExtResource( 28 )
 
-[node name="SayAction" type="Node" parent="Objects/DynamicObjects/Pioneeres3/Brain/Goals/SingASong/OrderAction/Dixie" index="0"]
+[node name="SayAction" type="Node" parent="Objects/DynamicObjects/Pioneeres3/Brain/Goals/SingASong/OrderAction/WideVillage" index="0"]
 script = ExtResource( 19 )
-replica = "I wish I was in Dixie, Hooray! Hooray!"
+replica = "Ой, видно село, широке село під горою,"
 
-[node name="SayAction2" type="Node" parent="Objects/DynamicObjects/Pioneeres3/Brain/Goals/SingASong/OrderAction/Dixie" index="1"]
+[node name="SayAction2" type="Node" parent="Objects/DynamicObjects/Pioneeres3/Brain/Goals/SingASong/OrderAction/WideVillage" index="1"]
 script = ExtResource( 19 )
-replica = "In Dixie Land, I'll take my stand"
+replica = "Ой, там ідуть стрільці, січовії стрільці до бою."
 
-[node name="SayAction3" type="Node" parent="Objects/DynamicObjects/Pioneeres3/Brain/Goals/SingASong/OrderAction/Dixie" index="2"]
+[node name="SayAction3" type="Node" parent="Objects/DynamicObjects/Pioneeres3/Brain/Goals/SingASong/OrderAction/WideVillage" index="2"]
 script = ExtResource( 19 )
-replica = "To live and die in Dixie"
+replica = "Іде, іде військо крізь широке поле,"
 
-[node name="SayAction4" type="Node" parent="Objects/DynamicObjects/Pioneeres3/Brain/Goals/SingASong/OrderAction/Dixie" index="3"]
+[node name="SayAction4" type="Node" parent="Objects/DynamicObjects/Pioneeres3/Brain/Goals/SingASong/OrderAction/WideVillage" index="3"]
 script = ExtResource( 19 )
-replica = "Away, away, away down south in Dixie"
+replica = "Дівчата ж то, дівчата, як соколи!"
 
-[node name="SayAction5" type="Node" parent="Objects/DynamicObjects/Pioneeres3/Brain/Goals/SingASong/OrderAction/Dixie" index="4"]
+[node name="SayAction5" type="Node" parent="Objects/DynamicObjects/Pioneeres3/Brain/Goals/SingASong/OrderAction/WideVillage" index="4"]
 script = ExtResource( 19 )
-replica = "Away, away, away down south in Dixie"
+replica = "Ха-ха-ха-ха-у-ха-ха-ха, гей!"
 
-[node name="SayAction6" type="Node" parent="Objects/DynamicObjects/Pioneeres3/Brain/Goals/SingASong/OrderAction/Dixie" index="5"]
+[node name="SayAction6" type="Node" parent="Objects/DynamicObjects/Pioneeres3/Brain/Goals/SingASong/OrderAction/WideVillage" index="5"]
 script = ExtResource( 19 )
-replica = "Away, away, away down south in Dixie"
+replica = "Дівчата ж то, дівчата, як соколи!"
 
 [node name="MooMoo" type="Node" parent="Objects/DynamicObjects/Pioneeres3/Brain/Goals/SingASong/OrderAction" index="2"]
 script = ExtResource( 28 )
@@ -1041,32 +1042,32 @@ replica = "Гей-гу, гей-га – чорти ми лісові!"
 script = ExtResource( 19 )
 replica = "Гей-гу, гей-га."
 
-[node name="Dixie" type="Node" parent="Objects/DynamicObjects/Pioneeres4/Brain/Goals/SingASong/OrderAction" index="1"]
+[node name="WideVillage" type="Node" parent="Objects/DynamicObjects/Pioneeres4/Brain/Goals/SingASong/OrderAction" index="1"]
 script = ExtResource( 28 )
 
-[node name="SayAction" type="Node" parent="Objects/DynamicObjects/Pioneeres4/Brain/Goals/SingASong/OrderAction/Dixie" index="0"]
+[node name="SayAction" type="Node" parent="Objects/DynamicObjects/Pioneeres4/Brain/Goals/SingASong/OrderAction/WideVillage" index="0"]
 script = ExtResource( 19 )
-replica = "I wish I was in Dixie, Hooray! Hooray!"
+replica = "Ой, видно село, широке село під горою,"
 
-[node name="SayAction2" type="Node" parent="Objects/DynamicObjects/Pioneeres4/Brain/Goals/SingASong/OrderAction/Dixie" index="1"]
+[node name="SayAction2" type="Node" parent="Objects/DynamicObjects/Pioneeres4/Brain/Goals/SingASong/OrderAction/WideVillage" index="1"]
 script = ExtResource( 19 )
-replica = "In Dixie Land, I'll take my stand"
+replica = "Ой, там ідуть стрільці, січовії стрільці до бою."
 
-[node name="SayAction3" type="Node" parent="Objects/DynamicObjects/Pioneeres4/Brain/Goals/SingASong/OrderAction/Dixie" index="2"]
+[node name="SayAction3" type="Node" parent="Objects/DynamicObjects/Pioneeres4/Brain/Goals/SingASong/OrderAction/WideVillage" index="2"]
 script = ExtResource( 19 )
-replica = "To live and die in Dixie"
+replica = "Іде, іде військо крізь широке поле,"
 
-[node name="SayAction4" type="Node" parent="Objects/DynamicObjects/Pioneeres4/Brain/Goals/SingASong/OrderAction/Dixie" index="3"]
+[node name="SayAction4" type="Node" parent="Objects/DynamicObjects/Pioneeres4/Brain/Goals/SingASong/OrderAction/WideVillage" index="3"]
 script = ExtResource( 19 )
-replica = "Away, away, away down south in Dixie"
+replica = "Дівчата ж то, дівчата, як соколи!"
 
-[node name="SayAction5" type="Node" parent="Objects/DynamicObjects/Pioneeres4/Brain/Goals/SingASong/OrderAction/Dixie" index="4"]
+[node name="SayAction5" type="Node" parent="Objects/DynamicObjects/Pioneeres4/Brain/Goals/SingASong/OrderAction/WideVillage" index="4"]
 script = ExtResource( 19 )
-replica = "Away, away, away down south in Dixie"
+replica = "Ха-ха-ха-ха-у-ха-ха-ха, гей!"
 
-[node name="SayAction6" type="Node" parent="Objects/DynamicObjects/Pioneeres4/Brain/Goals/SingASong/OrderAction/Dixie" index="5"]
+[node name="SayAction6" type="Node" parent="Objects/DynamicObjects/Pioneeres4/Brain/Goals/SingASong/OrderAction/WideVillage" index="5"]
 script = ExtResource( 19 )
-replica = "Away, away, away down south in Dixie"
+replica = "Дівчата ж то, дівчата, як соколи!"
 
 [node name="MooMoo" type="Node" parent="Objects/DynamicObjects/Pioneeres4/Brain/Goals/SingASong/OrderAction" index="2"]
 script = ExtResource( 28 )
