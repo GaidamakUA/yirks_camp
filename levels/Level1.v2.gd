@@ -19,6 +19,7 @@ func _ready():
 func _on_YeerksAppearance_yeerk_appeared():
 	yeerk.show()
 	yeerk.set_process(true)
+	$CanvasLayer/PlayerUI.post_yeerks_replica("What a shitty place")
 
 func _on_Pioneeres_dead(place_of_death):
 	pioneeres_count -= 1
