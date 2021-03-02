@@ -4,6 +4,7 @@ extends YSort
 
 signal engine_failed
 signal engine_started
+signal dashboard_shown
 
 export(bool) var front_open := false setget _set_front_opened, _get_front_opened
 export(bool) var back_open := false setget _set_back_opened, _get_back_opened
@@ -38,3 +39,6 @@ func _on_BusControlPanel_start_engine():
 		emit_signal("engine_started")
 	else:
 		emit_signal("engine_failed")
+
+func _on_BusControlPanel_dashboard_shown():
+	emit_signal("dashboard_shown")

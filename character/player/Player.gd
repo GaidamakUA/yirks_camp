@@ -147,9 +147,11 @@ func on_item_picked(texture, region_rect):
 	sprite.region_rect = region_rect
 	sprite.position = $DialogPosition.position
 	add_child(sprite)
+	pause_input = true
 	play_extra_animation("picking_up_item")
 	yield($ExtraAnimationsPlayer, "animation_finished")
 	sprite.queue_free()
+	pause_input = false
 	emit_signal("item_picked")
 	PlayerInfoSingleton.barrel_picked = true
 	acceleration = acceleration / 2
@@ -167,3 +169,8 @@ func fall_down():
 	$Energy/HungerTimer.stop()
 	play_extra_animation("falling", true)
 	emit_signal("dying")
+
+func _on_pioneeress_killed(area):
+	pause_input = true
+	yield(get_tree().create_timer(1), "timeout")
+	pause_input = false

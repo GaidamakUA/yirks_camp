@@ -14,6 +14,7 @@ onready var dialog := $DialogPosition
 var _direction := Vector2.ZERO
 var last_direction := Vector2.ZERO
 var velocity := Vector2.ZERO
+var pause_input := false
 
 var interactive_object
 
@@ -25,6 +26,8 @@ func _ready():
 		$Brain.start()
 
 func _on_direction(new_direction: Vector2):
+	if pause_input:
+		return
 	_direction = new_direction.normalized()
 	if new_direction.is_equal_approx(Vector2.ZERO):
 		state_machine.travel("Resting")

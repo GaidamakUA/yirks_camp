@@ -64,7 +64,7 @@ tracks/1/keys = {
 "values": [ 260, 260, 261, 262, 263, 264, 265, 266, 267, 268, 269 ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=7]
 resource_name = "falling"
 tracks/0/type = "value"
 tracks/0/path = NodePath("ExtraSprite:visible")
@@ -139,8 +139,7 @@ tracks/5/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 0.3, 0.3 ) ]
 }
 
-[sub_resource type="Animation" id=7]
-resource_name = "picking_up_item"
+[sub_resource type="Animation" id=8]
 tracks/0/type = "value"
 tracks/0/path = NodePath("ExtraSprite:visible")
 tracks/0/interp = 1
@@ -208,7 +207,7 @@ shape = SubResource( 3 )
 
 [node name="HitBox" type="Area2D" parent="." index="8"]
 collision_layer = 4
-collision_mask = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" index="0"]
 position = Vector2( 0, -5 )
@@ -238,8 +237,8 @@ autostart = true
 
 [node name="ExtraAnimationsPlayer" parent="." index="15"]
 anims/death = SubResource( 6 )
-anims/falling = SubResource( 8 )
-anims/picking_up_item = SubResource( 7 )
+anims/falling = SubResource( 7 )
+anims/picking_up_item = SubResource( 8 )
 
 [node name="ExtraSprite" parent="." index="16"]
 texture = ExtResource( 8 )
@@ -251,6 +250,7 @@ frame = 26
 [connection signal="timeout" from="Idle" to="." method="_on_Idle_timeout"]
 [connection signal="body_entered" from="EyesVisibilityArea" to="EyesVisibilityArea" method="_on_EyesVisibilityArea_body_entered"]
 [connection signal="body_exited" from="EyesVisibilityArea" to="EyesVisibilityArea" method="_on_EyesVisibilityArea_body_exited"]
+[connection signal="area_entered" from="HitBox" to="." method="_on_pioneeress_killed"]
 [connection signal="body_entered" from="WaterDetector" to="." method="_on_entered_water"]
 [connection signal="body_exited" from="WaterDetector" to="." method="_on_exited_water"]
 [connection signal="energy_changed" from="Energy" to="." method="_on_energy_changed"]

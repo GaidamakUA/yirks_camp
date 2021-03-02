@@ -31,10 +31,11 @@ func _on_StarterPicker_changed_state(new_state: bool):
 
 
 func _on_StartButton_pressed():
-	if not powered:
-		return
-	if not engine_on:
-		return
-	if not start_from_cockpit:
-		return
+	# It's reastic but hard to explain
+#	if not powered:
+#		return
+#	if not engine_on:
+#		return
+#	if not start_from_cockpit:
+#		return
 	emit_signal("start_engine")

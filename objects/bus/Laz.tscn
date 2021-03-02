@@ -11,6 +11,8 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_lock_": true
 }
+front_open = null
+back_open = null
 
 [node name="Background" type="Position2D" parent="."]
 position = Vector2( 77.2, 52.8 )
@@ -96,5 +98,6 @@ position = Vector2( 304, 104 )
 [node name="EngineFailedPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
 [connection signal="back_door_new_state" from="BusControlPanel" to="DoorBack" method="_set_opened"]
+[connection signal="dashboard_shown" from="BusControlPanel" to="." method="_on_BusControlPanel_dashboard_shown"]
 [connection signal="front_door_new_state" from="BusControlPanel" to="DoorFront" method="_set_opened"]
 [connection signal="start_engine" from="BusControlPanel" to="." method="_on_BusControlPanel_start_engine"]

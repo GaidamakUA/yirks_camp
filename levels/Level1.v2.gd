@@ -37,3 +37,7 @@ func _on_Level2Teleport_area_activated():
 
 func _on_Laz_engine_started():
 	get_tree().change_scene("res://ui/SuccesScene.tscn")
+
+func _on_WitnessBusArea_entered(area):
+	$Objects/StaticObjects/WitnessBusArea.queue_free()
+	$CanvasLayer/PlayerUI.post_yeerks_replica("На цьому можна їхати")
