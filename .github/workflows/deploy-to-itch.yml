@@ -2,15 +2,15 @@ name: "Deploy to itch"
 on: push
 
 env:
-  GODOT_VERSION: 3.2.3
-  EXPORT_NAME: test-project
+  GODOT_VERSION: 3.3.2
+  EXPORT_NAME: yeerks-camp
 
 jobs:
   export-linux:
     name: Linux Export
     runs-on: ubuntu-latest
     container:
-      image: barichello/godot-ci:3.2.3
+      image: barichello/godot-ci:3.3.2
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -32,7 +32,7 @@ jobs:
     name: Mac Export
     runs-on: ubuntu-latest
     container:
-      image: barichello/godot-ci:3.2.3
+      image: barichello/godot-ci:3.3.2
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -50,3 +50,25 @@ jobs:
         run: |
           export BUTLER_API_KEY=${{ secrets.BUTLER_API_KEY }}
           butler push ./build/mac ${{ secrets.ITCHIO_USERNAME }}/${{ secrets.ITCHIO_GAME }}:mac
+  export-web:
+    name: Web Export
+    runs-on: ubuntu-latest
+    container:
+      image: barichello/godot-ci:3.3.2
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          lfs: true
+      - name: Setup
+        run: |
+          mkdir -v -p ~/.local/share/godot/templates
+          mv /root/.local/share/godot/templates/${GODOT_VERSION}.stable ~/.local/share/godot/templates/${GODOT_VERSION}.stable
+      - name: Web Build
+        run: |
+          mkdir -v -p build/web
+          godot -v --export "HTML5" ./build/web/index.html
+      - name: Upload Artifact
+        run: |
+          export BUTLER_API_KEY=${{ secrets.BUTLER_API_KEY }}
+          butler push ./build/web ${{ secrets.ITCHIO_USERNAME }}/${{ secrets.ITCHIO_GAME }}:web

@@ -61,7 +61,7 @@ position = Vector2( 160, 80 )
 frame = 0
 
 [node name="Player" parent="Objects" index="5"]
-position = Vector2( 104, 286 )
+position = Vector2( 432, 166 )
 
 [node name="RemoteTransform2D2" type="RemoteTransform2D" parent="Objects/Player" index="16"]
 remote_path = NodePath("../../Pioneeres2/Brain/Goals/ReactOnYeerkGoal/GoToAction/Position2D")
@@ -91,14 +91,14 @@ script = ExtResource( 14 )
 
 [node name="GoToAction" type="Node" parent="Objects/Pioneeres2/Brain/Goals/IdleGoal/CompositeAction" index="0"]
 script = ExtResource( 13 )
-desired_distance = 10.0
+desired_distance = 10
 
 [node name="Position2D" type="Position2D" parent="Objects/Pioneeres2/Brain/Goals/IdleGoal/CompositeAction/GoToAction" index="0"]
 position = Vector2( 307, 128 )
 
 [node name="GoToAction2" type="Node" parent="Objects/Pioneeres2/Brain/Goals/IdleGoal/CompositeAction" index="1"]
 script = ExtResource( 13 )
-desired_distance = 10.0
+desired_distance = 10
 
 [node name="Position2D2" type="Position2D" parent="Objects/Pioneeres2/Brain/Goals/IdleGoal/CompositeAction/GoToAction2" index="0"]
 position = Vector2( 63, 224 )
@@ -112,7 +112,7 @@ replica = "Die Die Die"
 
 [node name="GoToYeerkAction" type="Node" parent="Objects/Pioneeres2/Brain/Goals/IdleGoal" index="6"]
 script = ExtResource( 9 )
-desired_distance = 10.0
+desired_distance = 10
 
 [node name="WallLamp" parent="Objects" index="7" instance=ExtResource( 16 )]
 position = Vector2( 723, 132 )
@@ -147,6 +147,13 @@ is_activated = false
 
 [node name="Control" parent="PauseOverlay" index="0"]
 visible = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." index="12"]
+position = Vector2( 424, 104 )
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" index="0"]
+polygon = PoolVector2Array( -64, -6, 80, -6, 80, 90, -64, 90, -64, -6, -96, -38, -96, 122, 112, 122, 112, -38, -96, -38 )
 [connection signal="switch_flipped" from="Objects/Switch" to="Objects/WallLamp" method="_on_switch_flipped"]
 
 [editable path="Objects/Pioneeres2/Brain"]
